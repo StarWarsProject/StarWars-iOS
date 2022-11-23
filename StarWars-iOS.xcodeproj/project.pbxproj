@@ -31,6 +31,7 @@
 		C2C2B0F7292EC35E00C12EE8 /* Starship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0EB292EC35E00C12EE8 /* Starship+CoreDataProperties.swift */; };
 		C2C2B0F8292EC35E00C12EE8 /* Specie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0EC292EC35E00C12EE8 /* Specie+CoreDataClass.swift */; };
 		C2C2B0F9292EC35E00C12EE8 /* Specie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0ED292EC35E00C12EE8 /* Specie+CoreDataProperties.swift */; };
+		C2C2B0FB292EC95900C12EE8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0FA292EC95900C12EE8 /* CoreDataManager.swift */; };
 		CF963C25D66490DFB44DDD82 /* Pods_StarWars_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDC4FADBA03315B08723D0D /* Pods_StarWars_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		C2C2B0EB292EC35E00C12EE8 /* Starship+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C2C2B0EC292EC35E00C12EE8 /* Specie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C2C2B0ED292EC35E00C12EE8 /* Specie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C2C2B0FA292EC95900C12EE8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D33617A2AD7871DBC94A0DB8 /* Pods-StarWars-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOS.release.xcconfig"; path = "Target Support Files/Pods-StarWars-iOS/Pods-StarWars-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		F90FAA1646DF5E45F9F85E22 /* Pods_StarWars_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -270,6 +272,7 @@
 		846D30D1292D09C1006FC25F /* managers */ = {
 			isa = PBXGroup;
 			children = (
+				C2C2B0FA292EC95900C12EE8 /* CoreDataManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				C2C2B0F0292EC35E00C12EE8 /* Vehicle+CoreDataClass.swift in Sources */,
 				846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */,
 				C2C2B0F1292EC35E00C12EE8 /* Vehicle+CoreDataProperties.swift in Sources */,
+				C2C2B0FB292EC95900C12EE8 /* CoreDataManager.swift in Sources */,
 				C2C2B0F2292EC35E00C12EE8 /* Planet+CoreDataClass.swift in Sources */,
 				C2C2B0F9292EC35E00C12EE8 /* Specie+CoreDataProperties.swift in Sources */,
 				C2C2B0F8292EC35E00C12EE8 /* Specie+CoreDataClass.swift in Sources */,
