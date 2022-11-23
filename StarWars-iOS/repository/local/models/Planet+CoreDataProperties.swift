@@ -15,15 +15,15 @@ extension Planet {
         return NSFetchRequest<Planet>(entityName: "Planet")
     }
 
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var desc: String?
+    @NSManaged public var createdAt: Date
+    @NSManaged public var desc: String
     @NSManaged public var id: Int16
-    @NSManaged public var image: String?
-    @NSManaged public var name: String?
-    @NSManaged public var region: String?
-    @NSManaged public var system: String?
-    @NSManaged public var updatedAt: Date?
-    @NSManaged public var movies: NSSet?
+    @NSManaged public var image: String
+    @NSManaged public var name: String
+    @NSManaged public var region: String
+    @NSManaged public var system: String
+    @NSManaged public var updatedAt: Date
+    @NSManaged public var movies: NSSet
 
 }
 

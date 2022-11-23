@@ -16,18 +16,18 @@ extension Starship {
     }
 
     @NSManaged public var id: Int16
-    @NSManaged public var name: String?
-    @NSManaged public var model: String?
-    @NSManaged public var manufacturer: String?
-    @NSManaged public var length: String?
-    @NSManaged public var maxAtmospheringSpeed: String?
-    @NSManaged public var crew: String?
-    @NSManaged public var passengers: String?
-    @NSManaged public var cargoCapacity: String?
-    @NSManaged public var starshipClass: String?
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var updatedAt: Date?
-    @NSManaged public var movies: NSSet?
+    @NSManaged public var name: String
+    @NSManaged public var model: String
+    @NSManaged public var manufacturer: String
+    @NSManaged public var length: String
+    @NSManaged public var maxAtmospheringSpeed: String
+    @NSManaged public var crew: String
+    @NSManaged public var passengers: String
+    @NSManaged public var cargoCapacity: String
+    @NSManaged public var starshipClass: String
+    @NSManaged public var createdAt: Date
+    @NSManaged public var updatedAt: Date
+    @NSManaged public var movies: NSSet
 
 }
 

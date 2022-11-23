@@ -15,18 +15,18 @@ extension Character {
         return NSFetchRequest<Character>(entityName: "Character")
     }
 
-    @NSManaged public var birth: String?
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var desc: String?
-    @NSManaged public var gender: String?
-    @NSManaged public var height: String?
+    @NSManaged public var birth: String
+    @NSManaged public var createdAt: Date
+    @NSManaged public var desc: String
+    @NSManaged public var gender: String
+    @NSManaged public var height: String
     @NSManaged public var id: Int16
-    @NSManaged public var image: String?
-    @NSManaged public var name: String?
-    @NSManaged public var planet: String?
-    @NSManaged public var specie: String?
-    @NSManaged public var updatedAt: Date?
-    @NSManaged public var movies: NSSet?
+    @NSManaged public var image: String
+    @NSManaged public var name: String
+    @NSManaged public var planet: String
+    @NSManaged public var specie: String
+    @NSManaged public var updatedAt: Date
+    @NSManaged public var movies: NSSet
 
 }
 

@@ -15,16 +15,16 @@ extension Specie {
         return NSFetchRequest<Specie>(entityName: "Specie")
     }
 
-    @NSManaged public var classification: String?
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var desc: String?
+    @NSManaged public var classification: String
+    @NSManaged public var createdAt: Date
+    @NSManaged public var desc: String
     @NSManaged public var id: Int16
-    @NSManaged public var image: String?
-    @NSManaged public var language: String?
-    @NSManaged public var name: String?
-    @NSManaged public var planet: String?
-    @NSManaged public var updatedAt: Date?
-    @NSManaged public var movies: NSSet?
+    @NSManaged public var image: String
+    @NSManaged public var language: String
+    @NSManaged public var name: String
+    @NSManaged public var planet: String
+    @NSManaged public var updatedAt: Date
+    @NSManaged public var movies: NSSet
 
 }
 
