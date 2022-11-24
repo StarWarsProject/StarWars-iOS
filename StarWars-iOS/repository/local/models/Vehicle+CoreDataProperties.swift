@@ -15,7 +15,7 @@ extension Vehicle {
         return NSFetchRequest<Vehicle>(entityName: "Vehicle")
     }
 
-    @NSManaged public var id: Int32
+    @NSManaged public var id: Int16
     @NSManaged public var name: String
     @NSManaged public var model: String
     @NSManaged public var manufacturer: String
