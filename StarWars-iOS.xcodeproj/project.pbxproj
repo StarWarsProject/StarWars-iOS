@@ -19,6 +19,18 @@
 		846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30AD292D022A006FC25F /* HomeViewController.swift */; };
 		846D30B0292D022A006FC25F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846D30AE292D022A006FC25F /* HomeViewController.xib */; };
 		846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30B1292D027F006FC25F /* HomeViewModel.swift */; };
+		C2C2B108292ECBCB00C12EE8 /* Vehicle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0FC292ECBCB00C12EE8 /* Vehicle+CoreDataClass.swift */; };
+		C2C2B109292ECBCB00C12EE8 /* Vehicle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0FD292ECBCB00C12EE8 /* Vehicle+CoreDataProperties.swift */; };
+		C2C2B10A292ECBCB00C12EE8 /* Starship+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0FE292ECBCB00C12EE8 /* Starship+CoreDataClass.swift */; };
+		C2C2B10B292ECBCB00C12EE8 /* Starship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0FF292ECBCB00C12EE8 /* Starship+CoreDataProperties.swift */; };
+		C2C2B10C292ECBCB00C12EE8 /* Specie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B100292ECBCB00C12EE8 /* Specie+CoreDataClass.swift */; };
+		C2C2B10D292ECBCB00C12EE8 /* Specie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B101292ECBCB00C12EE8 /* Specie+CoreDataProperties.swift */; };
+		C2C2B10E292ECBCB00C12EE8 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B102292ECBCB00C12EE8 /* Movie+CoreDataClass.swift */; };
+		C2C2B10F292ECBCB00C12EE8 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B103292ECBCB00C12EE8 /* Movie+CoreDataProperties.swift */; };
+		C2C2B110292ECBCB00C12EE8 /* Planet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B104292ECBCB00C12EE8 /* Planet+CoreDataClass.swift */; };
+		C2C2B111292ECBCB00C12EE8 /* Planet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B105292ECBCB00C12EE8 /* Planet+CoreDataProperties.swift */; };
+		C2C2B112292ECBCB00C12EE8 /* Character+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B106292ECBCB00C12EE8 /* Character+CoreDataClass.swift */; };
+		C2C2B113292ECBCB00C12EE8 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B107292ECBCB00C12EE8 /* Character+CoreDataProperties.swift */; };
 		CF963C25D66490DFB44DDD82 /* Pods_StarWars_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDC4FADBA03315B08723D0D /* Pods_StarWars_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +63,18 @@
 		846D30B1292D027F006FC25F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9ABD097E65F016D8D8835F66 /* Pods-StarWars-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-StarWars-iOSTests/Pods-StarWars-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE61162B964DA736F08B7CA7 /* Pods-StarWars-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-StarWars-iOSTests/Pods-StarWars-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		C2C2B0FC292ECBCB00C12EE8 /* Vehicle+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vehicle+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2C2B0FD292ECBCB00C12EE8 /* Vehicle+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vehicle+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C2C2B0FE292ECBCB00C12EE8 /* Starship+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2C2B0FF292ECBCB00C12EE8 /* Starship+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C2C2B100292ECBCB00C12EE8 /* Specie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2C2B101292ECBCB00C12EE8 /* Specie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C2C2B102292ECBCB00C12EE8 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2C2B103292ECBCB00C12EE8 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C2C2B104292ECBCB00C12EE8 /* Planet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Planet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2C2B105292ECBCB00C12EE8 /* Planet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Planet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C2C2B106292ECBCB00C12EE8 /* Character+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2C2B107292ECBCB00C12EE8 /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D33617A2AD7871DBC94A0DB8 /* Pods-StarWars-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOS.release.xcconfig"; path = "Target Support Files/Pods-StarWars-iOS/Pods-StarWars-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		F90FAA1646DF5E45F9F85E22 /* Pods_StarWars_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -227,6 +251,18 @@
 		846D30D0292D09B2006FC25F /* models */ = {
 			isa = PBXGroup;
 			children = (
+				C2C2B0FC292ECBCB00C12EE8 /* Vehicle+CoreDataClass.swift */,
+				C2C2B0FD292ECBCB00C12EE8 /* Vehicle+CoreDataProperties.swift */,
+				C2C2B0FE292ECBCB00C12EE8 /* Starship+CoreDataClass.swift */,
+				C2C2B0FF292ECBCB00C12EE8 /* Starship+CoreDataProperties.swift */,
+				C2C2B100292ECBCB00C12EE8 /* Specie+CoreDataClass.swift */,
+				C2C2B101292ECBCB00C12EE8 /* Specie+CoreDataProperties.swift */,
+				C2C2B102292ECBCB00C12EE8 /* Movie+CoreDataClass.swift */,
+				C2C2B103292ECBCB00C12EE8 /* Movie+CoreDataProperties.swift */,
+				C2C2B104292ECBCB00C12EE8 /* Planet+CoreDataClass.swift */,
+				C2C2B105292ECBCB00C12EE8 /* Planet+CoreDataProperties.swift */,
+				C2C2B106292ECBCB00C12EE8 /* Character+CoreDataClass.swift */,
+				C2C2B107292ECBCB00C12EE8 /* Character+CoreDataProperties.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -416,10 +452,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */,
+				C2C2B112292ECBCB00C12EE8 /* Character+CoreDataClass.swift in Sources */,
+				C2C2B108292ECBCB00C12EE8 /* Vehicle+CoreDataClass.swift in Sources */,
 				846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */,
 				846D3076292CF938006FC25F /* ViewController.swift in Sources */,
+				C2C2B113292ECBCB00C12EE8 /* Character+CoreDataProperties.swift in Sources */,
+				C2C2B109292ECBCB00C12EE8 /* Vehicle+CoreDataProperties.swift in Sources */,
+				C2C2B10E292ECBCB00C12EE8 /* Movie+CoreDataClass.swift in Sources */,
+				C2C2B10B292ECBCB00C12EE8 /* Starship+CoreDataProperties.swift in Sources */,
 				846D3072292CF938006FC25F /* AppDelegate.swift in Sources */,
 				846D307C292CF938006FC25F /* StarWars_iOS.xcdatamodeld in Sources */,
+				C2C2B111292ECBCB00C12EE8 /* Planet+CoreDataProperties.swift in Sources */,
+				C2C2B10C292ECBCB00C12EE8 /* Specie+CoreDataClass.swift in Sources */,
+				C2C2B10A292ECBCB00C12EE8 /* Starship+CoreDataClass.swift in Sources */,
+				C2C2B110292ECBCB00C12EE8 /* Planet+CoreDataClass.swift in Sources */,
+				C2C2B10D292ECBCB00C12EE8 /* Specie+CoreDataProperties.swift in Sources */,
+				C2C2B10F292ECBCB00C12EE8 /* Movie+CoreDataProperties.swift in Sources */,
 				846D3074292CF938006FC25F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +632,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2663B4F4Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "StarWars-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -612,6 +661,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2663B4F4Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "StarWars-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
