@@ -8,6 +8,15 @@
 import Foundation
 import CoreData
 
+enum CoreDataEntities: String {
+    case Movie
+    case Character
+    case Planet
+    case Specie
+    case Starship
+    case Vehicle
+}
+
 class CoreDataManager {
     static var shared = CoreDataManager()
     lazy var persistentContainer: NSPersistentContainer = {
@@ -36,9 +45,9 @@ class CoreDataManager {
         return persistentContainer.viewContext
     }
 
-    func getData<T: NSManagedObject>(entity: String) -> [T] {
+    func getData<T: NSManagedObject>(entity: CoreDataEntities) -> [T] {
         let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<T>(entityName: entity)
+        let fetchRequest = NSFetchRequest<T>(entityName: entity.rawValue)
         do {
             let dbWEntries = try context.fetch(fetchRequest)
             return dbWEntries
@@ -48,4 +57,16 @@ class CoreDataManager {
         return []
     }
 
+    @discardableResult
+    func deleteAll() -> Bool {
+        let context = self.getContext()
+        let deleteMovies = NSBatchDeleteRequest(fetchRequest: Movie.fetchRequest())
+        do {
+            try context.execute(deleteMovies)
+            return true
+        } catch {
+            print("cant clean coredata")
+            return false
+        }
+    }
 }

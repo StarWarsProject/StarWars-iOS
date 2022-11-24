@@ -15,19 +15,19 @@ extension Movie {
         return NSFetchRequest<Movie>(entityName: "Movie")
     }
 
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var director: String?
+    @NSManaged public var createdAt: Date
+    @NSManaged public var director: String
     @NSManaged public var id: Int16
-    @NSManaged public var producer: String?
-    @NSManaged public var releaseDate: Date?
-    @NSManaged public var title: String?
-    @NSManaged public var updatedAt: Date?
-    @NSManaged public var openingCrawl: String?
-    @NSManaged public var characters: NSSet?
-    @NSManaged public var species: NSSet?
-    @NSManaged public var planets: NSSet?
-    @NSManaged public var starships: NSSet?
-    @NSManaged public var vehicles: NSSet?
+    @NSManaged public var producer: String
+    @NSManaged public var releaseDate: Date
+    @NSManaged public var title: String
+    @NSManaged public var updatedAt: Date
+    @NSManaged public var openingCrawl: String
+    @NSManaged public var characters: NSSet
+    @NSManaged public var species: NSSet
+    @NSManaged public var planets: NSSet
+    @NSManaged public var starships: NSSet
+    @NSManaged public var vehicles: NSSet
 
 }
 

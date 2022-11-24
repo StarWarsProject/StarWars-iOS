@@ -12,17 +12,32 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // MARK: Regular way
+//        MovieManager.shared.getAllMovies { result in
+//            switch result {
+//            case .success(let movies):
+//                movies.forEach { movie in
+//                    print(movie.title)
+//                }
+//                print(movies.count)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//                print("no data, no internet")
+//            }
+//        }
+
+        // MARK: Async way
+        Task.init {
+            do {
+                let movies = try await MovieManager.shared.getAllMoviesAsync()
+                movies.forEach { movie in
+                    print(movie.title)
+                }
+                print(movies.count)
+            } catch let error {
+                print(error.localizedDescription)
+                print("no data, no internet")
+            }
+        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
