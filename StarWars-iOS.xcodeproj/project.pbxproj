@@ -19,18 +19,18 @@
 		846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30AD292D022A006FC25F /* HomeViewController.swift */; };
 		846D30B0292D022A006FC25F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846D30AE292D022A006FC25F /* HomeViewController.xib */; };
 		846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30B1292D027F006FC25F /* HomeViewModel.swift */; };
-		C2C2B0EE292EC35E00C12EE8 /* Character+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0E2292EC35E00C12EE8 /* Character+CoreDataClass.swift */; };
-		C2C2B0EF292EC35E00C12EE8 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0E3292EC35E00C12EE8 /* Character+CoreDataProperties.swift */; };
-		C2C2B0F0292EC35E00C12EE8 /* Vehicle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0E4292EC35E00C12EE8 /* Vehicle+CoreDataClass.swift */; };
-		C2C2B0F1292EC35E00C12EE8 /* Vehicle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0E5292EC35E00C12EE8 /* Vehicle+CoreDataProperties.swift */; };
-		C2C2B0F2292EC35E00C12EE8 /* Planet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0E6292EC35E00C12EE8 /* Planet+CoreDataClass.swift */; };
-		C2C2B0F3292EC35E00C12EE8 /* Planet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0E7292EC35E00C12EE8 /* Planet+CoreDataProperties.swift */; };
-		C2C2B0F4292EC35E00C12EE8 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0E8292EC35E00C12EE8 /* Movie+CoreDataClass.swift */; };
-		C2C2B0F5292EC35E00C12EE8 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0E9292EC35E00C12EE8 /* Movie+CoreDataProperties.swift */; };
-		C2C2B0F6292EC35E00C12EE8 /* Starship+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0EA292EC35E00C12EE8 /* Starship+CoreDataClass.swift */; };
-		C2C2B0F7292EC35E00C12EE8 /* Starship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0EB292EC35E00C12EE8 /* Starship+CoreDataProperties.swift */; };
-		C2C2B0F8292EC35E00C12EE8 /* Specie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0EC292EC35E00C12EE8 /* Specie+CoreDataClass.swift */; };
-		C2C2B0F9292EC35E00C12EE8 /* Specie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0ED292EC35E00C12EE8 /* Specie+CoreDataProperties.swift */; };
+		C27E44D1292FAFA9009A3101 /* Starship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */; };
+		C27E44D2292FAFA9009A3101 /* Planet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C6292FAFA9009A3101 /* Planet+CoreDataProperties.swift */; };
+		C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C7292FAFA9009A3101 /* Vehicle+CoreDataClass.swift */; };
+		C27E44D4292FAFA9009A3101 /* Specie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C8292FAFA9009A3101 /* Specie+CoreDataClass.swift */; };
+		C27E44D5292FAFA9009A3101 /* Vehicle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C9292FAFA9009A3101 /* Vehicle+CoreDataProperties.swift */; };
+		C27E44D6292FAFA9009A3101 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44CA292FAFA9009A3101 /* Character+CoreDataProperties.swift */; };
+		C27E44D7292FAFA9009A3101 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44CB292FAFA9009A3101 /* Movie+CoreDataProperties.swift */; };
+		C27E44D8292FAFA9009A3101 /* Specie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44CC292FAFA9009A3101 /* Specie+CoreDataProperties.swift */; };
+		C27E44D9292FAFA9009A3101 /* Character+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44CD292FAFA9009A3101 /* Character+CoreDataClass.swift */; };
+		C27E44DA292FAFA9009A3101 /* Starship+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44CE292FAFA9009A3101 /* Starship+CoreDataClass.swift */; };
+		C27E44DB292FAFA9009A3101 /* Planet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44CF292FAFA9009A3101 /* Planet+CoreDataClass.swift */; };
+		C27E44DC292FAFA9009A3101 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44D0292FAFA9009A3101 /* Movie+CoreDataClass.swift */; };
 		C2C2B0FB292EC95900C12EE8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B0FA292EC95900C12EE8 /* CoreDataManager.swift */; };
 		C2C2B115292ED15500C12EE8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B114292ED15500C12EE8 /* NetworkManager.swift */; };
 		C2C2B117292ED20100C12EE8 /* MovieManagerNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B116292ED20100C12EE8 /* MovieManagerNetwork.swift */; };
@@ -69,18 +69,18 @@
 		846D30B1292D027F006FC25F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9ABD097E65F016D8D8835F66 /* Pods-StarWars-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-StarWars-iOSTests/Pods-StarWars-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE61162B964DA736F08B7CA7 /* Pods-StarWars-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-StarWars-iOSTests/Pods-StarWars-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		C2C2B0E2292EC35E00C12EE8 /* Character+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C2C2B0E3292EC35E00C12EE8 /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C2C2B0E4292EC35E00C12EE8 /* Vehicle+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vehicle+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C2C2B0E5292EC35E00C12EE8 /* Vehicle+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vehicle+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C2C2B0E6292EC35E00C12EE8 /* Planet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Planet+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C2C2B0E7292EC35E00C12EE8 /* Planet+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Planet+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C2C2B0E8292EC35E00C12EE8 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C2C2B0E9292EC35E00C12EE8 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C2C2B0EA292EC35E00C12EE8 /* Starship+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C2C2B0EB292EC35E00C12EE8 /* Starship+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C2C2B0EC292EC35E00C12EE8 /* Specie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specie+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C2C2B0ED292EC35E00C12EE8 /* Specie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Specie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C27E44C6292FAFA9009A3101 /* Planet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Planet+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C27E44C7292FAFA9009A3101 /* Vehicle+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vehicle+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C27E44C8292FAFA9009A3101 /* Specie+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Specie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C27E44C9292FAFA9009A3101 /* Vehicle+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vehicle+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C27E44CA292FAFA9009A3101 /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C27E44CB292FAFA9009A3101 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C27E44CC292FAFA9009A3101 /* Specie+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Specie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C27E44CD292FAFA9009A3101 /* Character+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C27E44CE292FAFA9009A3101 /* Starship+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C27E44CF292FAFA9009A3101 /* Planet+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Planet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C27E44D0292FAFA9009A3101 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C2C2B0FA292EC95900C12EE8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C2C2B114292ED15500C12EE8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2C2B116292ED20100C12EE8 /* MovieManagerNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManagerNetwork.swift; sourceTree = "<group>"; };
@@ -267,18 +267,18 @@
 		846D30D0292D09B2006FC25F /* models */ = {
 			isa = PBXGroup;
 			children = (
-				C2C2B0E2292EC35E00C12EE8 /* Character+CoreDataClass.swift */,
-				C2C2B0E3292EC35E00C12EE8 /* Character+CoreDataProperties.swift */,
-				C2C2B0E4292EC35E00C12EE8 /* Vehicle+CoreDataClass.swift */,
-				C2C2B0E5292EC35E00C12EE8 /* Vehicle+CoreDataProperties.swift */,
-				C2C2B0E6292EC35E00C12EE8 /* Planet+CoreDataClass.swift */,
-				C2C2B0E7292EC35E00C12EE8 /* Planet+CoreDataProperties.swift */,
-				C2C2B0E8292EC35E00C12EE8 /* Movie+CoreDataClass.swift */,
-				C2C2B0E9292EC35E00C12EE8 /* Movie+CoreDataProperties.swift */,
-				C2C2B0EA292EC35E00C12EE8 /* Starship+CoreDataClass.swift */,
-				C2C2B0EB292EC35E00C12EE8 /* Starship+CoreDataProperties.swift */,
-				C2C2B0EC292EC35E00C12EE8 /* Specie+CoreDataClass.swift */,
-				C2C2B0ED292EC35E00C12EE8 /* Specie+CoreDataProperties.swift */,
+				C27E44CD292FAFA9009A3101 /* Character+CoreDataClass.swift */,
+				C27E44CA292FAFA9009A3101 /* Character+CoreDataProperties.swift */,
+				C27E44D0292FAFA9009A3101 /* Movie+CoreDataClass.swift */,
+				C27E44CB292FAFA9009A3101 /* Movie+CoreDataProperties.swift */,
+				C27E44CF292FAFA9009A3101 /* Planet+CoreDataClass.swift */,
+				C27E44C6292FAFA9009A3101 /* Planet+CoreDataProperties.swift */,
+				C27E44C8292FAFA9009A3101 /* Specie+CoreDataClass.swift */,
+				C27E44CC292FAFA9009A3101 /* Specie+CoreDataProperties.swift */,
+				C27E44CE292FAFA9009A3101 /* Starship+CoreDataClass.swift */,
+				C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */,
+				C27E44C7292FAFA9009A3101 /* Vehicle+CoreDataClass.swift */,
+				C27E44C9292FAFA9009A3101 /* Vehicle+CoreDataProperties.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -478,29 +478,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C2B11B292EDB9500C12EE8 /* MovieManagerLocal.swift in Sources */,
-				C2C2B0F0292EC35E00C12EE8 /* Vehicle+CoreDataClass.swift in Sources */,
 				846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */,
-				C2C2B0F1292EC35E00C12EE8 /* Vehicle+CoreDataProperties.swift in Sources */,
+				C27E44D4292FAFA9009A3101 /* Specie+CoreDataClass.swift in Sources */,
 				C2C2B0FB292EC95900C12EE8 /* CoreDataManager.swift in Sources */,
-				C2C2B0F2292EC35E00C12EE8 /* Planet+CoreDataClass.swift in Sources */,
-				C2C2B0F9292EC35E00C12EE8 /* Specie+CoreDataProperties.swift in Sources */,
-				C2C2B0F8292EC35E00C12EE8 /* Specie+CoreDataClass.swift in Sources */,
-				C2C2B0EF292EC35E00C12EE8 /* Character+CoreDataProperties.swift in Sources */,
-				C2C2B0F4292EC35E00C12EE8 /* Movie+CoreDataClass.swift in Sources */,
 				846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */,
+				C27E44D6292FAFA9009A3101 /* Character+CoreDataProperties.swift in Sources */,
 				846D3076292CF938006FC25F /* ViewController.swift in Sources */,
-				C2C2B0EE292EC35E00C12EE8 /* Character+CoreDataClass.swift in Sources */,
 				C2C2B115292ED15500C12EE8 /* NetworkManager.swift in Sources */,
+				C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */,
+				C27E44DA292FAFA9009A3101 /* Starship+CoreDataClass.swift in Sources */,
 				846D3072292CF938006FC25F /* AppDelegate.swift in Sources */,
-				C2C2B0F3292EC35E00C12EE8 /* Planet+CoreDataProperties.swift in Sources */,
+				C27E44D9292FAFA9009A3101 /* Character+CoreDataClass.swift in Sources */,
+				C27E44D8292FAFA9009A3101 /* Specie+CoreDataProperties.swift in Sources */,
+				C27E44D2292FAFA9009A3101 /* Planet+CoreDataProperties.swift in Sources */,
 				C2C2B11E292EE0BD00C12EE8 /* MovieManager.swift in Sources */,
 				846D307C292CF938006FC25F /* StarWars_iOS.xcdatamodeld in Sources */,
+				C27E44DC292FAFA9009A3101 /* Movie+CoreDataClass.swift in Sources */,
 				C2C2B117292ED20100C12EE8 /* MovieManagerNetwork.swift in Sources */,
-				C2C2B0F5292EC35E00C12EE8 /* Movie+CoreDataProperties.swift in Sources */,
-				C2C2B0F6292EC35E00C12EE8 /* Starship+CoreDataClass.swift in Sources */,
+				C27E44D5292FAFA9009A3101 /* Vehicle+CoreDataProperties.swift in Sources */,
 				846D3074292CF938006FC25F /* SceneDelegate.swift in Sources */,
+				C27E44D1292FAFA9009A3101 /* Starship+CoreDataProperties.swift in Sources */,
+				C27E44DB292FAFA9009A3101 /* Planet+CoreDataClass.swift in Sources */,
 				C2C2B119292ED20B00C12EE8 /* MoviesList.swift in Sources */,
-				C2C2B0F7292EC35E00C12EE8 /* Starship+CoreDataProperties.swift in Sources */,
+				C27E44D7292FAFA9009A3101 /* Movie+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
