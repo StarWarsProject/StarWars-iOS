@@ -19,6 +19,7 @@
 		846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30AD292D022A006FC25F /* HomeViewController.swift */; };
 		846D30B0292D022A006FC25F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846D30AE292D022A006FC25F /* HomeViewController.xib */; };
 		846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30B1292D027F006FC25F /* HomeViewModel.swift */; };
+		93D1AA6D293104FB00DC9DA6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1AA6F293104FB00DC9DA6 /* Localizable.strings */; };
 		C27E44D1292FAFA9009A3101 /* Starship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */; };
 		C27E44D2292FAFA9009A3101 /* Planet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C6292FAFA9009A3101 /* Planet+CoreDataProperties.swift */; };
 		C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C7292FAFA9009A3101 /* Vehicle+CoreDataClass.swift */; };
@@ -67,6 +68,9 @@
 		846D30AD292D022A006FC25F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		846D30AE292D022A006FC25F /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		846D30B1292D027F006FC25F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		93D1AA692930FF0C00DC9DA6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		93D1AA6E293104FB00DC9DA6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		93D1AA70293104FF00DC9DA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9ABD097E65F016D8D8835F66 /* Pods-StarWars-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-StarWars-iOSTests/Pods-StarWars-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE61162B964DA736F08B7CA7 /* Pods-StarWars-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-StarWars-iOSTests/Pods-StarWars-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 		846D3070292CF938006FC25F /* StarWars-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				93D1AA6F293104FB00DC9DA6 /* Localizable.strings */,
 				846D30D2292D09EF006FC25F /* utils */,
 				846D30C7292D0880006FC25F /* repository */,
 				846D30A7292CFF9C006FC25F /* modules */,
@@ -374,6 +379,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = 846D3065292CF938006FC25F;
 			productRefGroup = 846D306F292CF938006FC25F /* Products */;
@@ -391,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D1AA6D293104FB00DC9DA6 /* Localizable.strings in Resources */,
 				846D3081292CF93A006FC25F /* LaunchScreen.storyboard in Resources */,
 				846D307E292CF93A006FC25F /* Assets.xcassets in Resources */,
 				846D3079292CF938006FC25F /* Main.storyboard in Resources */,
@@ -535,8 +542,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				846D3080292CF93A006FC25F /* Base */,
+				93D1AA692930FF0C00DC9DA6 /* es-419 */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		93D1AA6F293104FB00DC9DA6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93D1AA6E293104FB00DC9DA6 /* es-419 */,
+				93D1AA70293104FF00DC9DA6 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -546,6 +563,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -606,6 +624,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

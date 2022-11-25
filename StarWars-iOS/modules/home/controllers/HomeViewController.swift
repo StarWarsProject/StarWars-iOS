@@ -9,9 +9,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var labelText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        labelText.text = NSLocalizedString("title", comment: "")
         // MARK: Regular way
 //        MovieManager.shared.getAllMovies { result in
 //            switch result {
