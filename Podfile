@@ -7,6 +7,7 @@ target 'StarWars-iOS' do
 
   # Pods for StarWars-iOS
   pod 'SwiftLint', '0.49.1'
+  pod 'SVProgressHUD', '2.2.5'
 
   target 'StarWars-iOSTests' do
     inherit! :search_paths

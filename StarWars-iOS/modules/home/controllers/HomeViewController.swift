@@ -6,40 +6,60 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var labelText: UILabel!
+    @IBOutlet weak var movieViewBackground: UIView!
+    @IBOutlet weak var selMovieTitleLabel: UILabel!
+    @IBOutlet weak var selMovieImage: UIImageView!
+    @IBOutlet weak var selMovieCrawlLabel: UILabel!
+    @IBOutlet weak var filmsLabel: UILabel!
+    @IBOutlet weak var seeDetailsButton: UIButton!
+    @IBOutlet weak var filmsCollectionView: UICollectionView!
+
+    let viewModel = HomeViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
+        self.title = StringConstants.appTitle
+        initViewModel()
+        setUpViews()
+        viewModel.callMovieList()
+    }
 
-        labelText.text = NSLocalizedString("title", comment: "")
-        // MARK: Regular way
-//        MovieManager.shared.getAllMovies { result in
-//            switch result {
-//            case .success(let movies):
-//                movies.forEach { movie in
-//                    print(movie.title)
-//                }
-//                print(movies.count)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//                print("no data, no internet")
-//            }
-//        }
+    private func initViewModel() {
+        viewModel.onSelectedMovie = { [weak self] movie in
+            guard let self = self else { return }
+            self.setSelectedMovieDetails(movie: movie)
+        }
 
-        // MARK: Async way
-        Task.init {
-            do {
-                let movies = try await MovieManager.shared.getAllMoviesAsync()
-                movies.forEach { movie in
-                    print(movie.title)
-                }
-                print(movies.count)
-            } catch let error {
-                print(error.localizedDescription)
-                print("no data, no internet")
+        viewModel.onFinish = { [weak self] in
+            guard self != nil else { return }
+            SVProgressHUD.dismiss()
+        }
+    }
+
+    private func setUpViews() {
+        seeDetailsButton.setTitle(NSLocalizedString(StringConstants.seeDetails, comment: ""), for: .normal)
+        filmsLabel.text = NSLocalizedString(StringConstants.filmsLabel, comment: "")
+    }
+
+    @IBAction func movieDetailsButtonAction(_ sender: Any) {
+    }
+
+    private func setSelectedMovieDetails(movie: Movie) {
+        DispatchQueue.main.sync {
+            switch movie.title {
+            case "A New Hope":
+                selMovieImage.image = UIImage(named: StringConstants.newHope)
+            default:
+                break
             }
+            movieViewBackground.isHidden = false
+            selMovieTitleLabel.text = movie.title
+            selMovieCrawlLabel.text = movie.openingCrawl
         }
     }
 }
