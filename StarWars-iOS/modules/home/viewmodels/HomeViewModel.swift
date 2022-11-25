@@ -23,6 +23,10 @@ class HomeViewModel: ViewModel {
         movieList.count
     }
 
+    func getMovieAtIndex(_ index: Int) -> Movie {
+        movieList[index]
+    }
+
     func callMovieList() {
         // MARK: Regular way
 //        MovieManager.shared.getAllMovies { result in
