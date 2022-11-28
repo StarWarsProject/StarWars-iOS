@@ -24,6 +24,7 @@
 		93D1AA752931181300DC9DA6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D1AA742931181300DC9DA6 /* ViewModel.swift */; };
 		93D1AA7929311CB900DC9DA6 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D1AA7729311CB900DC9DA6 /* MovieCollectionViewCell.swift */; };
 		93D1AA7A29311CB900DC9DA6 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D1AA7829311CB900DC9DA6 /* MovieCollectionViewCell.xib */; };
+		93D1AA7C29316C6700DC9DA6 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D1AA7B29316C6700DC9DA6 /* DateExtension.swift */; };
 		C27E44D1292FAFA9009A3101 /* Starship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */; };
 		C27E44D2292FAFA9009A3101 /* Planet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C6292FAFA9009A3101 /* Planet+CoreDataProperties.swift */; };
 		C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C7292FAFA9009A3101 /* Vehicle+CoreDataClass.swift */; };
@@ -79,6 +80,7 @@
 		93D1AA742931181300DC9DA6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		93D1AA7729311CB900DC9DA6 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		93D1AA7829311CB900DC9DA6 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		93D1AA7B29316C6700DC9DA6 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		9ABD097E65F016D8D8835F66 /* Pods-StarWars-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-StarWars-iOSTests/Pods-StarWars-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE61162B964DA736F08B7CA7 /* Pods-StarWars-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-StarWars-iOSTests/Pods-StarWars-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				93D1AA71293116A500DC9DA6 /* StringConstants.swift */,
+				93D1AA7B29316C6700DC9DA6 /* DateExtension.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D1AA7C29316C6700DC9DA6 /* DateExtension.swift in Sources */,
 				C2C2B11B292EDB9500C12EE8 /* MovieManagerLocal.swift in Sources */,
 				846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */,
 				C27E44D4292FAFA9009A3101 /* Specie+CoreDataClass.swift in Sources */,

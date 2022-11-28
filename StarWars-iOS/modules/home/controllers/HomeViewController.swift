@@ -17,13 +17,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var filmsLabel: UILabel!
     @IBOutlet weak var seeDetailsButton: UIButton!
     @IBOutlet weak var filmsCollectionView: UICollectionView!
+    @IBOutlet weak var releaseDateLabel: UILabel!
 
     let viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.show()
-        self.title = StringConstants.appTitle
         initViewModel()
         setUpViews()
         viewModel.callMovieList()
@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
     private func setUpViews() {
         seeDetailsButton.setTitle(NSLocalizedString(StringConstants.seeDetails, comment: ""), for: .normal)
         filmsLabel.text = NSLocalizedString(StringConstants.filmsLabel, comment: "")
+        movieViewBackground.layer.cornerRadius = 10
         let nib = UINib(nibName: MovieCollectionViewCell.nibName, bundle: nil)
         filmsCollectionView.register(nib, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
         filmsCollectionView.dataSource = self
@@ -54,15 +55,21 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func movieDetailsButtonAction(_ sender: Any) {
+        print("tap")
     }
 
     private func setSelectedMovieDetails(movie: Movie) {
         DispatchQueue.main.sync {
             movieViewBackground.isHidden = false
-            selMovieTitleLabel.text = movie.title
-            selMovieCrawlLabel.text = movie.openingCrawl
-            selMovieImage.image = getImageForMovie(movie.title)
+            changeSelectedMovie(movie: movie)
         }
+    }
+
+    private func changeSelectedMovie(movie: Movie) {
+        releaseDateLabel.text = movie.releaseDate.getLocalString()
+        selMovieTitleLabel.text = movie.title
+        selMovieCrawlLabel.text = movie.openingCrawl
+        selMovieImage.image = getImageForMovie(movie.title)
     }
 
     private func getImageForMovie(_ movieTitle: String) -> UIImage? {
@@ -86,7 +93,7 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: Collection view delegate
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.moviesCount
     }
@@ -98,5 +105,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         guard let movieCell = cell else { return UICollectionViewCell() }
         movieCell.setValues(movie: movie, image: getImageForMovie(movie.title))
         return movieCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = viewModel.getMovieAtIndex(indexPath.row)
+        changeSelectedMovie(movie: movie)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width / 2.5
+        let height = collectionView.frame.height
+        return CGSize(width: width, height: height)
     }
 }
