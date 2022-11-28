@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  StarWars-iOS
+
+  Created by Yawar Valeriano on 25/11/22.
+  
+*/
+"see-details" = "See details";
+"films-label" = "Films";

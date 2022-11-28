@@ -38,6 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func getRootViewController() -> UIViewController {
         let navController = UINavigationController(rootViewController: HomeViewController())
+        navController.isNavigationBarHidden = true
         return navController
     }
 
