@@ -109,6 +109,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = viewModel.getMovieAtIndex(indexPath.row)
+        let vc = MovieDetailViewController()
+        vc.movieDetail = movie
+        show(vc, sender: nil)
         changeSelectedMovie(movie: movie)
     }
 
