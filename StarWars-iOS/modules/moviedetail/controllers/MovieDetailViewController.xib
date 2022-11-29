@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailViewController" customModule="StarWars_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="containerScrollView" destination="WrZ-ec-VbM" id="IMY-Kd-tVY"/>
                 <outlet property="imageBackground" destination="xin-rj-tgm" id="7qI-ep-aEi"/>
                 <outlet property="movieDirectorLabel" destination="7hI-9Y-6Rm" id="mni-xX-MLn"/>
                 <outlet property="movieNameLabel" destination="aAR-cT-0iy" id="ta1-QY-alU"/>
@@ -19,6 +20,7 @@
                 <outlet property="tabsCollectionView" destination="SVi-dA-Uh2" id="hDK-PU-dx0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewBackground" destination="GeP-kh-0Ur" id="4fT-bO-99u"/>
+                <outlet property="viewScrollContainer" destination="fyc-H7-X72" id="0Ww-wV-bUO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
