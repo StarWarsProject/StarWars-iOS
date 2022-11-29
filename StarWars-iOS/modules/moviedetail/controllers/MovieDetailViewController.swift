@@ -2,7 +2,7 @@
 //  MovieDetailViewController.swift
 //  StarWars-iOS
 //
-//  Created by User on 28/11/22.
+//  Created by Rodrigo Schar on 28/11/22.
 //
 
 import UIKit
