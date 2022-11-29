@@ -16,7 +16,6 @@ class TabCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     func setValues(tab: String) {

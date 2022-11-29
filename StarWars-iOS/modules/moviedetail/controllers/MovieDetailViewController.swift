@@ -89,18 +89,9 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let a = collectionView.indexPathsForSelectedItems {
-            a.forEach { pth in
-                if pth != indexPath {
-                    // deselect it
-                    collectionView.deselectItem(at: pth, animated: false)
-                } else {
-                    if let cell = collectionView.cellForItem(at: indexPath) as? TabCollectionViewCell {
-                        cell.descriptionLabel.textColor = UIColor(named: StringConstants.openingCrawlColor)
-                        cell.lineTabView.isHidden = false
-                    }
-                }
-            }
+        if let cell = collectionView.cellForItem(at: indexPath) as? TabCollectionViewCell {
+            cell.descriptionLabel.textColor = UIColor(named: StringConstants.openingCrawlColor)
+            cell.lineTabView.isHidden = false
         }
     }
 
