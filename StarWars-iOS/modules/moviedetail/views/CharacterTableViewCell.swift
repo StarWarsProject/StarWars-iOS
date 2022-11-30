@@ -12,22 +12,17 @@ class CharacterTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
-
+    @IBOutlet weak var viewWrapper: UIView!
     static let nibName = "CharacterTableViewCell"
     static let identifier = "CharacterTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        viewWrapper.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        let margins = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)
-        contentView.frame = contentView.frame.inset(by: margins)
     }
 
     func setData(character: Character) {

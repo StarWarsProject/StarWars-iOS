@@ -158,8 +158,6 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
 
         let character = viewModel.charactersList[indexPath.row]
         cell.setData(character: character)
-        cell.layer.cornerRadius = 10
-        cell.layer.masksToBounds = true
 
         return cell
     }
