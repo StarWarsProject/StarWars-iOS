@@ -55,6 +55,12 @@
 		CE8FECD629350DCB00132D0C /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FECD329350DCB00132D0C /* MovieDetailViewController.xib */; };
 		CE8FECDD2935432D00132D0C /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FECDB2935432D00132D0C /* TabCollectionViewCell.swift */; };
 		CE8FECDE2935432D00132D0C /* TabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FECDC2935432D00132D0C /* TabCollectionViewCell.xib */; };
+		CE90DE4829380B3900853B36 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE4629380B3900853B36 /* CharacterViewController.swift */; };
+		CE90DE4929380B3900853B36 /* CharacterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE90DE4729380B3900853B36 /* CharacterViewController.xib */; };
+		CE90DE4E29380CC600853B36 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE4C29380CC600853B36 /* PlanetViewController.swift */; };
+		CE90DE4F29380CC600853B36 /* PlanetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE90DE4D29380CC600853B36 /* PlanetViewController.xib */; };
+		CE90DE5229380DB600853B36 /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE5029380DB600853B36 /* PlanetTableViewCell.swift */; };
+		CE90DE5329380DB600853B36 /* PlanetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE90DE5129380DB600853B36 /* PlanetTableViewCell.xib */; };
 		CEB8FAD02935AA84002B08DC /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8FACF2935AA84002B08DC /* SharedFunctions.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +132,12 @@
 		CE8FECD329350DCB00132D0C /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		CE8FECDB2935432D00132D0C /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE8FECDC2935432D00132D0C /* TabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE90DE4629380B3900853B36 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
+		CE90DE4729380B3900853B36 /* CharacterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterViewController.xib; sourceTree = "<group>"; };
+		CE90DE4C29380CC600853B36 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
+		CE90DE4D29380CC600853B36 /* PlanetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetViewController.xib; sourceTree = "<group>"; };
+		CE90DE5029380DB600853B36 /* PlanetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCell.swift; sourceTree = "<group>"; };
+		CE90DE5129380DB600853B36 /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
 		CEB8FACF2935AA84002B08DC /* SharedFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -395,12 +407,34 @@
 		CE8FECD429350DCB00132D0C /* views */ = {
 			isa = PBXGroup;
 			children = (
+				CE90DE4B29380CB500853B36 /* planets */,
+				CE90DE4529380B1D00853B36 /* characters */,
 				CE8FECDB2935432D00132D0C /* TabCollectionViewCell.swift */,
 				CE8FECDC2935432D00132D0C /* TabCollectionViewCell.xib */,
-				C261FDEE293706B300BE21CF /* CharacterTableViewCell.swift */,
-				C261FDEF293706B300BE21CF /* CharacterTableViewCell.xib */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		CE90DE4529380B1D00853B36 /* characters */ = {
+			isa = PBXGroup;
+			children = (
+				C261FDEE293706B300BE21CF /* CharacterTableViewCell.swift */,
+				C261FDEF293706B300BE21CF /* CharacterTableViewCell.xib */,
+				CE90DE4629380B3900853B36 /* CharacterViewController.swift */,
+				CE90DE4729380B3900853B36 /* CharacterViewController.xib */,
+			);
+			path = characters;
+			sourceTree = "<group>";
+		};
+		CE90DE4B29380CB500853B36 /* planets */ = {
+			isa = PBXGroup;
+			children = (
+				CE90DE4C29380CC600853B36 /* PlanetViewController.swift */,
+				CE90DE4D29380CC600853B36 /* PlanetViewController.xib */,
+				CE90DE5029380DB600853B36 /* PlanetTableViewCell.swift */,
+				CE90DE5129380DB600853B36 /* PlanetTableViewCell.xib */,
+			);
+			path = planets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,7 +530,10 @@
 				846D3081292CF93A006FC25F /* LaunchScreen.storyboard in Resources */,
 				846D307E292CF93A006FC25F /* Assets.xcassets in Resources */,
 				846D3079292CF938006FC25F /* Main.storyboard in Resources */,
+				CE90DE5329380DB600853B36 /* PlanetTableViewCell.xib in Resources */,
+				CE90DE4F29380CC600853B36 /* PlanetViewController.xib in Resources */,
 				846D30B0292D022A006FC25F /* HomeViewController.xib in Resources */,
+				CE90DE4929380B3900853B36 /* CharacterViewController.xib in Resources */,
 				93D1AA7A29311CB900DC9DA6 /* MovieCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,8 +650,10 @@
 				846D3076292CF938006FC25F /* ViewController.swift in Sources */,
 				C2C2B115292ED15500C12EE8 /* NetworkManager.swift in Sources */,
 				C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */,
+				CE90DE4829380B3900853B36 /* CharacterViewController.swift in Sources */,
 				C27E44DA292FAFA9009A3101 /* Starship+CoreDataClass.swift in Sources */,
 				C26EB30729357EDC006D4AC0 /* CharacterManagerNetwork.swift in Sources */,
+				CE90DE5229380DB600853B36 /* PlanetTableViewCell.swift in Sources */,
 				C26EB30D29358EC0006D4AC0 /* CharacterResponse.swift in Sources */,
 				846D3072292CF938006FC25F /* AppDelegate.swift in Sources */,
 				C27E44D8292FAFA9009A3101 /* Specie+CoreDataProperties.swift in Sources */,
@@ -631,6 +670,7 @@
 				C27E44D5292FAFA9009A3101 /* Vehicle+CoreDataProperties.swift in Sources */,
 				846D3074292CF938006FC25F /* SceneDelegate.swift in Sources */,
 				C27E44D1292FAFA9009A3101 /* Starship+CoreDataProperties.swift in Sources */,
+				CE90DE4E29380CC600853B36 /* PlanetViewController.swift in Sources */,
 				C27E44DB292FAFA9009A3101 /* Planet+CoreDataClass.swift in Sources */,
 				93D1AA7929311CB900DC9DA6 /* MovieCollectionViewCell.swift in Sources */,
 				C2C2B119292ED20B00C12EE8 /* MoviesList.swift in Sources */,

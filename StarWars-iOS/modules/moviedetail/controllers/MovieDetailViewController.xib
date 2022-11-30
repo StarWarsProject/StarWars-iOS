@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailViewController" customModule="StarWars_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="charactersTableView" destination="5pi-6g-Gvy" id="HEq-yK-LCx"/>
                 <outlet property="containerScrollView" destination="WrZ-ec-VbM" id="IMY-Kd-tVY"/>
                 <outlet property="imageBackground" destination="xin-rj-tgm" id="7qI-ep-aEi"/>
                 <outlet property="movieDirectorLabel" destination="7hI-9Y-6Rm" id="mni-xX-MLn"/>
@@ -19,6 +18,7 @@
                 <outlet property="movieProducerLabel" destination="qjX-2g-Ipn" id="Xn5-Xw-9bH"/>
                 <outlet property="movieReleaseDateLabel" destination="b2z-Qv-RST" id="Gsz-fD-WJb"/>
                 <outlet property="tabsCollectionView" destination="SVi-dA-Uh2" id="hDK-PU-dx0"/>
+                <outlet property="tabsContainerView" destination="RLq-tC-hPr" id="kNJ-A3-kfh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewBackground" destination="GeP-kh-0Ur" id="4fT-bO-99u"/>
                 <outlet property="viewScrollContainer" destination="fyc-H7-X72" id="0Ww-wV-bUO"/>
@@ -131,19 +131,18 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5pi-6g-Gvy">
-                                    <rect key="frame" x="10" y="50" width="355" height="305.33333333333331"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLq-tC-hPr">
+                                    <rect key="frame" x="0.0" y="40" width="375" height="325.33333333333331"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </tableView>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="5pi-6g-Gvy" firstAttribute="leading" secondItem="DUh-JM-9QH" secondAttribute="leading" constant="10" id="Ghn-7T-srN"/>
-                                <constraint firstAttribute="bottom" secondItem="5pi-6g-Gvy" secondAttribute="bottom" constant="10" id="JGs-NI-99g"/>
-                                <constraint firstItem="5pi-6g-Gvy" firstAttribute="top" secondItem="SVi-dA-Uh2" secondAttribute="bottom" constant="10" id="Ujq-jc-hiu"/>
+                                <constraint firstAttribute="trailing" secondItem="RLq-tC-hPr" secondAttribute="trailing" id="55p-gE-ZRq"/>
+                                <constraint firstAttribute="bottom" secondItem="RLq-tC-hPr" secondAttribute="bottom" id="Bn8-fM-zTj"/>
+                                <constraint firstItem="RLq-tC-hPr" firstAttribute="top" secondItem="SVi-dA-Uh2" secondAttribute="bottom" id="Vzg-CW-xPP"/>
+                                <constraint firstItem="RLq-tC-hPr" firstAttribute="leading" secondItem="DUh-JM-9QH" secondAttribute="leading" id="WnK-UI-Wwm"/>
                                 <constraint firstItem="SVi-dA-Uh2" firstAttribute="leading" secondItem="DUh-JM-9QH" secondAttribute="leading" id="XKc-pz-xZs"/>
-                                <constraint firstAttribute="trailing" secondItem="5pi-6g-Gvy" secondAttribute="trailing" constant="10" id="glX-gR-pBs"/>
                                 <constraint firstAttribute="trailing" secondItem="SVi-dA-Uh2" secondAttribute="trailing" id="luf-c1-zOf"/>
                                 <constraint firstItem="SVi-dA-Uh2" firstAttribute="top" secondItem="DUh-JM-9QH" secondAttribute="top" id="uhO-59-VD9"/>
                             </constraints>
