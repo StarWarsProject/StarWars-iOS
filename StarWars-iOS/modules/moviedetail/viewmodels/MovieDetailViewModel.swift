@@ -33,4 +33,14 @@ class MovieDetailViewModel: ViewModel {
             }
         }
     }
+
+    func getPlanets() {
+        Task.init {
+            do {
+                self.planetsList = try await PlanetManager.shared.getPlanetsByMovieAsync(movie: movie)
+            } catch let error {
+                onError?(error.localizedDescription)
+            }
+        }
+    }
 }

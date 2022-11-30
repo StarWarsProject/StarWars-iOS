@@ -15,8 +15,9 @@ class PlanetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // setupView()
-        // initViewModel()
+        setupView()
+        initViewModel()
+        viewModel.getPlanets()
     }
 
     func setupView() {
@@ -42,7 +43,7 @@ class PlanetViewController: UIViewController {
 
 extension PlanetViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.charactersList.count
+        viewModel.planetsList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

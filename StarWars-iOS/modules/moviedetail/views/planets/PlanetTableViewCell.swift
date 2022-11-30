@@ -27,6 +27,8 @@ class PlanetTableViewCell: UITableViewCell {
 
     func setData(planet: Planet) {
         nameLabel.text = planet.name
+        climateLabel.text = planet.climate
+        terrainLabel.text = planet.terrain
     }
 
 }

@@ -20,6 +20,7 @@
         <attribute name="director" attributeType="String"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="openingCrawl" attributeType="String"/>
+        <attribute name="planetsIds" optional="YES" attributeType="String"/>
         <attribute name="producer" attributeType="String"/>
         <attribute name="releaseDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
@@ -31,13 +32,16 @@
         <relationship name="vehicles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="movies" inverseEntity="Vehicle"/>
     </entity>
     <entity name="Planet" representedClassName="Planet" syncable="YES">
+        <attribute name="climate" attributeType="String"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="desc" attributeType="String"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="population" attributeType="String"/>
         <attribute name="region" attributeType="String"/>
         <attribute name="system" attributeType="String"/>
+        <attribute name="terrain" attributeType="String"/>
         <attribute name="updatedAt" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="planets" inverseEntity="Movie"/>
     </entity>
