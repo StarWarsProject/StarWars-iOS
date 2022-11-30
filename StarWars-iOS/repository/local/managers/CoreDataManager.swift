@@ -69,4 +69,47 @@ class CoreDataManager {
             return false
         }
     }
+
+    @discardableResult
+    func deleteAllObjectsByEntity(entity: CoreDataEntities) -> Bool {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entity.rawValue)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try self.getContext().execute(deleteRequest)
+            return true
+        } catch let error as NSError {
+            print("cant clean coredata for this entity: \(error.localizedDescription)")
+            return false
+        }
+    }
+
+    @discardableResult
+    func deleteEntityObjectByKeyValue(entity: CoreDataEntities, key: String, value: Any) -> Bool {
+        let context = self.getContext()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.rawValue)
+        if  let sValue = value as? String {
+            let predicate = NSPredicate(format: "\(key) == %@", sValue)
+            fetchRequest.predicate = predicate
+        } else if let iValue = value as? Int64 {
+            let predicate = NSPredicate(format: "\(key) == %d", iValue)
+            fetchRequest.predicate = predicate
+        }
+        do {
+            let result = try context.fetch(fetchRequest)
+            if !result.isEmpty {
+                if let managedObject = result[0] as? NSManagedObject {
+                    context.delete(managedObject)
+                    do {
+                        self.saveContext()
+                        return true
+                    }
+                }
+            }
+            return false
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        return false
+    }
 }

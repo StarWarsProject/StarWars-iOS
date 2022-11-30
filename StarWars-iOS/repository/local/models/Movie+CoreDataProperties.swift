@@ -2,7 +2,7 @@
 //  Movie+CoreDataProperties.swift
 //  StarWars-iOS
 //
-//  Created by Alvaro Choque on 23/11/22.
+//  Created by Alvaro Choque on 29/11/22.
 //
 //
 
@@ -18,17 +18,24 @@ extension Movie {
     @NSManaged public var createdAt: Date
     @NSManaged public var director: String
     @NSManaged public var id: Int16
+    @NSManaged public var openingCrawl: String
     @NSManaged public var producer: String
     @NSManaged public var releaseDate: Date
     @NSManaged public var title: String
     @NSManaged public var updatedAt: Date
-    @NSManaged public var openingCrawl: String
+    @NSManaged public var charactersIds: String
     @NSManaged public var characters: NSSet
-    @NSManaged public var species: NSSet
     @NSManaged public var planets: NSSet
+    @NSManaged public var species: NSSet
     @NSManaged public var starships: NSSet
     @NSManaged public var vehicles: NSSet
 
+    public var charactersArray: [Character] {
+        let set = characters as? Set<Character> ?? []
+        return set.sorted {
+            $0.createdAt < $1.createdAt
+        }
+    }
 }
 
 // MARK: Generated accessors for characters
@@ -48,23 +55,6 @@ extension Movie {
 
 }
 
-// MARK: Generated accessors for species
-extension Movie {
-
-    @objc(addSpeciesObject:)
-    @NSManaged public func addToSpecies(_ value: Specie)
-
-    @objc(removeSpeciesObject:)
-    @NSManaged public func removeFromSpecies(_ value: Specie)
-
-    @objc(addSpecies:)
-    @NSManaged public func addToSpecies(_ values: NSSet)
-
-    @objc(removeSpecies:)
-    @NSManaged public func removeFromSpecies(_ values: NSSet)
-
-}
-
 // MARK: Generated accessors for planets
 extension Movie {
 
@@ -79,6 +69,23 @@ extension Movie {
 
     @objc(removePlanets:)
     @NSManaged public func removeFromPlanets(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for species
+extension Movie {
+
+    @objc(addSpeciesObject:)
+    @NSManaged public func addToSpecies(_ value: Specie)
+
+    @objc(removeSpeciesObject:)
+    @NSManaged public func removeFromSpecies(_ value: Specie)
+
+    @objc(addSpecies:)
+    @NSManaged public func addToSpecies(_ values: NSSet)
+
+    @objc(removeSpecies:)
+    @NSManaged public func removeFromSpecies(_ values: NSSet)
 
 }
 

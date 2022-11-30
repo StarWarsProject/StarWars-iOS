@@ -19,14 +19,30 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var tabsCollectionView: UICollectionView!
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var viewScrollContainer: UIView!
+    @IBOutlet weak var charactersTableView: UITableView!
 
     var movieDetail = Movie()
+    let tabsList = ["Personajes", "Planetas", "Especies", "Naves", "Vehiculos"]
+    var viewModel: MovieDetailViewModel
+
+    init(movie: Movie) {
+        self.movieDetail = movie
+        self.viewModel = MovieDetailViewModel(movie: movie)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
     let sharedFunctions = SharedFunctions()
     var offSet: CGFloat = 300
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        initViewModel()
+        viewModel.getCharacters()
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     }
 
@@ -37,6 +53,20 @@ class MovieDetailViewController: UIViewController {
          blurEffectView.frame = imageBackground.bounds
          blurEffectView.alpha = 0.5
          imageBackground.addSubview(blurEffectView)
+    }
+
+    private func initViewModel() {
+        viewModel.reloadData = { [weak self] in
+//            print(self?.viewModel.charactersList)
+            print(self?.viewModel.charactersList.count)
+            DispatchQueue.main.async {
+                self?.charactersTableView.reloadData()
+            }
+        }
+
+        viewModel.onError = { error in
+            print(error)
+        }
     }
 
     @objc func autoScroll() {
@@ -61,6 +91,13 @@ class MovieDetailViewController: UIViewController {
         tabsCollectionView.dataSource = self
         tabsCollectionView.delegate = self
         tabsCollectionView.allowsMultipleSelection = false
+
+        // Characters Table view
+        let nibChar = UINib(nibName: CharacterTableViewCell.nibName, bundle: nil)
+        charactersTableView.register(nibChar, forCellReuseIdentifier: CharacterTableViewCell.identifier)
+        charactersTableView.delegate = self
+        charactersTableView.dataSource = self
+        charactersTableView.estimatedRowHeight = 80
     }
 
     func setBoldText(boldText: String, normalText: String) -> NSMutableAttributedString {
@@ -106,5 +143,26 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
         let width = collectionView.frame.width / 2.5
         let height = collectionView.frame.height
         return CGSize(width: width, height: height)
+    }
+}
+
+extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.charactersList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = charactersTableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier)
+        as? CharacterTableViewCell ?? CharacterTableViewCell()
+        cell.selectionStyle = .none
+
+        let character = viewModel.charactersList[indexPath.row]
+        cell.setData(character: character)
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

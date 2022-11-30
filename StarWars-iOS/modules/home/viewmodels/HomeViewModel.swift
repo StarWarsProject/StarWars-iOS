@@ -47,8 +47,8 @@ class HomeViewModel: ViewModel {
         Task.init {
             do {
                 let movies = try await MovieManager.shared.getAllMoviesAsync()
-                onFinish?()
                 movieList = movies
+                onFinish?()
             } catch let error {
                 onError?(error.localizedDescription)
             }

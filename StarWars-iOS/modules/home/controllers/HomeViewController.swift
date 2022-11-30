@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var filmsCollectionView: UICollectionView!
     @IBOutlet weak var releaseDateLabel: UILabel!
 
+    var selectedMovie: Movie?
     let viewModel = HomeViewModel()
     let sharedFunctions = SharedFunctions()
 
@@ -38,6 +39,8 @@ class HomeViewController: UIViewController {
 
         viewModel.onFinish = { [weak self] in
             guard let self = self else { return }
+            self.selectedMovie = self.viewModel.getMovieAtIndex(0)
+            print(self.viewModel.getMovieAtIndex(0))
             DispatchQueue.main.sync {
                 self.filmsCollectionView.reloadData()
             }
@@ -57,8 +60,7 @@ class HomeViewController: UIViewController {
 
     @IBAction func movieDetailsButtonAction(_ sender: Any) {
         let movie = viewModel.getMovieAtIndex(viewModel.movieIndex)
-        let vc = MovieDetailViewController()
-        vc.movieDetail = movie
+        let vc = MovieDetailViewController(movie: movie)
         show(vc, sender: nil)
     }
 
@@ -70,6 +72,7 @@ class HomeViewController: UIViewController {
     }
 
     private func changeSelectedMovie(movie: Movie) {
+        selectedMovie = movie
         releaseDateLabel.text = movie.releaseDate.getLocalString()
         selMovieTitleLabel.text = movie.title
         selMovieCrawlLabel.text = movie.openingCrawl
