@@ -7,11 +7,22 @@
 
 import Foundation
 
+enum SortFieldsOptions {
+    case ReleaseDate
+    case EpisodeCronId
+}
+
+enum SortOptions {
+    case Ascending
+    case Desceding
+}
+
 class HomeViewModel: ViewModel {
 
     var onSelectedMovie: ((Movie) -> Void)?
     var movieIndex = 0
 
+    private var originalMovieList: [Movie] = []
     private var movieList: [Movie] = [] {
         didSet {
             reloadData?()
@@ -48,10 +59,23 @@ class HomeViewModel: ViewModel {
             do {
                 let movies = try await MovieManager.shared.getAllMoviesAsync()
                 movieList = movies
+                originalMovieList = movies
                 onFinish?()
             } catch let error {
                 onError?(error.localizedDescription)
             }
+        }
+    }
+
+    func sortMovies(field: SortFieldsOptions, criteria: SortOptions) {
+        switch field {
+        case .EpisodeCronId:
+            movieList = movieList.sorted(by: {$0.episodeId > $1.episodeId})
+        case .ReleaseDate:
+            movieList = movieList.sorted(by: {$0.releaseDate > $1.releaseDate})
+        }
+        if criteria == .Ascending {
+            movieList = movieList.reversed()
         }
     }
 }

@@ -30,4 +30,9 @@ struct StringConstants {
     static let movieProducerESP = "Productor: "
     static let tabsListENG = ["Characters", "Planets", "Species", "Starships", "Vehicles"]
     static let tabsListESP = ["Personajes", "Planetas", "Especies", "Naves", "Vehiculos"]
+    static let sortDateAsc = "sort-release-date-asc"
+    static let sortDateDesc = "sort-release-date-desc"
+    static let sortCronAsc = "sort-cron-asc"
+    static let sortCronDesc = "sort-cron-desc"
+    static let cancel = "cancel"
 }
