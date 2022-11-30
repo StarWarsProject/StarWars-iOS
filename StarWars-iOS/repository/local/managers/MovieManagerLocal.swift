@@ -15,7 +15,9 @@ class MovieManagerLocal {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         films.forEach { film in
             let newMovie = Movie(context: CoreDataManager.shared.getContext())
-            newMovie.id = Int16.random(in: 0..<10000)
+            var idFilm = film.url
+            idFilm.removeLast()
+            newMovie.id = Int16(String(idFilm.last ?? "0")) ?? 0
             newMovie.title = film.title
             newMovie.director = film.director
             newMovie.producer = film.producer

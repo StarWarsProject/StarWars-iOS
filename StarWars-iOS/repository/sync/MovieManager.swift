@@ -29,28 +29,22 @@ class MovieManager {
         }
     }
 
-    func getAllMoviesAsync() async throws -> [Movie] {
+    func getAllMoviesAsync() async throws -> ([Movie], [[String]]) {
         do {
-//            if let films = try? await MovieManagerNetwork.shared.getAllMoviesAsync() {
-//                CoreDataManager.shared.deleteAll()
-//                MovieManagerLocal.shared.saveMovies(films: films)
-//            }
-//            let movies = MovieManagerLocal.shared.getMovies()
-//            if movies.isEmpty {
-//                throw NSError(domain: NSURLErrorDomain, code: URLError.notConnectedToInternet.rawValue)
-//            }
-//            return movies
             let films = try await MovieManagerNetwork.shared.getAllMoviesAsync()
             CoreDataManager.shared.deleteAll()
             MovieManagerLocal.shared.saveMovies(films: films)
             let movies = MovieManagerLocal.shared.getMovies()
-            return movies
+            let charsUrls = films.map { film in
+                film.characters
+            }
+            return (movies, charsUrls)
         } catch let error {
             let movies = MovieManagerLocal.shared.getMovies()
             if movies.isEmpty {
                 throw error
             } else {
-                return movies
+                return (movies, [])
             }
         }
     }

@@ -29,6 +29,12 @@ extension Movie {
     @NSManaged public var starships: NSSet
     @NSManaged public var vehicles: NSSet
 
+    public var charactersArray: [Character] {
+        let set = characters as? Set<Character> ?? []
+        return set.sorted {
+            $0.createdAt < $1.createdAt
+        }
+    }
 }
 
 // MARK: Generated accessors for characters

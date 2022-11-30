@@ -19,11 +19,25 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var tabsCollectionView: UICollectionView!
 
     var movieDetail = Movie()
+    var charsUrls = [String]()
     let tabsList = ["Personajes", "Planetas", "Especies", "Naves", "Vehiculos"]
+    var viewModel = MovieDetailViewModel()
+
+    init(movie: Movie, charactersList: [String]) {
+        self.charsUrls = charactersList
+        self.movieDetail = movie
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        initViewModel()
+        viewModel.getCharacters(charsUrls: self.charsUrls, movie: self.movieDetail)
     }
 
     override func viewDidLayoutSubviews() {
@@ -33,6 +47,12 @@ class MovieDetailViewController: UIViewController {
          blurEffectView.frame = imageBackground.bounds
          blurEffectView.alpha = 0.5
          imageBackground.addSubview(blurEffectView)
+    }
+
+    private func initViewModel() {
+        viewModel.reloadData = { [weak self] in
+            print(self?.viewModel.charactersList)
+        }
     }
 
     private func setupView() {

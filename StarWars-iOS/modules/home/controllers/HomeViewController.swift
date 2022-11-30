@@ -19,6 +19,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var filmsCollectionView: UICollectionView!
     @IBOutlet weak var releaseDateLabel: UILabel!
 
+    var selectedMovie: Movie?
+    var selectedFilm: Film?
+    var selectedMovieChars: [String]?
     let viewModel = HomeViewModel()
 
     override func viewDidLoad() {
@@ -30,13 +33,15 @@ class HomeViewController: UIViewController {
     }
 
     private func initViewModel() {
-        viewModel.onSelectedMovie = { [weak self] movie in
+        viewModel.onSelectedMovie = { [weak self] movie, chars in
             guard let self = self else { return }
             self.setSelectedMovieDetails(movie: movie)
+            self.selectedMovieChars = chars
         }
 
         viewModel.onFinish = { [weak self] in
             guard let self = self else { return }
+            self.selectedMovie = self.viewModel.getMovieAtIndex(0)
             DispatchQueue.main.sync {
                 self.filmsCollectionView.reloadData()
             }
@@ -55,7 +60,10 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func movieDetailsButtonAction(_ sender: Any) {
-        print("tap")
+        guard let selectedMovie = selectedMovie, let charsList = selectedMovieChars else {return}
+        let vc = MovieDetailViewController(movie: selectedMovie, charactersList: charsList)
+//        vc.movieDetail = selectedMovie ?? Movie()
+        show(vc, sender: nil)
     }
 
     private func setSelectedMovieDetails(movie: Movie) {
@@ -66,6 +74,7 @@ class HomeViewController: UIViewController {
     }
 
     private func changeSelectedMovie(movie: Movie) {
+        selectedMovie = movie
         releaseDateLabel.text = movie.releaseDate.getLocalString()
         selMovieTitleLabel.text = movie.title
         selMovieCrawlLabel.text = movie.openingCrawl
@@ -109,9 +118,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = viewModel.getMovieAtIndex(indexPath.row)
-        let vc = MovieDetailViewController()
-        vc.movieDetail = movie
-        show(vc, sender: nil)
         changeSelectedMovie(movie: movie)
     }
 
