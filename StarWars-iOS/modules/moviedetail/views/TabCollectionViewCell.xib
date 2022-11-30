@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" contentMode="center" id="gTV-IL-0wX" customClass="TabCollectionViewCell" customModule="StarWars_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkK-jl-fRP">
+                        <rect key="frame" x="10" y="10" width="50" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7Y-yR-29i">
+                        <rect key="frame" x="0.0" y="48" width="70" height="2"/>
+                        <color key="backgroundColor" name="openingCrawlTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="APn-Ai-JBu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="f7Y-yR-29i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3oa-Dt-yV3"/>
+                <constraint firstItem="zkK-jl-fRP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Amh-5g-yIj"/>
+                <constraint firstAttribute="bottom" secondItem="f7Y-yR-29i" secondAttribute="bottom" id="Ffz-0f-6M3"/>
+                <constraint firstItem="zkK-jl-fRP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Sff-NS-sng"/>
+                <constraint firstAttribute="trailing" secondItem="zkK-jl-fRP" secondAttribute="trailing" constant="10" id="fIX-cj-Y09"/>
+                <constraint firstAttribute="trailing" secondItem="f7Y-yR-29i" secondAttribute="trailing" id="jUG-Bh-IqX"/>
+            </constraints>
+            <connections>
+                <outlet property="descriptionLabel" destination="zkK-jl-fRP" id="dKx-WX-H7G"/>
+                <outlet property="lineTabView" destination="f7Y-yR-29i" id="evj-E2-hxm"/>
+            </connections>
+            <point key="canvasLocation" x="-18.320610687022899" y="-11.267605633802818"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="openingCrawlTextColor">
+            <color red="0.9882352941176471" green="0.7686274509803922" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

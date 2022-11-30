@@ -10,6 +10,7 @@ import Foundation
 class HomeViewModel: ViewModel {
 
     var onSelectedMovie: ((Movie) -> Void)?
+    var movieIndex = 0
 
     private var movieList: [Movie] = [] {
         didSet {
