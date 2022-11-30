@@ -9,14 +9,14 @@ import Foundation
 
 class HomeViewModel: ViewModel {
 
-    var onSelectedMovie: ((Movie, [String]) -> Void)?
+    var onSelectedMovie: ((Movie) -> Void)?
+    var movieIndex = 0
 
-    var charsList = [[String]]()
     private var movieList: [Movie] = [] {
         didSet {
             reloadData?()
             guard let firstMovie = movieList.first else { return }
-            onSelectedMovie?(firstMovie, charsList.first ?? [])
+            onSelectedMovie?(firstMovie)
         }
     }
 
@@ -46,8 +46,7 @@ class HomeViewModel: ViewModel {
         // MARK: Async way
         Task.init {
             do {
-                let (movies, charUrls) = try await MovieManager.shared.getAllMoviesAsync()
-                charsList = charUrls
+                let movies = try await MovieManager.shared.getAllMoviesAsync()
                 movieList = movies
                 onFinish?()
             } catch let error {

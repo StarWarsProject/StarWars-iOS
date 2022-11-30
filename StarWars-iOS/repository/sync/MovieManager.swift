@@ -29,7 +29,7 @@ class MovieManager {
         }
     }
 
-    func getAllMoviesAsync() async throws -> ([Movie], [[String]]) {
+    func getAllMoviesAsync() async throws -> [Movie] {
         do {
             let films = try await MovieManagerNetwork.shared.getAllMoviesAsync()
             CoreDataManager.shared.deleteAll()
@@ -38,13 +38,13 @@ class MovieManager {
             let charsUrls = films.map { film in
                 film.characters
             }
-            return (movies, charsUrls)
+            return movies
         } catch let error {
             let movies = MovieManagerLocal.shared.getMovies()
             if movies.isEmpty {
                 throw error
             } else {
-                return (movies, [])
+                return movies
             }
         }
     }

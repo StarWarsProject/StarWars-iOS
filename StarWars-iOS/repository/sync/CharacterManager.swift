@@ -9,9 +9,11 @@ import Foundation
 
 class CharacterManager {
     static let shared = CharacterManager()
-    func getCharactersByMovieAsync(characterUrlList: [String], movie: Movie) async throws -> [Character] {
+    func getCharactersByMovieAsync(movie: Movie) async throws -> [Character] {
         do {
-            let characters = try await CharacterManagerNetwork.shared.getAllCharactersByMovieAsync(characterUrlList: characterUrlList)
+            let charsIds = MovieManagerLocal.getIdsFromString(stringIds: movie.charactersIds)
+            let characters = try await CharacterManagerNetwork.shared.getAllCharactersByMovieAsync(charactersIdsList: charsIds)
+            CharacterManagerLocal.shared.deleteCharactersByMovie(movie: movie)
             CharacterManagerLocal.shared.saveAllCharactersByMovie(charactersList: characters, movie: movie)
             return movie.charactersArray
         } catch let error {

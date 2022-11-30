@@ -33,10 +33,11 @@ class CharacterManagerNetwork {
         }
     }
 
-    func getAllCharactersByMovieAsync(characterUrlList: [String]) async throws -> [CharacterResponse] {
+    func getAllCharactersByMovieAsync(charactersIdsList: [String]) async throws -> [CharacterResponse] {
         do {
             var finalCharactersList = [CharacterResponse]()
-            for url in characterUrlList {
+            for id in charactersIdsList {
+                let url = "\(self.baseUrl)/\(id)"
                 let character = try await getCharacterAsync(characterUrl: url)
                 finalCharactersList.append(character)
             }

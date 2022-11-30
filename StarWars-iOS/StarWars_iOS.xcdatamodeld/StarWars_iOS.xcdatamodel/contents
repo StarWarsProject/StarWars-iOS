@@ -15,6 +15,7 @@
         <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="characters" inverseEntity="Movie"/>
     </entity>
     <entity name="Movie" representedClassName="Movie" syncable="YES">
+        <attribute name="charactersIds" optional="YES" attributeType="String"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="director" attributeType="String"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

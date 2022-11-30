@@ -34,7 +34,6 @@ extension Character {
             $0.createdAt < $1.createdAt
         }
     }
-
 }
 
 // MARK: Generated accessors for movies

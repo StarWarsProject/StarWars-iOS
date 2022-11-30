@@ -13,11 +13,15 @@ class MovieDetailViewModel: ViewModel {
             reloadData?()
         }
     }
+    let movie: Movie
+    init(movie: Movie) {
+        self.movie = movie
+    }
 
-    func getCharacters(charsUrls: [String], movie: Movie) {
+    func getCharacters() {
         Task.init {
             do {
-                self.charactersList = try await CharacterManager.shared.getCharactersByMovieAsync(characterUrlList: charsUrls, movie: movie)
+                self.charactersList = try await CharacterManager.shared.getCharactersByMovieAsync(movie: movie)
             } catch let error {
                 onError?(error.localizedDescription)
             }
