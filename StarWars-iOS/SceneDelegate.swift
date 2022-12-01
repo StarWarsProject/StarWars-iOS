@@ -24,10 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func setupRootControllerIfNeeded() {
-//        let rootViewController = createNavController(for: HomeViewController(), title: "Star Wars App", image:
-//                                                        UIImage(systemName: "newspaper.fill") ?? UIImage())
-//        self.window?.rootViewController = rootViewController
-//        self.window?.makeKeyAndVisible()
         let navigationCon = UINavigationController.init()
         appCoordinator = AppCoordinator(navigationController: navigationCon)
         appCoordinator!.start()
@@ -75,10 +71,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         CoreDataManager.shared.saveContext()
     }
 
-    private func getRootViewController() -> UIViewController {
-        let navController = UINavigationController(rootViewController: HomeViewController())
-        navController.isNavigationBarHidden = true
-        return navController
-    }
+//    private func getRootViewController() -> UIViewController {
+//        let navController = UINavigationController(rootViewController: HomeViewController())
+//        navController.isNavigationBarHidden = true
+//        return navController
+//    }
 
 }

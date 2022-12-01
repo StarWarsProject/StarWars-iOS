@@ -30,8 +30,8 @@ class CharacterManagerLocal {
             newCharacter.specie = ""
             newCharacter.updatedAt = Date()
             newCharacter.addToMovies(movie)
-            CoreDataManager.shared.saveContext()
         }
+        CoreDataManager.shared.saveContext()
     }
 
     func deleteCharactersByMovie(movie: Movie) {

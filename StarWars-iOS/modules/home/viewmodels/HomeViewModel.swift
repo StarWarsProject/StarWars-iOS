@@ -23,6 +23,7 @@ class HomeViewModel: ViewModel {
 
     var onSelectedMovie: ((Movie) -> Void)?
     var movieIndex = 0
+    var selectedMovie: Movie?
 
     private var originalMovieList: [Movie] = []
     private var movieList: [Movie] = [] {

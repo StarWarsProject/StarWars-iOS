@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SVProgressHUD
 
 protocol Coordinator {
     var parentCoordinator: Coordinator? { get set }
@@ -28,18 +29,43 @@ class AppCoordinator: Coordinator {
     }
 
     func goToHomeScreen() {
-        let homeViewController = HomeViewController()
         let homeViewModel = HomeViewModel.init()
+        let homeViewController = HomeViewController(viewModel: homeViewModel)
         homeViewModel.coordinator = self
-        homeViewController.viewModel = homeViewModel
+        homeViewModel.reloadData = {
+            DispatchQueue.main.async {
+                homeViewController.filmsCollectionView.reloadData()
+            }
+        }
+
+        homeViewModel.onSelectedMovie = { movie in
+            homeViewController.setSelectedMovieDetails(movie: movie)
+        }
+
+        homeViewModel.onFinish = {
+            homeViewModel.selectedMovie = homeViewController.viewModel.getMovieAtIndex(0)
+            print(homeViewModel.getMovieAtIndex(0))
+            DispatchQueue.main.sync {
+                homeViewController.filmsCollectionView.reloadData()
+            }
+            SVProgressHUD.dismiss()
+        }
         navigationController.pushViewController(homeViewController, animated: true)
     }
 
     func goToDetailsScreen(movie: Movie) {
-        let movieDetailsViewController = MovieDetailViewController(movie: movie)
         let movieDetailsViewModel = MovieDetailViewModel.init(movie: movie)
+        let movieDetailsViewController = MovieDetailViewController(viewModel: movieDetailsViewModel)
         movieDetailsViewModel.coordinator = self
-        movieDetailsViewController.viewModel = movieDetailsViewModel
+        movieDetailsViewModel.reloadData = {
+            print(movieDetailsViewModel.charactersList.count)
+            DispatchQueue.main.async {
+                movieDetailsViewController.charactersTableView.reloadData()
+            }
+        }
+        movieDetailsViewModel.onError = { error in
+            print(error)
+        }
         navigationController.pushViewController(movieDetailsViewController, animated: true)
     }
 }
