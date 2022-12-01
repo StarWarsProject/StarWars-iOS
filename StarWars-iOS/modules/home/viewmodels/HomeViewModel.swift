@@ -7,11 +7,25 @@
 
 import Foundation
 
+enum SortFieldsOptions {
+    case ReleaseDate
+    case EpisodeCronId
+}
+
+enum SortOptions {
+    case Ascending
+    case Desceding
+}
+
 class HomeViewModel: ViewModel {
+
+    weak var coordinator: AppCoordinator!
 
     var onSelectedMovie: ((Movie) -> Void)?
     var movieIndex = 0
+    var selectedMovie: Movie?
 
+    private var originalMovieList: [Movie] = []
     private var movieList: [Movie] = [] {
         didSet {
             reloadData?()
@@ -28,30 +42,32 @@ class HomeViewModel: ViewModel {
         movieList[index]
     }
 
-    func callMovieList() {
-        // MARK: Regular way
-//        MovieManager.shared.getAllMovies { result in
-//            switch result {
-//            case .success(let movies):
-//                movies.forEach { movie in
-//                    print(movie.title)
-//                }
-//                print(movies.count)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//                print("no data, no internet")
-//            }
-//        }
+    func goToDetailsPage() {
+        coordinator.goToDetailsScreen(movie: movieList[movieIndex])
+    }
 
-        // MARK: Async way
+    func callMovieList() {
         Task.init {
             do {
                 let movies = try await MovieManager.shared.getAllMoviesAsync()
                 movieList = movies
+                originalMovieList = movies
                 onFinish?()
             } catch let error {
                 onError?(error.localizedDescription)
             }
+        }
+    }
+
+    func sortMovies(field: SortFieldsOptions, criteria: SortOptions) {
+        switch field {
+        case .EpisodeCronId:
+            movieList = movieList.sorted(by: {$0.episodeId > $1.episodeId})
+        case .ReleaseDate:
+            movieList = movieList.sorted(by: {$0.releaseDate > $1.releaseDate})
+        }
+        if criteria == .Ascending {
+            movieList = movieList.reversed()
         }
     }
 }

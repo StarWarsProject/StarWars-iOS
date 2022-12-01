@@ -7,3 +7,8 @@
 */
 "see-details" = "See details";
 "films-label" = "Films";
+"sort-release-date-asc" = "Sort by Release Date (Ascending)";
+"sort-release-date-desc" = "Sort by Release Date (Descending)";
+"sort-cron-asc" = "Sort by Cronology (Ascending)";
+"sort-cron-desc" = "Sort by Cronology (Descending)";
+"cancel" = "Cancel";

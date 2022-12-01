@@ -22,12 +22,10 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var tabsContainerView: UIView!
     @IBOutlet weak var charactersTableView: UITableView!
 
-    var movieDetail = Movie()
-    var viewModel = MovieDetailViewModel.shared // : MovieDetailViewModel
+    var viewModel: MovieDetailViewModel
 
-    init(movie: Movie) {
-        self.movieDetail = movie
-        self.viewModel.movie = movie
+    init(viewModel: MovieDetailViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -39,12 +37,12 @@ class MovieDetailViewController: UIViewController {
     var offSet: CGFloat = 300
 
     private lazy var charactersListVC: CharacterViewController = {
-        let vc = CharacterViewController() // movie: movieDetail
+        let vc = CharacterViewController(viewModel: viewModel)
         return vc
     }()
 
     private lazy var planetsListVC: PlanetViewController = {
-        let vc = PlanetViewController()
+        let vc = PlanetViewController(viewModel: viewModel)
         return vc
     }()
 
@@ -72,13 +70,13 @@ class MovieDetailViewController: UIViewController {
     }
 
     private func setupView() {
-        imageBackground.image = sharedFunctions.getImageForMovie(movieDetail.title)
-        movieNameLabel.text = movieDetail.title
-        movieOpeningLabel.text = movieDetail.openingCrawl
+        imageBackground.image = sharedFunctions.getImageForMovie(viewModel.movie.title)
+        movieNameLabel.text = viewModel.movie.title
+        movieOpeningLabel.text = viewModel.movie.openingCrawl
         movieReleaseDateLabel.attributedText = setBoldText(boldText: StringConstants.releaseDateENG,
-                                                           normalText: sharedFunctions.getDateFormatter(date: movieDetail.releaseDate))
-        movieDirectorLabel.attributedText = setBoldText(boldText: StringConstants.movieDirectorENG, normalText: movieDetail.director)
-        movieProducerLabel.attributedText = setBoldText(boldText: StringConstants.movieProducerENG, normalText: movieDetail.producer)
+                                                           normalText: sharedFunctions.getDateFormatter(date: viewModel.movie.releaseDate))
+        movieDirectorLabel.attributedText = setBoldText(boldText: StringConstants.movieDirectorENG, normalText: viewModel.movie.director)
+        movieProducerLabel.attributedText = setBoldText(boldText: StringConstants.movieProducerENG, normalText: viewModel.movie.producer)
 
         let nib = UINib(nibName: TabCollectionViewCell.nibName, bundle: nil)
         tabsCollectionView.register(nib, forCellWithReuseIdentifier: TabCollectionViewCell.identifier)

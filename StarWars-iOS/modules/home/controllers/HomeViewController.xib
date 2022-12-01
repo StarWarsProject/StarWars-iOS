@@ -97,13 +97,23 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My9-lV-GDb">
-                            <rect key="frame" x="5" y="476.5" width="404" height="24"/>
+                            <rect key="frame" x="15" y="476.5" width="51.5" height="34.5"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="textColor" systemColor="systemBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mof-d4-B0V">
+                            <rect key="frame" x="344" y="476.5" width="55" height="34.5"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="slider.horizontal.3" catalog="system" title=" ">
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="sortMovies:" destination="-1" eventType="touchUpInside" id="0pU-pI-96G"/>
+                            </connections>
+                        </button>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="h9t-kl-oDv">
-                            <rect key="frame" x="0.0" y="505.5" width="414" height="309"/>
+                            <rect key="frame" x="0.0" y="516" width="414" height="309"/>
                             <color key="backgroundColor" name="backgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nqL-4Z-zm4">
                                 <size key="itemSize" width="128" height="128"/>
@@ -117,13 +127,15 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="h9t-kl-oDv" secondAttribute="trailing" id="11q-TO-b5G"/>
                         <constraint firstItem="7B3-C8-yc9" firstAttribute="leading" secondItem="DXt-HX-cRQ" secondAttribute="leading" constant="10" id="11t-nd-vmF"/>
+                        <constraint firstAttribute="trailing" secondItem="mof-d4-B0V" secondAttribute="trailing" constant="15" id="4Ch-mU-gtP"/>
+                        <constraint firstItem="h9t-kl-oDv" firstAttribute="top" secondItem="mof-d4-B0V" secondAttribute="bottom" constant="5" id="72Z-S3-bDh"/>
                         <constraint firstItem="h9t-kl-oDv" firstAttribute="top" secondItem="My9-lV-GDb" secondAttribute="bottom" constant="5" id="7HK-gM-Pyc"/>
                         <constraint firstAttribute="trailing" secondItem="7B3-C8-yc9" secondAttribute="trailing" constant="10" id="ABU-Sb-BWw"/>
+                        <constraint firstItem="mof-d4-B0V" firstAttribute="top" secondItem="7B3-C8-yc9" secondAttribute="bottom" constant="5" id="Ecv-62-cUT"/>
                         <constraint firstItem="h9t-kl-oDv" firstAttribute="leading" secondItem="DXt-HX-cRQ" secondAttribute="leading" id="Htc-cm-EO7"/>
                         <constraint firstItem="7B3-C8-yc9" firstAttribute="top" secondItem="DXt-HX-cRQ" secondAttribute="top" constant="5" id="LPe-uU-9t9"/>
                         <constraint firstItem="7B3-C8-yc9" firstAttribute="height" secondItem="DXt-HX-cRQ" secondAttribute="height" multiplier="0.55" id="YLa-hf-jrd"/>
-                        <constraint firstItem="My9-lV-GDb" firstAttribute="leading" secondItem="DXt-HX-cRQ" secondAttribute="leading" constant="5" id="daz-0J-hzN"/>
-                        <constraint firstAttribute="trailing" secondItem="My9-lV-GDb" secondAttribute="trailing" constant="5" id="h2y-q2-nlo"/>
+                        <constraint firstItem="My9-lV-GDb" firstAttribute="leading" secondItem="DXt-HX-cRQ" secondAttribute="leading" constant="15" id="daz-0J-hzN"/>
                         <constraint firstItem="My9-lV-GDb" firstAttribute="top" secondItem="7B3-C8-yc9" secondAttribute="bottom" constant="5" id="vVH-11-Mbt"/>
                     </constraints>
                 </view>
@@ -141,8 +153,9 @@
         </view>
     </objects>
     <resources>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <namedColor name="backgroundColor">
-            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.97999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.98000001907348633" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="imagePrevBackgroundColor">
             <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

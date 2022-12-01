@@ -11,7 +11,16 @@ class PlanetViewController: UIViewController {
 
     @IBOutlet weak var planetsTableView: UITableView!
 
-    var viewModel = MovieDetailViewModel.shared
+    var viewModel: MovieDetailViewModel
+
+    init(viewModel: MovieDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

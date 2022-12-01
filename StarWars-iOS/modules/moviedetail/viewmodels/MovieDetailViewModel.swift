@@ -8,7 +8,7 @@
 import Foundation
 
 class MovieDetailViewModel: ViewModel {
-    static let shared = MovieDetailViewModel()
+    weak var coordinator: AppCoordinator!
     var charactersList: [Character] = [] {
         didSet {
             reloadData?()
@@ -19,10 +19,10 @@ class MovieDetailViewModel: ViewModel {
             reloadData?()
         }
     }
-    var movie = Movie()
-    /*init(movie: Movie) {
+    var movie: Movie
+    init(movie: Movie) {
         self.movie = movie
-    }*/
+    }
 
     func getCharacters() {
         Task.init {

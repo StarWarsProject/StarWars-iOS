@@ -19,33 +19,23 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var filmsCollectionView: UICollectionView!
     @IBOutlet weak var releaseDateLabel: UILabel!
 
-    var selectedMovie: Movie?
-    let viewModel = HomeViewModel()
+    var viewModel: HomeViewModel
     let sharedFunctions = SharedFunctions()
+
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         SVProgressHUD.show()
-        initViewModel()
         setUpViews()
         viewModel.callMovieList()
-    }
-
-    private func initViewModel() {
-        viewModel.onSelectedMovie = { [weak self] movie in
-            guard let self = self else { return }
-            self.setSelectedMovieDetails(movie: movie)
-        }
-
-        viewModel.onFinish = { [weak self] in
-            guard let self = self else { return }
-            self.selectedMovie = self.viewModel.getMovieAtIndex(0)
-            print(self.viewModel.getMovieAtIndex(0))
-            DispatchQueue.main.sync {
-                self.filmsCollectionView.reloadData()
-            }
-            SVProgressHUD.dismiss()
-        }
     }
 
     private func setUpViews() {
@@ -59,20 +49,62 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func movieDetailsButtonAction(_ sender: Any) {
-        let movie = viewModel.getMovieAtIndex(viewModel.movieIndex)
-        let vc = MovieDetailViewController(movie: movie)
-        show(vc, sender: nil)
+        viewModel.goToDetailsPage()
     }
 
-    private func setSelectedMovieDetails(movie: Movie) {
-        DispatchQueue.main.sync {
-            movieViewBackground.isHidden = false
-            changeSelectedMovie(movie: movie)
+    @IBAction func sortMovies(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let sortReleaseAsc = UIAlertAction(title: NSLocalizedString(StringConstants.sortDateAsc,
+                                                                    comment: ""),
+                                            style: .default) { _ in
+            self.viewModel.sortMovies(field: .ReleaseDate, criteria: .Ascending)
+            actionSheet.dismiss(animated: true)
+        }
+
+        let sortReleaseDesc = UIAlertAction(title: NSLocalizedString(StringConstants.sortDateDesc,
+                                                                     comment: ""),
+                                            style: .default) { _ in
+            self.viewModel.sortMovies(field: .ReleaseDate, criteria: .Desceding)
+            actionSheet.dismiss(animated: true)
+        }
+
+        let sortCronAsc = UIAlertAction(title: NSLocalizedString(StringConstants.sortCronAsc,
+                                                                 comment: ""),
+                                         style: .default) { _ in
+            self.viewModel.sortMovies(field: .EpisodeCronId, criteria: .Ascending)
+            actionSheet.dismiss(animated: true)
+        }
+
+        let sortCronDesc = UIAlertAction(title: NSLocalizedString(StringConstants.sortCronDesc,
+                                                                  comment: ""),
+                                         style: .default) { _ in
+            self.viewModel.sortMovies(field: .EpisodeCronId, criteria: .Desceding)
+            actionSheet.dismiss(animated: true)
+        }
+
+        let cancelAction = UIAlertAction(title: NSLocalizedString(StringConstants.cancel,
+                                                                  comment: ""), style: .cancel) { _ in
+            actionSheet.dismiss(animated: true)
+        }
+
+        actionSheet.addAction(sortReleaseAsc)
+        actionSheet.addAction(sortReleaseDesc)
+        actionSheet.addAction(sortCronAsc)
+        actionSheet.addAction(sortCronDesc)
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+
+    func setSelectedMovieDetails(movie: Movie) {
+        DispatchQueue.main.async {
+            self.movieViewBackground.isHidden = false
+            self.changeSelectedMovie(movie: movie)
         }
     }
 
-    private func changeSelectedMovie(movie: Movie) {
-        selectedMovie = movie
+    func changeSelectedMovie(movie: Movie) {
+        viewModel.selectedMovie = movie
         releaseDateLabel.text = movie.releaseDate.getLocalString()
         selMovieTitleLabel.text = movie.title
         selMovieCrawlLabel.text = movie.openingCrawl

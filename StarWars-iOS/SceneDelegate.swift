@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var appCoordinator: AppCoordinator?
     static weak var shared: SceneDelegate?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -23,9 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func setupRootControllerIfNeeded() {
-        let rootViewController = createNavController(for: HomeViewController(), title: "Star Wars App", image:
-                                                        UIImage(systemName: "newspaper.fill") ?? UIImage())
-        self.window?.rootViewController = rootViewController
+        let navigationCon = UINavigationController.init()
+        appCoordinator = AppCoordinator(navigationController: navigationCon)
+        appCoordinator!.start()
+        self.window?.rootViewController = navigationCon
         self.window?.makeKeyAndVisible()
     }
 
@@ -69,10 +71,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         CoreDataManager.shared.saveContext()
     }
 
-    private func getRootViewController() -> UIViewController {
-        let navController = UINavigationController(rootViewController: HomeViewController())
-        navController.isNavigationBarHidden = true
-        return navController
-    }
+//    private func getRootViewController() -> UIViewController {
+//        let navController = UINavigationController(rootViewController: HomeViewController())
+//        navController.isNavigationBarHidden = true
+//        return navController
+//    }
 
 }

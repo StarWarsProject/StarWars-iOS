@@ -2,7 +2,7 @@
 //  Movie+CoreDataClass.swift
 //  StarWars-iOS
 //
-//  Created by Alvaro Choque on 29/11/22.
+//  Created by Alvaro Choque on 30/11/22.
 //
 //
 

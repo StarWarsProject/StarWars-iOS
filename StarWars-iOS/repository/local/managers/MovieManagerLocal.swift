@@ -29,6 +29,7 @@ class MovieManagerLocal {
             newMovie.director = film.director
             newMovie.producer = film.producer
             newMovie.openingCrawl = film.openingCrawl
+            newMovie.episodeId = Int16(film.episodeID)
             let ids = film.characters.map { char in
                 var charUrl = char
                 charUrl.removeLast()
