@@ -18,6 +18,7 @@
         <attribute name="charactersIds" optional="YES" attributeType="String"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="director" attributeType="String"/>
+        <attribute name="episodeId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="openingCrawl" attributeType="String"/>
         <attribute name="producer" attributeType="String"/>

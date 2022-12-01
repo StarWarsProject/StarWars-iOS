@@ -32,6 +32,12 @@ class HomeViewController: UIViewController {
     }
 
     private func initViewModel() {
+        viewModel.reloadData = { [weak self] in
+            DispatchQueue.main.async {
+                self?.filmsCollectionView.reloadData()
+            }
+        }
+
         viewModel.onSelectedMovie = { [weak self] movie in
             guard let self = self else { return }
             self.setSelectedMovieDetails(movie: movie)
@@ -64,10 +70,54 @@ class HomeViewController: UIViewController {
         show(vc, sender: nil)
     }
 
+    @IBAction func sortMovies(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let sortReleaseAsc = UIAlertAction(title: NSLocalizedString(StringConstants.sortDateAsc,
+                                                                    comment: ""),
+                                            style: .default) { _ in
+            self.viewModel.sortMovies(field: .ReleaseDate, criteria: .Ascending)
+            actionSheet.dismiss(animated: true)
+        }
+
+        let sortReleaseDesc = UIAlertAction(title: NSLocalizedString(StringConstants.sortDateDesc,
+                                                                     comment: ""),
+                                            style: .default) { _ in
+            self.viewModel.sortMovies(field: .ReleaseDate, criteria: .Desceding)
+            actionSheet.dismiss(animated: true)
+        }
+
+        let sortCronAsc = UIAlertAction(title: NSLocalizedString(StringConstants.sortCronAsc,
+                                                                 comment: ""),
+                                         style: .default) { _ in
+            self.viewModel.sortMovies(field: .EpisodeCronId, criteria: .Ascending)
+            actionSheet.dismiss(animated: true)
+        }
+
+        let sortCronDesc = UIAlertAction(title: NSLocalizedString(StringConstants.sortCronDesc,
+                                                                  comment: ""),
+                                         style: .default) { _ in
+            self.viewModel.sortMovies(field: .EpisodeCronId, criteria: .Desceding)
+            actionSheet.dismiss(animated: true)
+        }
+
+        let cancelAction = UIAlertAction(title: NSLocalizedString(StringConstants.cancel,
+                                                                  comment: ""), style: .cancel) { _ in
+            actionSheet.dismiss(animated: true)
+        }
+
+        actionSheet.addAction(sortReleaseAsc)
+        actionSheet.addAction(sortReleaseDesc)
+        actionSheet.addAction(sortCronAsc)
+        actionSheet.addAction(sortCronDesc)
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+
     private func setSelectedMovieDetails(movie: Movie) {
-        DispatchQueue.main.sync {
-            movieViewBackground.isHidden = false
-            changeSelectedMovie(movie: movie)
+        DispatchQueue.main.async {
+            self.movieViewBackground.isHidden = false
+            self.changeSelectedMovie(movie: movie)
         }
     }
 

@@ -2,7 +2,7 @@
 //  Movie+CoreDataProperties.swift
 //  StarWars-iOS
 //
-//  Created by Alvaro Choque on 29/11/22.
+//  Created by Alvaro Choque on 30/11/22.
 //
 //
 
@@ -15,6 +15,7 @@ extension Movie {
         return NSFetchRequest<Movie>(entityName: "Movie")
     }
 
+    @NSManaged public var charactersIds: String
     @NSManaged public var createdAt: Date
     @NSManaged public var director: String
     @NSManaged public var id: Int16
@@ -23,7 +24,7 @@ extension Movie {
     @NSManaged public var releaseDate: Date
     @NSManaged public var title: String
     @NSManaged public var updatedAt: Date
-    @NSManaged public var charactersIds: String
+    @NSManaged public var episodeId: Int16
     @NSManaged public var characters: NSSet
     @NSManaged public var planets: NSSet
     @NSManaged public var species: NSSet
@@ -36,6 +37,7 @@ extension Movie {
             $0.createdAt < $1.createdAt
         }
     }
+
 }
 
 // MARK: Generated accessors for characters
@@ -124,5 +126,4 @@ extension Movie {
 }
 
 extension Movie: Identifiable {
-
 }

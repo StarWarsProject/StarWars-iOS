@@ -7,3 +7,8 @@
 */
 "see-details" = "Ver detalles";
 "films-label" = "Películas";
+"sort-release-date-asc" = "Ordenar por fecha de estreno (Ascendente)";
+"sort-release-date-desc" = "Ordenar por fecha de estreno (Descendente)";
+"sort-cron-asc" = "Ordenar cronologicamente (Ascendente)";
+"sort-cron-desc" = "Ordenar cronologicamente (Descendente)";
+"cancel" = "Cancelar";
