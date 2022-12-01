@@ -8,6 +8,7 @@
 import Foundation
 
 class MovieDetailViewModel: ViewModel {
+    weak var coordinator: AppCoordinator!
     var charactersList: [Character] = [] {
         didSet {
             reloadData?()

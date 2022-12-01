@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
 
     var selectedMovie: Movie?
-    let viewModel = HomeViewModel()
+    var viewModel = HomeViewModel()
     let sharedFunctions = SharedFunctions()
 
     override func viewDidLoad() {
@@ -65,9 +65,10 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func movieDetailsButtonAction(_ sender: Any) {
-        let movie = viewModel.getMovieAtIndex(viewModel.movieIndex)
-        let vc = MovieDetailViewController(movie: movie)
-        show(vc, sender: nil)
+//        let movie = viewModel.getMovieAtIndex(viewModel.movieIndex)
+//        let vc = MovieDetailViewController(movie: movie)
+//        show(vc, sender: nil)
+        viewModel.goToDetailsPage()
     }
 
     @IBAction func sortMovies(_ sender: Any) {

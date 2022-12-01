@@ -31,13 +31,12 @@ class MovieManager {
 
     func getAllMoviesAsync() async throws -> [Movie] {
         do {
-            let films = try await MovieManagerNetwork.shared.getAllMoviesAsync()
-            CoreDataManager.shared.deleteAll()
-            MovieManagerLocal.shared.saveMovies(films: films)
-            let movies = MovieManagerLocal.shared.getMovies()
-            let charsUrls = films.map { film in
-                film.characters
+            if Reachability.isConnectedToNetwork() {
+                let films = try await MovieManagerNetwork.shared.getAllMoviesAsync()
+                CoreDataManager.shared.deleteAll()
+                MovieManagerLocal.shared.saveMovies(films: films)
             }
+            let movies = MovieManagerLocal.shared.getMovies()
             return movies
         } catch let error {
             let movies = MovieManagerLocal.shared.getMovies()
