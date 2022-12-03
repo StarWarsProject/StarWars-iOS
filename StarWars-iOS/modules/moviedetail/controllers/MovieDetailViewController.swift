@@ -21,13 +21,11 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var viewScrollContainer: UIView!
     @IBOutlet weak var charactersTableView: UITableView!
 
-    var movieDetail = Movie()
     let tabsList = ["Personajes", "Planetas", "Especies", "Naves", "Vehiculos"]
     var viewModel: MovieDetailViewModel
 
-    init(movie: Movie) {
-        self.movieDetail = movie
-        self.viewModel = MovieDetailViewModel(movie: movie)
+    init(viewModel: MovieDetailViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -41,7 +39,6 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        initViewModel()
         viewModel.getCharacters()
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     }
@@ -55,20 +52,6 @@ class MovieDetailViewController: UIViewController {
          imageBackground.addSubview(blurEffectView)
     }
 
-    private func initViewModel() {
-        viewModel.reloadData = { [weak self] in
-//            print(self?.viewModel.charactersList)
-            print(self?.viewModel.charactersList.count)
-            DispatchQueue.main.async {
-                self?.charactersTableView.reloadData()
-            }
-        }
-
-        viewModel.onError = { error in
-            print(error)
-        }
-    }
-
     @objc func autoScroll() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 10, delay: 1, options: UIView.AnimationOptions.curveLinear, animations: {
@@ -78,13 +61,13 @@ class MovieDetailViewController: UIViewController {
     }
 
     private func setupView() {
-        imageBackground.image = sharedFunctions.getImageForMovie(movieDetail.title)
-        movieNameLabel.text = movieDetail.title
-        movieOpeningLabel.text = movieDetail.openingCrawl
+        imageBackground.image = sharedFunctions.getImageForMovie(viewModel.movie.title)
+        movieNameLabel.text = viewModel.movie.title
+        movieOpeningLabel.text = viewModel.movie.openingCrawl
         movieReleaseDateLabel.attributedText = setBoldText(boldText: StringConstants.releaseDateENG,
-                                                           normalText: sharedFunctions.getDateFormatter(date: movieDetail.releaseDate))
-        movieDirectorLabel.attributedText = setBoldText(boldText: StringConstants.movieDirectorENG, normalText: movieDetail.director)
-        movieProducerLabel.attributedText = setBoldText(boldText: StringConstants.movieProducerENG, normalText: movieDetail.producer)
+                                                           normalText: sharedFunctions.getDateFormatter(date: viewModel.movie.releaseDate))
+        movieDirectorLabel.attributedText = setBoldText(boldText: StringConstants.movieDirectorENG, normalText: viewModel.movie.director)
+        movieProducerLabel.attributedText = setBoldText(boldText: StringConstants.movieProducerENG, normalText: viewModel.movie.producer)
 
         let nib = UINib(nibName: TabCollectionViewCell.nibName, bundle: nil)
         tabsCollectionView.register(nib, forCellWithReuseIdentifier: TabCollectionViewCell.identifier)

@@ -19,8 +19,11 @@ enum SortOptions {
 
 class HomeViewModel: ViewModel {
 
+    weak var coordinator: AppCoordinator!
+
     var onSelectedMovie: ((Movie) -> Void)?
     var movieIndex = 0
+    var selectedMovie: Movie?
 
     private var originalMovieList: [Movie] = []
     private var movieList: [Movie] = [] {
@@ -39,22 +42,11 @@ class HomeViewModel: ViewModel {
         movieList[index]
     }
 
-    func callMovieList() {
-        // MARK: Regular way
-//        MovieManager.shared.getAllMovies { result in
-//            switch result {
-//            case .success(let movies):
-//                movies.forEach { movie in
-//                    print(movie.title)
-//                }
-//                print(movies.count)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//                print("no data, no internet")
-//            }
-//        }
+    func goToDetailsPage() {
+        coordinator.goToDetailsScreen(movie: movieList[movieIndex])
+    }
 
-        // MARK: Async way
+    func callMovieList() {
         Task.init {
             do {
                 let movies = try await MovieManager.shared.getAllMoviesAsync()
