@@ -26,6 +26,7 @@ extension Movie {
     @NSManaged public var updatedAt: Date
     @NSManaged public var episodeId: Int16
     @NSManaged public var characters: NSSet
+    @NSManaged public var planetsIds: String
     @NSManaged public var planets: NSSet
     @NSManaged public var species: NSSet
     @NSManaged public var starships: NSSet
@@ -38,6 +39,12 @@ extension Movie {
         }
     }
 
+    public var planetsArray: [Planet] {
+        let set = planets as? Set<Planet> ?? []
+        return set.sorted {
+            $0.createdAt < $1.createdAt
+        }
+    }
 }
 
 // MARK: Generated accessors for characters

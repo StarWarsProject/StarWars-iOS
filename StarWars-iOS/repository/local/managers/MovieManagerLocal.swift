@@ -35,7 +35,13 @@ class MovieManagerLocal {
                 charUrl.removeLast()
                 return String(charUrl[(charUrl.index(after: charUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: charUrl)))...])
             }
+            let planetsIds = film.planets.map { char in
+                var charUrl = char
+                charUrl.removeLast()
+                return String(charUrl[(charUrl.index(after: charUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: charUrl)))...])
+            }
             newMovie.charactersIds = MovieManagerLocal.getStringFromIds(idList: ids)
+            newMovie.planetsIds = MovieManagerLocal.getStringFromIds(idList: planetsIds)
             newMovie.releaseDate = dateFormatter.date(from: film.releaseDate) ?? Date()
             newMovie.createdAt = Date()
             newMovie.updatedAt = Date()

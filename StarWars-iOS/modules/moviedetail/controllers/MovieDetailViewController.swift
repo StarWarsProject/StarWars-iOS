@@ -19,9 +19,9 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var tabsCollectionView: UICollectionView!
     @IBOutlet weak var containerScrollView: UIScrollView!
     @IBOutlet weak var viewScrollContainer: UIView!
+    @IBOutlet weak var tabsContainerView: UIView!
     @IBOutlet weak var charactersTableView: UITableView!
 
-    let tabsList = ["Personajes", "Planetas", "Especies", "Naves", "Vehiculos"]
     var viewModel: MovieDetailViewModel
 
     init(viewModel: MovieDetailViewModel) {
@@ -36,10 +36,19 @@ class MovieDetailViewController: UIViewController {
     let sharedFunctions = SharedFunctions()
     var offSet: CGFloat = 300
 
+    private lazy var charactersListVC: CharacterViewController = {
+        let vc = CharacterViewController(viewModel: viewModel)
+        return vc
+    }()
+
+    private lazy var planetsListVC: PlanetViewController = {
+        let vc = PlanetViewController(viewModel: viewModel)
+        return vc
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        viewModel.getCharacters()
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     }
 
@@ -74,13 +83,6 @@ class MovieDetailViewController: UIViewController {
         tabsCollectionView.dataSource = self
         tabsCollectionView.delegate = self
         tabsCollectionView.allowsMultipleSelection = false
-
-        // Characters Table view
-        let nibChar = UINib(nibName: CharacterTableViewCell.nibName, bundle: nil)
-        charactersTableView.register(nibChar, forCellReuseIdentifier: CharacterTableViewCell.identifier)
-        charactersTableView.delegate = self
-        charactersTableView.dataSource = self
-        charactersTableView.estimatedRowHeight = 80
     }
 
     func setBoldText(boldText: String, normalText: String) -> NSMutableAttributedString {
@@ -91,6 +93,49 @@ class MovieDetailViewController: UIViewController {
         attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: movieReleaseDateLabel.font.pointSize),
                                        range: range)
         return attributedString
+    }
+
+    // Settup Container tab control
+    private func addViewController(asChildViewController viewController: UIViewController) {
+        // Add Child View Controller
+        addChild(viewController)
+
+        // Add Child View as Subview
+        tabsContainerView.addSubview(viewController.view)
+
+        // Configure Child View
+        viewController.view.frame = tabsContainerView.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        // Notify Child View Controller
+        viewController.didMove(toParent: self)
+    }
+
+    private func remove(asChildViewController viewController: UIViewController) {
+        // Notify Child View Controller
+        viewController.willMove(toParent: nil)
+
+        // Remove Child View From Superview
+        viewController.view.removeFromSuperview()
+
+        // Notify Child View Controller
+        viewController.removeFromParent()
+    }
+
+    func tabOptionChanged(index: Int) {
+        switch index {
+
+        case 0:
+            remove(asChildViewController: planetsListVC)
+            addViewController(asChildViewController: charactersListVC)
+        case 1:
+            remove(asChildViewController: charactersListVC)
+            addViewController(asChildViewController: planetsListVC)
+        default:
+            remove(asChildViewController: planetsListVC)
+            addViewController(asChildViewController: charactersListVC)
+
+        }
     }
 }
 
@@ -109,6 +154,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        tabOptionChanged(index: indexPath.row)
         if let cell = collectionView.cellForItem(at: indexPath) as? TabCollectionViewCell {
             cell.descriptionLabel.textColor = UIColor(named: StringConstants.openingCrawlColor)
             cell.lineTabView.isHidden = false
@@ -126,26 +172,5 @@ extension MovieDetailViewController: UICollectionViewDataSource, UICollectionVie
         let width = collectionView.frame.width / 2.5
         let height = collectionView.frame.height
         return CGSize(width: width, height: height)
-    }
-}
-
-extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.charactersList.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = charactersTableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier)
-        as? CharacterTableViewCell ?? CharacterTableViewCell()
-        cell.selectionStyle = .none
-
-        let character = viewModel.charactersList[indexPath.row]
-        cell.setData(character: character)
-
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
 }
