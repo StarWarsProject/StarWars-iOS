@@ -8,13 +8,15 @@
 import Foundation
 
 struct SpecieResponse: Codable {
-    let name, classification, designation, homeworld, language: String
-    let skinColors, hairColors, eyeColors, averageLifespan: String
+    let name, classification, designation, language: String
+    let averageHeight, skinColors, hairColors, eyeColors, averageLifespan: String
     let created, edited: String
     let url: String
+    let homeworld: String?
 
     enum CodingKeys: String, CodingKey {
         case name, classification, designation, homeworld, language
+        case averageHeight = "average_height"
         case skinColors = "skin_colors"
         case hairColors = "hair_colors"
         case eyeColors = "eye_colors"

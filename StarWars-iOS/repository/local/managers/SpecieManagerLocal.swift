@@ -33,8 +33,8 @@ class SpecieManagerLocal {
     }
 
     func deleteSpeciesByMovie(movie: Movie) {
-        let charsIds = MovieManagerLocal.getIdsFromString(stringIds: movie.speciesIds)
-        charsIds.forEach { id in
+        let speIds = MovieManagerLocal.getIdsFromString(stringIds: movie.speciesIds)
+        speIds.forEach { id in
             CoreDataManager.shared.deleteEntityObjectByKeyValue(entity: .Specie, key: "id", value: id)
         }
     }
