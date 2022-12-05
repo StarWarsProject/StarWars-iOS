@@ -18,7 +18,7 @@ enum NetworkError: Error {
 class NetworkManager {
     static let shared = NetworkManager()
 
-    private let apiBaseUrl = "https://swapi.py4e.com/api/"
+    private let apiBaseUrl = "https://swapi.dev/api"
 
     func getAsyncAwait<T: Decodable>(url: String) async throws -> (Result<T, Error>) {
         let urlString = "\(apiBaseUrl)\(url)"

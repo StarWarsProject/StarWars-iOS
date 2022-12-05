@@ -67,6 +67,9 @@ class AppCoordinator: Coordinator {
                 movieDetailsViewController.charactersTableView.reloadData()
             }
         }
+        movieDetailsViewModel.onFinish = {
+            SVProgressHUD.dismiss()
+        }
         movieDetailsViewModel.onError = { error in
             print(error)
         }

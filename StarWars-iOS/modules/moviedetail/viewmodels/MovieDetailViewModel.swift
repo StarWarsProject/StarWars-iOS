@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import SVProgressHUD
 
 class MovieDetailViewModel: ViewModel {
     weak var coordinator: AppCoordinator!
+
+    var manager: DetailProtocolManager = DetaiManager.shared
+
     var charactersList: [Character] = [] {
         didSet {
             reloadData?()
@@ -21,25 +25,34 @@ class MovieDetailViewModel: ViewModel {
     }
     var movie: Movie
     init(movie: Movie) {
+        // constructor
         self.movie = movie
     }
 
     func getCharacters() {
+        SVProgressHUD.show()
         Task.init {
-            do {
-                self.charactersList = try await CharacterManager.shared.getCharactersByMovieAsync(movie: movie)
-            } catch let error {
-                onError?(error)
+            let characterResult = await manager.getCharactersByMovieAsync(idMovie: movie.id)
+            switch characterResult {
+            case .success(let characters):
+                self.charactersList = characters
+                onFinish?()
+            case .failure(let failure):
+                onError?(failure)
             }
         }
     }
 
     func getPlanets() {
+        SVProgressHUD.show()
         Task.init {
-            do {
-                self.planetsList = try await PlanetManager.shared.getPlanetsByMovieAsync(movie: movie)
-            } catch let error {
-                onError?(error)
+            let planetResult = await manager.getPlanetsByMovieAsync(idMovie: movie.id)
+            switch planetResult {
+            case .success(let planets):
+                self.planetsList = planets
+                onFinish?()
+            case .failure(let failure):
+                onError?(failure)
             }
         }
     }

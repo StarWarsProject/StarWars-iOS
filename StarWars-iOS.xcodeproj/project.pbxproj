@@ -30,6 +30,7 @@
 		93F0A4EB293A62C3009444FA /* ErrorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0A4EA293A62C3009444FA /* ErrorReusableView.swift */; };
 		93F0A4ED293A62E4009444FA /* ErrorReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F0A4EC293A62E4009444FA /* ErrorReusableView.xib */; };
 		93F0A4EF293A63D0009444FA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0A4EE293A63D0009444FA /* UIViewExtension.swift */; };
+		93FF5616293D9A31006A3691 /* EntitiesSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FF5615293D9A31006A3691 /* EntitiesSearchResult.swift */; };
 		99BDDBA322881CC674276128 /* Pods_StarWars_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BA354F9762C0C682E931BE4 /* Pods_StarWars_iOS.framework */; };
 		C261FDE82936DB6C00BE21CF /* Character+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C261FDE62936DB6C00BE21CF /* Character+CoreDataClass.swift */; };
 		C261FDE92936DB6C00BE21CF /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C261FDE72936DB6C00BE21CF /* Character+CoreDataProperties.swift */; };
@@ -37,9 +38,9 @@
 		C261FDF1293706B300BE21CF /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C261FDEF293706B300BE21CF /* CharacterTableViewCell.xib */; };
 		C26A7CD329379E910092AA62 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26A7CD129379E910092AA62 /* Movie+CoreDataClass.swift */; };
 		C26A7CD429379E910092AA62 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26A7CD229379E910092AA62 /* Movie+CoreDataProperties.swift */; };
-		C26EB30729357EDC006D4AC0 /* CharacterManagerNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EB30629357EDC006D4AC0 /* CharacterManagerNetwork.swift */; };
-		C26EB30929358608006D4AC0 /* CharacterManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EB30829358608006D4AC0 /* CharacterManagerLocal.swift */; };
-		C26EB30B29358D84006D4AC0 /* CharacterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EB30A29358D84006D4AC0 /* CharacterManager.swift */; };
+		C26EB30729357EDC006D4AC0 /* DetailManagerNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EB30629357EDC006D4AC0 /* DetailManagerNetwork.swift */; };
+		C26EB30929358608006D4AC0 /* DetailManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EB30829358608006D4AC0 /* DetailManagerLocal.swift */; };
+		C26EB30B29358D84006D4AC0 /* DetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EB30A29358D84006D4AC0 /* DetailManager.swift */; };
 		C26EB30D29358EC0006D4AC0 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EB30C29358EC0006D4AC0 /* CharacterResponse.swift */; };
 		C26EB310293599C1006D4AC0 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26EB30F293599C1006D4AC0 /* MovieDetailViewModel.swift */; };
 		C27E44D1292FAFA9009A3101 /* Starship+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */; };
@@ -68,10 +69,7 @@
 		CE90DE4F29380CC600853B36 /* PlanetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE90DE4D29380CC600853B36 /* PlanetViewController.xib */; };
 		CE90DE5229380DB600853B36 /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE5029380DB600853B36 /* PlanetTableViewCell.swift */; };
 		CE90DE5329380DB600853B36 /* PlanetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE90DE5129380DB600853B36 /* PlanetTableViewCell.xib */; };
-		CE90DE552938108E00853B36 /* PlanetManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE542938108E00853B36 /* PlanetManagerLocal.swift */; };
 		CE90DE57293810FF00853B36 /* PlanetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE56293810FF00853B36 /* PlanetResponse.swift */; };
-		CE90DE592938124600853B36 /* PlanetManagerNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE582938124600853B36 /* PlanetManagerNetwork.swift */; };
-		CE90DE5B293812B500853B36 /* PlanetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE5A293812B500853B36 /* PlanetManager.swift */; };
 		CEB8FAD02935AA84002B08DC /* SharedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8FACF2935AA84002B08DC /* SharedFunctions.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,15 +117,16 @@
 		93F0A4EA293A62C3009444FA /* ErrorReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReusableView.swift; sourceTree = "<group>"; };
 		93F0A4EC293A62E4009444FA /* ErrorReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorReusableView.xib; sourceTree = "<group>"; };
 		93F0A4EE293A63D0009444FA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		93FF5615293D9A31006A3691 /* EntitiesSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesSearchResult.swift; sourceTree = "<group>"; };
 		C261FDE62936DB6C00BE21CF /* Character+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C261FDE72936DB6C00BE21CF /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C261FDEE293706B300BE21CF /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		C261FDEF293706B300BE21CF /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		C26A7CD129379E910092AA62 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C26A7CD229379E910092AA62 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C26EB30629357EDC006D4AC0 /* CharacterManagerNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManagerNetwork.swift; sourceTree = "<group>"; };
-		C26EB30829358608006D4AC0 /* CharacterManagerLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManagerLocal.swift; sourceTree = "<group>"; };
-		C26EB30A29358D84006D4AC0 /* CharacterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterManager.swift; sourceTree = "<group>"; };
+		C26EB30629357EDC006D4AC0 /* DetailManagerNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailManagerNetwork.swift; sourceTree = "<group>"; };
+		C26EB30829358608006D4AC0 /* DetailManagerLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailManagerLocal.swift; sourceTree = "<group>"; };
+		C26EB30A29358D84006D4AC0 /* DetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailManager.swift; sourceTree = "<group>"; };
 		C26EB30C29358EC0006D4AC0 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
 		C26EB30F293599C1006D4AC0 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Starship+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -156,10 +155,7 @@
 		CE90DE4D29380CC600853B36 /* PlanetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetViewController.xib; sourceTree = "<group>"; };
 		CE90DE5029380DB600853B36 /* PlanetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCell.swift; sourceTree = "<group>"; };
 		CE90DE5129380DB600853B36 /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
-		CE90DE542938108E00853B36 /* PlanetManagerLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetManagerLocal.swift; sourceTree = "<group>"; };
 		CE90DE56293810FF00853B36 /* PlanetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetResponse.swift; sourceTree = "<group>"; };
-		CE90DE582938124600853B36 /* PlanetManagerNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetManagerNetwork.swift; sourceTree = "<group>"; };
-		CE90DE5A293812B500853B36 /* PlanetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetManager.swift; sourceTree = "<group>"; };
 		CEB8FACF2935AA84002B08DC /* SharedFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,8 +327,7 @@
 			children = (
 				C2C2B114292ED15500C12EE8 /* NetworkManager.swift */,
 				C2C2B116292ED20100C12EE8 /* MovieManagerNetwork.swift */,
-				C26EB30629357EDC006D4AC0 /* CharacterManagerNetwork.swift */,
-				CE90DE582938124600853B36 /* PlanetManagerNetwork.swift */,
+				C26EB30629357EDC006D4AC0 /* DetailManagerNetwork.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -352,6 +347,7 @@
 				C27E44C5292FAFA9009A3101 /* Starship+CoreDataProperties.swift */,
 				C27E44C7292FAFA9009A3101 /* Vehicle+CoreDataClass.swift */,
 				C27E44C9292FAFA9009A3101 /* Vehicle+CoreDataProperties.swift */,
+				93FF5615293D9A31006A3691 /* EntitiesSearchResult.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -361,8 +357,7 @@
 			children = (
 				C2C2B0FA292EC95900C12EE8 /* CoreDataManager.swift */,
 				C2C2B11A292EDB9500C12EE8 /* MovieManagerLocal.swift */,
-				C26EB30829358608006D4AC0 /* CharacterManagerLocal.swift */,
-				CE90DE542938108E00853B36 /* PlanetManagerLocal.swift */,
+				C26EB30829358608006D4AC0 /* DetailManagerLocal.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -420,8 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				C2C2B11D292EE0BD00C12EE8 /* MovieManager.swift */,
-				C26EB30A29358D84006D4AC0 /* CharacterManager.swift */,
-				CE90DE5A293812B500853B36 /* PlanetManager.swift */,
+				C26EB30A29358D84006D4AC0 /* DetailManager.swift */,
 			);
 			path = sync;
 			sourceTree = "<group>";
@@ -693,18 +687,17 @@
 				CE90DE57293810FF00853B36 /* PlanetResponse.swift in Sources */,
 				846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */,
 				93D1AA752931181300DC9DA6 /* ViewModel.swift in Sources */,
-				CE90DE5B293812B500853B36 /* PlanetManager.swift in Sources */,
-				C26EB30929358608006D4AC0 /* CharacterManagerLocal.swift in Sources */,
+				C26EB30929358608006D4AC0 /* DetailManagerLocal.swift in Sources */,
 				C2DBA5052938504D0003116D /* AppCoordinator.swift in Sources */,
 				846D3076292CF938006FC25F /* ViewController.swift in Sources */,
+				93FF5616293D9A31006A3691 /* EntitiesSearchResult.swift in Sources */,
 				C2C2B115292ED15500C12EE8 /* NetworkManager.swift in Sources */,
 				C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */,
 				CE90DE4829380B3900853B36 /* CharacterViewController.swift in Sources */,
 				C27E44DA292FAFA9009A3101 /* Starship+CoreDataClass.swift in Sources */,
-				C26EB30729357EDC006D4AC0 /* CharacterManagerNetwork.swift in Sources */,
+				C26EB30729357EDC006D4AC0 /* DetailManagerNetwork.swift in Sources */,
 				CE90DE5229380DB600853B36 /* PlanetTableViewCell.swift in Sources */,
 				C26EB30D29358EC0006D4AC0 /* CharacterResponse.swift in Sources */,
-				CE90DE552938108E00853B36 /* PlanetManagerLocal.swift in Sources */,
 				846D3072292CF938006FC25F /* AppDelegate.swift in Sources */,
 				C27E44D8292FAFA9009A3101 /* Specie+CoreDataProperties.swift in Sources */,
 				C27E44D2292FAFA9009A3101 /* Planet+CoreDataProperties.swift in Sources */,
@@ -714,7 +707,7 @@
 				93D1AA72293116A500DC9DA6 /* StringConstants.swift in Sources */,
 				93CAE1AE293A907A006E14E4 /* NibWrapperView.swift in Sources */,
 				C261FDE82936DB6C00BE21CF /* Character+CoreDataClass.swift in Sources */,
-				C26EB30B29358D84006D4AC0 /* CharacterManager.swift in Sources */,
+				C26EB30B29358D84006D4AC0 /* DetailManager.swift in Sources */,
 				93CAE1B0293A9276006E14E4 /* NibWrapped.swift in Sources */,
 				C26EB310293599C1006D4AC0 /* MovieDetailViewModel.swift in Sources */,
 				CE8FECD529350DCB00132D0C /* MovieDetailViewController.swift in Sources */,
@@ -725,7 +718,6 @@
 				C27E44DB292FAFA9009A3101 /* Planet+CoreDataClass.swift in Sources */,
 				93D1AA7929311CB900DC9DA6 /* MovieCollectionViewCell.swift in Sources */,
 				C2C2B119292ED20B00C12EE8 /* MoviesList.swift in Sources */,
-				CE90DE592938124600853B36 /* PlanetManagerNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

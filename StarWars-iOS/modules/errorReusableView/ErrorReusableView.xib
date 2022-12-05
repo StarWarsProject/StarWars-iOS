@@ -23,12 +23,17 @@
                             <rect key="frame" x="171.66666666666666" y="1" width="19.666666666666657" height="83.666666666666671"/>
                             <color key="tintColor" name="openingCrawlTextColor"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohv-eh-SOg">
-                            <rect key="frame" x="161" y="85" width="41.333333333333343" height="85"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohv-eh-SOg">
+                            <rect key="frame" x="0.0" y="85" width="363" height="85"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="Ohv-eh-SOg" firstAttribute="leading" secondItem="HWf-6a-HN0" secondAttribute="leading" id="3Ak-Lv-c32"/>
+                        <constraint firstAttribute="bottom" secondItem="Ohv-eh-SOg" secondAttribute="bottom" id="3Tf-Yf-Oyk"/>
+                        <constraint firstAttribute="trailing" secondItem="Ohv-eh-SOg" secondAttribute="trailing" id="rYJ-bx-DCV"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
