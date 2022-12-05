@@ -68,22 +68,16 @@ class MovieDetailViewModel: ViewModel {
         }
     }
 
-    func getSpecies() {
-        Task.init {
-            do {
-                self.speciesList = try await SpecieManager.shared.getSpeciesByMovieAsync(movie: movie)
-            } catch let error {
-                onError?(error.localizedDescription)
-            }
-        }
-    }
-
     func getVehicles() {
+        SVProgressHUD.show()
         Task.init {
-            do {
-                self.vehiclesList = try await VehicleManager.shared.getVehiclesByMovieAsync(movie: movie)
-            } catch let error {
-                onError?(error.localizedDescription)
+            let vehicleResult = await manager.getVehiclesByMovieAsync(idMovie: movie.id)
+            switch vehicleResult {
+            case .success(let vehicles):
+                self.vehiclesList = vehicles
+                onFinish?()
+            case .failure(let failure):
+                onError?(failure)
             }
         }
     }

@@ -71,9 +71,6 @@
 		CE90DE5329380DB600853B36 /* PlanetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE90DE5129380DB600853B36 /* PlanetTableViewCell.xib */; };
 		CE90DE57293810FF00853B36 /* PlanetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90DE56293810FF00853B36 /* PlanetResponse.swift */; };
 		CE94075A293E41160034B37E /* VehiclesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940759293E41160034B37E /* VehiclesResponse.swift */; };
-		CE94075C293E42A30034B37E /* VehicleManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94075B293E42A30034B37E /* VehicleManagerLocal.swift */; };
-		CE94075E293E462E0034B37E /* VehicleManagerNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94075D293E462E0034B37E /* VehicleManagerNetwork.swift */; };
-		CE940760293E46840034B37E /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94075F293E46840034B37E /* VehicleManager.swift */; };
 		CE940764293E47F30034B37E /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940762293E47F30034B37E /* VehicleViewController.swift */; };
 		CE940765293E47F30034B37E /* VehicleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE940763293E47F30034B37E /* VehicleViewController.xib */; };
 		CE940768293E48BD0034B37E /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940766293E48BD0034B37E /* VehicleTableViewCell.swift */; };
@@ -83,10 +80,7 @@
 		CEE5BFA7293A48EC00BBC798 /* SpecieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE5BFA5293A48EC00BBC798 /* SpecieTableViewCell.xib */; };
 		CEE5BFAA293A4C0900BBC798 /* SpecieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFA8293A4C0900BBC798 /* SpecieViewController.swift */; };
 		CEE5BFAB293A4C0900BBC798 /* SpecieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE5BFA9293A4C0900BBC798 /* SpecieViewController.xib */; };
-		CEE5BFAD293A4D3000BBC798 /* SpecieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFAC293A4D3000BBC798 /* SpecieManager.swift */; };
-		CEE5BFAF293A4E2B00BBC798 /* SpecieManagerNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFAE293A4E2B00BBC798 /* SpecieManagerNetwork.swift */; };
 		CEE5BFB1293A4EDF00BBC798 /* SpecieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFB0293A4EDF00BBC798 /* SpecieResponse.swift */; };
-		CEE5BFB3293A50ED00BBC798 /* SpecieManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFB2293A50ED00BBC798 /* SpecieManagerLocal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,9 +167,6 @@
 		CE90DE5129380DB600853B36 /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
 		CE90DE56293810FF00853B36 /* PlanetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetResponse.swift; sourceTree = "<group>"; };
 		CE940759293E41160034B37E /* VehiclesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesResponse.swift; sourceTree = "<group>"; };
-		CE94075B293E42A30034B37E /* VehicleManagerLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManagerLocal.swift; sourceTree = "<group>"; };
-		CE94075D293E462E0034B37E /* VehicleManagerNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManagerNetwork.swift; sourceTree = "<group>"; };
-		CE94075F293E46840034B37E /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
 		CE940762293E47F30034B37E /* VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 		CE940763293E47F30034B37E /* VehicleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleViewController.xib; sourceTree = "<group>"; };
 		CE940766293E48BD0034B37E /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
@@ -185,10 +176,7 @@
 		CEE5BFA5293A48EC00BBC798 /* SpecieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecieTableViewCell.xib; sourceTree = "<group>"; };
 		CEE5BFA8293A4C0900BBC798 /* SpecieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieViewController.swift; sourceTree = "<group>"; };
 		CEE5BFA9293A4C0900BBC798 /* SpecieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecieViewController.xib; sourceTree = "<group>"; };
-		CEE5BFAC293A4D3000BBC798 /* SpecieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieManager.swift; sourceTree = "<group>"; };
-		CEE5BFAE293A4E2B00BBC798 /* SpecieManagerNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieManagerNetwork.swift; sourceTree = "<group>"; };
 		CEE5BFB0293A4EDF00BBC798 /* SpecieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieResponse.swift; sourceTree = "<group>"; };
-		CEE5BFB2293A50ED00BBC798 /* SpecieManagerLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieManagerLocal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,8 +349,6 @@
 			children = (
 				C2C2B114292ED15500C12EE8 /* NetworkManager.swift */,
 				C2C2B116292ED20100C12EE8 /* MovieManagerNetwork.swift */,
-				CEE5BFAE293A4E2B00BBC798 /* SpecieManagerNetwork.swift */,
-				CE94075D293E462E0034B37E /* VehicleManagerNetwork.swift */,
 				C26EB30629357EDC006D4AC0 /* DetailManagerNetwork.swift */,
 			);
 			path = managers;
@@ -393,8 +379,6 @@
 			children = (
 				C2C2B0FA292EC95900C12EE8 /* CoreDataManager.swift */,
 				C2C2B11A292EDB9500C12EE8 /* MovieManagerLocal.swift */,
-				CEE5BFB2293A50ED00BBC798 /* SpecieManagerLocal.swift */,
-				CE94075B293E42A30034B37E /* VehicleManagerLocal.swift */,
 				C26EB30829358608006D4AC0 /* DetailManagerLocal.swift */,
 			);
 			path = managers;
@@ -453,8 +437,6 @@
 			isa = PBXGroup;
 			children = (
 				C2C2B11D292EE0BD00C12EE8 /* MovieManager.swift */,
-				CEE5BFAC293A4D3000BBC798 /* SpecieManager.swift */,
-				CE94075F293E46840034B37E /* VehicleManager.swift */,
 				C26EB30A29358D84006D4AC0 /* DetailManager.swift */,
 			);
 			path = sync;
@@ -740,7 +722,6 @@
 			files = (
 				93D1AA7C29316C6700DC9DA6 /* DateExtension.swift in Sources */,
 				CE94075A293E41160034B37E /* VehiclesResponse.swift in Sources */,
-				CE94075E293E462E0034B37E /* VehicleManagerNetwork.swift in Sources */,
 				C26A7CD429379E910092AA62 /* Movie+CoreDataProperties.swift in Sources */,
 				C2C2B11B292EDB9500C12EE8 /* MovieManagerLocal.swift in Sources */,
 				CEB8FAD02935AA84002B08DC /* SharedFunctions.swift in Sources */,
@@ -752,13 +733,11 @@
 				CEE5BFA6293A48EC00BBC798 /* SpecieTableViewCell.swift in Sources */,
 				846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */,
 				C261FDE92936DB6C00BE21CF /* Character+CoreDataProperties.swift in Sources */,
-				CE94075C293E42A30034B37E /* VehicleManagerLocal.swift in Sources */,
 				93F0A4EB293A62C3009444FA /* ErrorReusableView.swift in Sources */,
 				C27E44D4292FAFA9009A3101 /* Specie+CoreDataClass.swift in Sources */,
 				C2C2B0FB292EC95900C12EE8 /* CoreDataManager.swift in Sources */,
 				CE90DE57293810FF00853B36 /* PlanetResponse.swift in Sources */,
 				846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */,
-				CE940760293E46840034B37E /* VehicleManager.swift in Sources */,
 				CE940764293E47F30034B37E /* VehicleViewController.swift in Sources */,
 				93D1AA752931181300DC9DA6 /* ViewModel.swift in Sources */,
 				C26EB30929358608006D4AC0 /* DetailManagerLocal.swift in Sources */,
@@ -766,9 +745,6 @@
 				846D3076292CF938006FC25F /* ViewController.swift in Sources */,
 				93FF5616293D9A31006A3691 /* EntitiesSearchResult.swift in Sources */,
 				C2C2B115292ED15500C12EE8 /* NetworkManager.swift in Sources */,
-				CEE5BFAF293A4E2B00BBC798 /* SpecieManagerNetwork.swift in Sources */,
-				CEE5BFB3293A50ED00BBC798 /* SpecieManagerLocal.swift in Sources */,
-				CEE5BFAD293A4D3000BBC798 /* SpecieManager.swift in Sources */,
 				C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */,
 				CE90DE4829380B3900853B36 /* CharacterViewController.swift in Sources */,
 				C27E44DA292FAFA9009A3101 /* Starship+CoreDataClass.swift in Sources */,
