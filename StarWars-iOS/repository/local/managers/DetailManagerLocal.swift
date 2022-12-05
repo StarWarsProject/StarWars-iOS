@@ -73,6 +73,34 @@ class DetailManagerLocal {
         coreDataManager.saveContext()
     }
 
+    func saveAllSpeciesByMovie(speciesList: [SpecieResponse], movie: Movie) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        speciesList.forEach { specie in
+            let newSpecie = Specie(context: CoreDataManager.shared.getContext())
+            newSpecie.name = specie.name
+            newSpecie.createdAt = Date()
+            newSpecie.desc = ""
+            newSpecie.classification = specie.classification
+            newSpecie.language = specie.language
+            newSpecie.planet = ""
+            var idSpe = specie.url
+            idSpe.removeLast()
+            newSpecie.id = Int16(String(idSpe[(idSpe.index(after: idSpe.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idSpe)))...])) ?? 0
+            newSpecie.image = ""
+            newSpecie.updatedAt = Date()
+            newSpecie.addToMovies(movie)
+            coreDataManager.saveContext()
+        }
+    }
+
+    func syncSpeciesWithMovie(species: [Specie], movie: Movie) {
+        for specie in species {
+            specie.addToMovies(movie)
+        }
+        coreDataManager.saveContext()
+    }
+
     func deleteCharactersByMovie(movie: Movie) {
         let charsIds = MovieManagerLocal.getIdsFromString(stringIds: movie.charactersIds)
         charsIds.forEach { id in

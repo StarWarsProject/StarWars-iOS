@@ -75,10 +75,7 @@
 		CEE5BFA7293A48EC00BBC798 /* SpecieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE5BFA5293A48EC00BBC798 /* SpecieTableViewCell.xib */; };
 		CEE5BFAA293A4C0900BBC798 /* SpecieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFA8293A4C0900BBC798 /* SpecieViewController.swift */; };
 		CEE5BFAB293A4C0900BBC798 /* SpecieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE5BFA9293A4C0900BBC798 /* SpecieViewController.xib */; };
-		CEE5BFAD293A4D3000BBC798 /* SpecieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFAC293A4D3000BBC798 /* SpecieManager.swift */; };
-		CEE5BFAF293A4E2B00BBC798 /* SpecieManagerNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFAE293A4E2B00BBC798 /* SpecieManagerNetwork.swift */; };
 		CEE5BFB1293A4EDF00BBC798 /* SpecieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFB0293A4EDF00BBC798 /* SpecieResponse.swift */; };
-		CEE5BFB3293A50ED00BBC798 /* SpecieManagerLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE5BFB2293A50ED00BBC798 /* SpecieManagerLocal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +220,7 @@
 				846D306F292CF938006FC25F /* Products */,
 				4A4E6F4545E19E0B1D44B672 /* Pods */,
 				7D668F33AD2D49F35DF50499 /* Frameworks */,
+				93D1F810293E984600F3607B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,6 +407,16 @@
 				93D1AA7829311CB900DC9DA6 /* MovieCollectionViewCell.xib */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		93D1F810293E984600F3607B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				CEE5BFAE293A4E2B00BBC798 /* SpecieManagerNetwork.swift */,
+				CEE5BFB2293A50ED00BBC798 /* SpecieManagerLocal.swift */,
+				CEE5BFAC293A4D3000BBC798 /* SpecieManager.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		93F0A4E9293A6256009444FA /* errorReusableView */ = {
@@ -724,9 +732,6 @@
 				846D3076292CF938006FC25F /* ViewController.swift in Sources */,
 				93FF5616293D9A31006A3691 /* EntitiesSearchResult.swift in Sources */,
 				C2C2B115292ED15500C12EE8 /* NetworkManager.swift in Sources */,
-				CEE5BFAF293A4E2B00BBC798 /* SpecieManagerNetwork.swift in Sources */,
-				CEE5BFB3293A50ED00BBC798 /* SpecieManagerLocal.swift in Sources */,
-				CEE5BFAD293A4D3000BBC798 /* SpecieManager.swift in Sources */,
 				C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */,
 				CE90DE4829380B3900853B36 /* CharacterViewController.swift in Sources */,
 				C27E44DA292FAFA9009A3101 /* Starship+CoreDataClass.swift in Sources */,
