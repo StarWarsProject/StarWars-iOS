@@ -111,7 +111,7 @@ class HomeViewController: UIViewController {
         releaseDateLabel.text = movie.releaseDate.getLocalString()
         selMovieTitleLabel.text = movie.title
         selMovieCrawlLabel.text = movie.openingCrawl
-        selMovieImage.image = sharedFunctions.getImageForMovie(movie.title)
+        selMovieImage.image = SharedFunctions.getImageForMovie(movie.title)
     }
 
     func setLabelForError(error: String) {
@@ -139,7 +139,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let identifier = MovieCollectionViewCell.identifier
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? MovieCollectionViewCell
         guard let movieCell = cell else { return UICollectionViewCell() }
-        movieCell.setValues(movie: movie, image: sharedFunctions.getImageForMovie(movie.title))
+        movieCell.setValues(movie: movie, image: SharedFunctions.getImageForMovie(movie.title))
         return movieCell
     }
 

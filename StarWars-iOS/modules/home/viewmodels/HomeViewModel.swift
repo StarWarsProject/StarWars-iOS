@@ -21,6 +21,12 @@ class HomeViewModel: ViewModel {
 
     weak var coordinator: AppCoordinator!
 
+    let manager: MovieManagerProtocol
+
+    init(manager: MovieManagerProtocol) {
+        self.manager = manager
+    }
+
     var onSelectedMovie: ((Movie) -> Void)?
     var movieIndex = 0
     var selectedMovie: Movie?
@@ -48,7 +54,7 @@ class HomeViewModel: ViewModel {
 
     func callMovieList() {
         Task.init {
-            let moviesResult = await MovieManager.shared.getAllMoviesAsync()
+            let moviesResult = await manager.getAllMoviesAsync()
             switch moviesResult {
             case .success(let movies):
                 movieList = movies

@@ -29,7 +29,8 @@ class AppCoordinator: Coordinator {
     }
 
     func goToHomeScreen() {
-        let homeViewModel = HomeViewModel.init()
+        let manager = MovieManager.shared
+        let homeViewModel = HomeViewModel.init(manager: manager)
         let homeViewController = HomeViewController(viewModel: homeViewModel)
         homeViewModel.coordinator = self
         homeViewModel.reloadData = {
@@ -58,7 +59,8 @@ class AppCoordinator: Coordinator {
     }
 
     func goToDetailsScreen(movie: Movie) {
-        let movieDetailsViewModel = MovieDetailViewModel.init(movie: movie)
+        let manager = DetaiManager.shared
+        let movieDetailsViewModel = MovieDetailViewModel.init(movie: movie, manager: manager)
         let movieDetailsViewController = MovieDetailViewController(viewModel: movieDetailsViewModel)
         movieDetailsViewModel.coordinator = self
         movieDetailsViewModel.reloadData = {

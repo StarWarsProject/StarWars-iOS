@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class SharedFunctions {
-    func getImageForMovie(_ movieTitle: String) -> UIImage? {
+struct SharedFunctions {
+    static func getImageForMovie(_ movieTitle: String) -> UIImage? {
         switch movieTitle {
         case "A New Hope":
             return UIImage(named: StringConstants.newHope)
@@ -28,7 +28,7 @@ class SharedFunctions {
         }
     }
 
-    func getDateFormatter(date: Date) -> String {
+    static func getDateFormatter(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         return dateFormatter.string(from: date)

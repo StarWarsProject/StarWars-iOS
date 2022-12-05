@@ -11,7 +11,13 @@ import SVProgressHUD
 class MovieDetailViewModel: ViewModel {
     weak var coordinator: AppCoordinator!
 
-    var manager: DetailProtocolManager = DetaiManager.shared
+    let manager: DetailProtocolManager
+    let movie: Movie
+
+    init(movie: Movie, manager: DetailProtocolManager) {
+        self.movie = movie
+        self.manager = manager
+    }
 
     var charactersList: [Character] = [] {
         didSet {
@@ -22,11 +28,6 @@ class MovieDetailViewModel: ViewModel {
         didSet {
             reloadData?()
         }
-    }
-    var movie: Movie
-    init(movie: Movie) {
-        // constructor
-        self.movie = movie
     }
 
     func getCharacters() {
