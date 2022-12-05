@@ -11,8 +11,8 @@ class PlanetManager {
     static let shared = PlanetManager()
     func getPlanetsByMovieAsync(movie: Movie) async throws -> [Planet] {
         do {
-            let charsIds = MovieManagerLocal.getIdsFromString(stringIds: movie.planetsIds)
-            let planets = try await PlanetManagerNetwork.shared.getAllPlanetsByMovieAsync(planetsIdsList: charsIds)
+            let platIds = MovieManagerLocal.getIdsFromString(stringIds: movie.planetsIds)
+            let planets = try await PlanetManagerNetwork.shared.getAllPlanetsByMovieAsync(planetsIdsList: platIds)
             PlanetManagerLocal.shared.deletePlanetsByMovie(movie: movie)
             PlanetManagerLocal.shared.saveAllPlanetsByMovie(planetsList: planets, movie: movie)
             return movie.planetsArray
