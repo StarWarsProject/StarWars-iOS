@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,7 +66,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="whiteGradientColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pEh-ef-58i" secondAttribute="bottom" constant="5" id="DA5-8r-KpE"/>
                             <constraint firstItem="pEh-ef-58i" firstAttribute="top" secondItem="wiG-5R-Q0K" secondAttribute="top" constant="5" id="QyB-gA-yyv"/>
@@ -95,9 +94,4 @@
             <point key="canvasLocation" x="132" y="-11"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="whiteGradientColor">
-            <color red="1" green="1" blue="1" alpha="0.28999999165534973" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>
