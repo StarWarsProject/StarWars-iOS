@@ -76,7 +76,7 @@ class DetaiManager: DetailProtocolManager {
                 }
             }
             localDataManager.syncPlanetsWithMovie(planets: planetsByIDResult.entities, movie: safeMovie)
-            if safeMovie.charactersArray.isEmpty {
+            if safeMovie.planetsArray.isEmpty {
                 return .failure(DetailManagerError.NoPlanetsAvailable)
             }
             return .success(safeMovie.planetsArray)
@@ -105,7 +105,7 @@ class DetaiManager: DetailProtocolManager {
                 }
             }
             localDataManager.syncSpeciesWithMovie(species: speciesByIDResult.entities, movie: safeMovie)
-            if safeMovie.charactersArray.isEmpty {
+            if safeMovie.speciesArray.isEmpty {
                 return .failure(DetailManagerError.NoPlanetsAvailable)
             }
             return .success(safeMovie.speciesArray)
