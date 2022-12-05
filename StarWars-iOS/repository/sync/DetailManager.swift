@@ -83,7 +83,7 @@ class DetaiManager: DetailProtocolManager {
             return .success(safeMovie.planetsArray)
         }
     }
-    
+
     func getVehiclesByMovieAsync(idMovie: Int16) async -> Result<[Vehicle], Error> {
         let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
         guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }

@@ -79,7 +79,7 @@ class DetailManagerLocal {
             coreDataManager.deleteEntityObjectByKeyValue(entity: .Character, key: "id", value: id)
         }
     }
-    
+
     func saveAllVehiclesByMovie(vehiclesList: [VehicleResponse], movie: Movie) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -104,7 +104,7 @@ class DetailManagerLocal {
             coreDataManager.saveContext()
         }
     }
-    
+
     func syncVehiclesWithMovie(vehicles: [Vehicle], movie: Movie) {
         for vehicle in vehicles {
             vehicle.addToMovies(movie)
