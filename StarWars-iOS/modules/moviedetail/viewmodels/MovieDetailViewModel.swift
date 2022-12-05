@@ -24,6 +24,11 @@ class MovieDetailViewModel: ViewModel {
             reloadData?()
         }
     }
+    var vehiclesList: [Vehicle] = [] {
+        didSet {
+            reloadData?()
+        }
+    }
     var movie: Movie
     init(movie: Movie) {
         self.movie = movie
@@ -53,6 +58,16 @@ class MovieDetailViewModel: ViewModel {
         Task.init {
             do {
                 self.speciesList = try await SpecieManager.shared.getSpeciesByMovieAsync(movie: movie)
+            } catch let error {
+                onError?(error.localizedDescription)
+            }
+        }
+    }
+
+    func getVehicles() {
+        Task.init {
+            do {
+                self.vehiclesList = try await VehicleManager.shared.getVehiclesByMovieAsync(movie: movie)
             } catch let error {
                 onError?(error.localizedDescription)
             }

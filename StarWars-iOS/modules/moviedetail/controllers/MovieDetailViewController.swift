@@ -51,6 +51,11 @@ class MovieDetailViewController: UIViewController {
         return vc
     }()
 
+    private lazy var vehiclesListVC: VehicleViewController = {
+        let vc = VehicleViewController(viewModel: viewModel)
+        return vc
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -133,18 +138,27 @@ class MovieDetailViewController: UIViewController {
         case 0:
             remove(asChildViewController: planetsListVC)
             remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: vehiclesListVC)
             addViewController(asChildViewController: charactersListVC)
         case 1:
             remove(asChildViewController: charactersListVC)
             remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: vehiclesListVC)
             addViewController(asChildViewController: planetsListVC)
         case 2:
             remove(asChildViewController: charactersListVC)
             remove(asChildViewController: planetsListVC)
+            remove(asChildViewController: vehiclesListVC)
             addViewController(asChildViewController: speciesListVC)
+        case 4:
+            remove(asChildViewController: charactersListVC)
+            remove(asChildViewController: planetsListVC)
+            remove(asChildViewController: speciesListVC)
+            addViewController(asChildViewController: vehiclesListVC)
         default:
             remove(asChildViewController: planetsListVC)
             remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: vehiclesListVC)
             addViewController(asChildViewController: charactersListVC)
 
         }

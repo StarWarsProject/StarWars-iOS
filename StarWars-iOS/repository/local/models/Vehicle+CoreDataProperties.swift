@@ -29,6 +29,12 @@ extension Vehicle {
     @NSManaged public var updatedAt: Date
     @NSManaged public var movies: NSSet
 
+    public var moviesArray: [Movie] {
+        let set = movies as? Set<Movie> ?? []
+        return set.sorted {
+            $0.createdAt < $1.createdAt
+        }
+    }
 }
 
 // MARK: Generated accessors for movies
