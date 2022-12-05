@@ -29,7 +29,7 @@ class MovieDetailViewModel: ViewModel {
             do {
                 self.charactersList = try await CharacterManager.shared.getCharactersByMovieAsync(movie: movie)
             } catch let error {
-                onError?(error.localizedDescription)
+                onError?(error)
             }
         }
     }
@@ -39,7 +39,7 @@ class MovieDetailViewModel: ViewModel {
             do {
                 self.planetsList = try await PlanetManager.shared.getPlanetsByMovieAsync(movie: movie)
             } catch let error {
-                onError?(error.localizedDescription)
+                onError?(error)
             }
         }
     }

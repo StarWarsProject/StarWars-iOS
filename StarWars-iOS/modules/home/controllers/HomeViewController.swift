@@ -19,6 +19,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var filmsCollectionView: UICollectionView!
     @IBOutlet weak var releaseDateLabel: UILabel!
 
+    @NibWrapped(ErrorReusableView.self)
+    @IBOutlet var errorMessageView: UIView!
+
     var viewModel: HomeViewModel
     let sharedFunctions = SharedFunctions()
 
@@ -109,6 +112,19 @@ class HomeViewController: UIViewController {
         selMovieTitleLabel.text = movie.title
         selMovieCrawlLabel.text = movie.openingCrawl
         selMovieImage.image = sharedFunctions.getImageForMovie(movie.title)
+    }
+
+    func setLabelForError(error: String) {
+        DispatchQueue.main.sync {
+            errorMessageView.isHidden = false
+            _errorMessageView.unwrapped.setLabel(error)
+        }
+    }
+
+    func hideErrorView() {
+        DispatchQueue.main.sync {
+            _errorMessageView.unwrapped.isHidden = true
+        }
     }
 }
 

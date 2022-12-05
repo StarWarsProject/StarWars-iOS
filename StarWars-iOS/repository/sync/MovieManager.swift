@@ -7,44 +7,36 @@
 
 import Foundation
 
-class MovieManager {
+enum MovieManagerError: Error {
+case NoDataAvailable
+}
+
+protocol MovieManagerProtocol {
+    func getAllMoviesAsync() async -> Result<[Movie], Error>
+}
+
+class MovieManager: MovieManagerProtocol {
     static let shared = MovieManager()
+    private let networkManager = MovieManagerNetwork.shared
+    private let coreDataManager = CoreDataManager.shared
+    private let localDataManager = MovieManagerLocal.shared
 
-    func getAllMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
-        MovieManagerNetwork.shared.getAllMovies { result in
-            switch result {
+    func getAllMoviesAsync() async -> Result<[Movie], Error> {
+
+        if Reachability.isConnectedToNetwork() {
+            let films = await networkManager.getAllMoviesAsync()
+            switch films {
             case .success(let films):
-                CoreDataManager.shared.deleteAll()
-                MovieManagerLocal.shared.saveMovies(films: films)
-                let localDbMovies = MovieManagerLocal.shared.getMovies()
-                completion(.success(localDbMovies))
-            case .failure(let error):
-                let localDbMovies = MovieManagerLocal.shared.getMovies()
-                if localDbMovies.isEmpty {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(localDbMovies))
-                }
+                coreDataManager.deleteAll()
+                localDataManager.saveMovies(films: films)
+            case .failure(let failure):
+                return .failure(failure)
             }
         }
-    }
-
-    func getAllMoviesAsync() async throws -> [Movie] {
-        do {
-            if Reachability.isConnectedToNetwork() {
-                let films = try await MovieManagerNetwork.shared.getAllMoviesAsync()
-                CoreDataManager.shared.deleteAll()
-                MovieManagerLocal.shared.saveMovies(films: films)
-            }
-            let movies = MovieManagerLocal.shared.getMovies()
-            return movies
-        } catch let error {
-            let movies = MovieManagerLocal.shared.getMovies()
-            if movies.isEmpty {
-                throw error
-            } else {
-                return movies
-            }
+        let movies = localDataManager.getMovies()
+        if movies.isEmpty {
+            return .failure(MovieManagerError.NoDataAvailable)
         }
+        return .success(movies)
     }
 }

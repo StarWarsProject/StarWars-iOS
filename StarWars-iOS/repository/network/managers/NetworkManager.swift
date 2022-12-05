@@ -8,49 +8,40 @@
 import Foundation
 
 enum NetworkError: Error {
-    case networkError
+    case NetworkError(msg: String)
+    case URLError
+    case CantConnectToAPI
+    case ServerSideError(code: Int)
+    case JSONParsingException
 }
 
 class NetworkManager {
-    static let shared = NetworkManager(session: URLSession.shared)
-    let session: URLSession
-    init(session: URLSession) {
-        self.session = session
-    }
+    static let shared = NetworkManager()
 
-    @discardableResult
-    func get<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionDataTask {
-        let task = session.dataTask(with: url) { (data, _, error) in
-            if let error = error {
-                DispatchQueue.main.sync {
-                    completion(.failure(error))
-                }
-                return
-            }
-            let jsonDecoder = JSONDecoder()
-            if let data = data, let items = try? jsonDecoder.decode(type, from: data) {
-                DispatchQueue.main.sync {
-                    completion(.success(items))
-                }
-            } else {
-                DispatchQueue.main.sync {
-                    completion(.failure(NetworkError.networkError))
-                }
-            }
+    private let apiBaseUrl = "https://swapi.py4e.com/api/"
+
+    func getAsyncAwait<T: Decodable>(url: String) async throws -> (Result<T, Error>) {
+        let urlString = "\(apiBaseUrl)\(url)"
+
+        guard let url = URL(string: urlString) else {
+            return .failure(NetworkError.URLError)
         }
-        task.resume()
-        return task
-    }
 
-    func getAsync<T: Decodable>(_ type: T.Type, from url: URL) async throws -> T {
+        let (data, response) = try await URLSession.shared.data(from: url)
+
+        guard let safeResponse = response as? HTTPURLResponse, safeResponse.statusCode == 200 else {
+            return .failure(NetworkError.CantConnectToAPI)
+        }
+
+        guard (200...299).contains(safeResponse.statusCode) else {
+            return .failure(NetworkError.ServerSideError(code: safeResponse.statusCode))
+        }
+
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let jsonDecoder = JSONDecoder()
-            guard let items = try? jsonDecoder.decode(type, from: data) else { throw NetworkError.networkError }
-            return items
-        } catch let error {
-            print(error)
-            throw error
+            let apiResponse = try JSONDecoder().decode(T.self, from: data)
+            return .success(apiResponse)
+        } catch {
+            return .failure(NetworkError.JSONParsingException)
         }
     }
 }

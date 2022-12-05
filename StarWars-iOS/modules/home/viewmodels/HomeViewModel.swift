@@ -48,13 +48,14 @@ class HomeViewModel: ViewModel {
 
     func callMovieList() {
         Task.init {
-            do {
-                let movies = try await MovieManager.shared.getAllMoviesAsync()
+            let moviesResult = await MovieManager.shared.getAllMoviesAsync()
+            switch moviesResult {
+            case .success(let movies):
                 movieList = movies
                 originalMovieList = movies
                 onFinish?()
-            } catch let error {
-                onError?(error.localizedDescription)
+            case .failure(let failure):
+                onError?(failure)
             }
         }
     }
