@@ -29,6 +29,11 @@ class MovieDetailViewModel: ViewModel {
             reloadData?()
         }
     }
+    var speciesList: [Specie] = [] {
+        didSet {
+            reloadData?()
+        }
+    }
 
     func getCharacters() {
         SVProgressHUD.show()
@@ -54,6 +59,17 @@ class MovieDetailViewModel: ViewModel {
                 onFinish?()
             case .failure(let failure):
                 onError?(failure)
+            }
+        }
+    }
+
+    func getSpecies() {
+        SVProgressHUD.show()
+        Task.init {
+            do {
+                self.speciesList = try await SpecieManager.shared.getSpeciesByMovieAsync(movie: movie)
+            } catch let error {
+                onError?(error.localizedDescription)
             }
         }
     }

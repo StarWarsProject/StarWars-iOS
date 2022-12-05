@@ -30,18 +30,24 @@ class MovieManagerLocal {
             newMovie.producer = film.producer
             newMovie.openingCrawl = film.openingCrawl
             newMovie.episodeId = Int16(film.episodeID)
-            let ids = film.characters.map { char in
+            let charactersIds = film.characters.map { char in
                 var charUrl = char
                 charUrl.removeLast()
                 return String(charUrl[(charUrl.index(after: charUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: charUrl)))...])
             }
             let planetsIds = film.planets.map { char in
-                var charUrl = char
-                charUrl.removeLast()
-                return String(charUrl[(charUrl.index(after: charUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: charUrl)))...])
+                var platUrl = char
+                platUrl.removeLast()
+                return String(platUrl[(platUrl.index(after: platUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: platUrl)))...])
             }
-            newMovie.charactersIds = MovieManagerLocal.getStringFromIds(idList: ids)
+            let speciesIds = film.species.map { char in
+                var specUrl = char
+                specUrl.removeLast()
+                return String(specUrl[(specUrl.index(after: specUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: specUrl)))...])
+            }
+            newMovie.charactersIds = MovieManagerLocal.getStringFromIds(idList: charactersIds)
             newMovie.planetsIds = MovieManagerLocal.getStringFromIds(idList: planetsIds)
+            newMovie.speciesIds = MovieManagerLocal.getStringFromIds(idList: speciesIds)
             newMovie.releaseDate = dateFormatter.date(from: film.releaseDate) ?? Date()
             newMovie.createdAt = Date()
             newMovie.updatedAt = Date()
