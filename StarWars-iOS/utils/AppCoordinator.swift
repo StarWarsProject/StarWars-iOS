@@ -29,7 +29,8 @@ class AppCoordinator: Coordinator {
     }
 
     func goToHomeScreen() {
-        let homeViewModel = HomeViewModel.init()
+        let manager = MovieManager.shared
+        let homeViewModel = HomeViewModel.init(manager: manager)
         let homeViewController = HomeViewController(viewModel: homeViewModel)
         homeViewModel.coordinator = self
         homeViewModel.reloadData = {
@@ -43,18 +44,23 @@ class AppCoordinator: Coordinator {
         }
 
         homeViewModel.onFinish = {
+            homeViewController.hideErrorView()
             homeViewModel.selectedMovie = homeViewController.viewModel.getMovieAtIndex(0)
-            print(homeViewModel.getMovieAtIndex(0))
             DispatchQueue.main.sync {
                 homeViewController.filmsCollectionView.reloadData()
             }
             SVProgressHUD.dismiss()
         }
+        homeViewModel.onError = { error in
+            SVProgressHUD.dismiss()
+            homeViewController.setLabelForError(error: error.localizedDescription)
+        }
         navigationController.pushViewController(homeViewController, animated: true)
     }
 
     func goToDetailsScreen(movie: Movie) {
-        let movieDetailsViewModel = MovieDetailViewModel.init(movie: movie)
+        let manager = DetaiManager.shared
+        let movieDetailsViewModel = MovieDetailViewModel.init(movie: movie, manager: manager)
         let movieDetailsViewController = MovieDetailViewController(viewModel: movieDetailsViewModel)
         movieDetailsViewModel.coordinator = self
         movieDetailsViewModel.reloadData = {
@@ -62,6 +68,9 @@ class AppCoordinator: Coordinator {
             DispatchQueue.main.async {
                 movieDetailsViewController.charactersTableView.reloadData()
             }
+        }
+        movieDetailsViewModel.onFinish = {
+            SVProgressHUD.dismiss()
         }
         movieDetailsViewModel.onError = { error in
             print(error)

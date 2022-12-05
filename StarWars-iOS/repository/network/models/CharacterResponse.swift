@@ -11,6 +11,7 @@ struct CharacterResponse: Codable {
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear, gender: String
     let homeworld: String
+    let films, species, vehicles, starships: [String]
     let created, edited: String
     let url: String
 
@@ -20,6 +21,6 @@ struct CharacterResponse: Codable {
         case skinColor = "skin_color"
         case eyeColor = "eye_color"
         case birthYear = "birth_year"
-        case gender, homeworld, created, edited, url
+        case gender, homeworld, films, species, vehicles, starships, created, edited, url
     }
 }

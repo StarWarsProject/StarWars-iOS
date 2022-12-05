@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="StarWars_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="errorMessageView" destination="p2x-uM-VNE" id="nOZ-fT-d83"/>
                 <outlet property="filmsCollectionView" destination="h9t-kl-oDv" id="UKO-qJ-RQC"/>
                 <outlet property="filmsLabel" destination="My9-lV-GDb" id="TTT-9p-mBu"/>
                 <outlet property="movieViewBackground" destination="7B3-C8-yc9" id="CcV-Dc-wJG"/>
@@ -122,6 +123,10 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2x-uM-VNE" customClass="ReusableErrorViewWrapper" customModule="StarWars_iOS" customModuleProvider="target">
+                            <rect key="frame" x="80" y="640" width="254" height="128"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="backgroundColor"/>
                     <constraints>
@@ -132,10 +137,13 @@
                         <constraint firstItem="h9t-kl-oDv" firstAttribute="top" secondItem="My9-lV-GDb" secondAttribute="bottom" constant="5" id="7HK-gM-Pyc"/>
                         <constraint firstAttribute="trailing" secondItem="7B3-C8-yc9" secondAttribute="trailing" constant="10" id="ABU-Sb-BWw"/>
                         <constraint firstItem="mof-d4-B0V" firstAttribute="top" secondItem="7B3-C8-yc9" secondAttribute="bottom" constant="5" id="Ecv-62-cUT"/>
+                        <constraint firstAttribute="trailing" secondItem="p2x-uM-VNE" secondAttribute="trailing" constant="80" id="GRo-zW-Owp"/>
                         <constraint firstItem="h9t-kl-oDv" firstAttribute="leading" secondItem="DXt-HX-cRQ" secondAttribute="leading" id="Htc-cm-EO7"/>
                         <constraint firstItem="7B3-C8-yc9" firstAttribute="top" secondItem="DXt-HX-cRQ" secondAttribute="top" constant="5" id="LPe-uU-9t9"/>
                         <constraint firstItem="7B3-C8-yc9" firstAttribute="height" secondItem="DXt-HX-cRQ" secondAttribute="height" multiplier="0.55" id="YLa-hf-jrd"/>
+                        <constraint firstAttribute="bottom" secondItem="p2x-uM-VNE" secondAttribute="bottom" constant="80" id="bsa-da-9bA"/>
                         <constraint firstItem="My9-lV-GDb" firstAttribute="leading" secondItem="DXt-HX-cRQ" secondAttribute="leading" constant="15" id="daz-0J-hzN"/>
+                        <constraint firstItem="p2x-uM-VNE" firstAttribute="leading" secondItem="DXt-HX-cRQ" secondAttribute="leading" constant="80" id="rfo-ZF-Y7Z"/>
                         <constraint firstItem="My9-lV-GDb" firstAttribute="top" secondItem="7B3-C8-yc9" secondAttribute="bottom" constant="5" id="vVH-11-Mbt"/>
                     </constraints>
                 </view>
@@ -146,6 +154,7 @@
                 <constraint firstItem="DXt-HX-cRQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JdG-Pn-w5q"/>
                 <constraint firstItem="DXt-HX-cRQ" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="Qzi-10-Q09"/>
                 <constraint firstItem="DXt-HX-cRQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fGb-1J-iSD"/>
+                <constraint firstItem="p2x-uM-VNE" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.157248" id="nyA-NB-lY8"/>
                 <constraint firstItem="DXt-HX-cRQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tMq-yG-JuR"/>
                 <constraint firstItem="h9t-kl-oDv" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.38" id="vzQ-hS-ocp"/>
             </constraints>

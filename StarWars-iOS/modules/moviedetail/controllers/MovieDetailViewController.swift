@@ -59,16 +59,14 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        navigationController?.isNavigationBarHidden = false
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-         let blurEffect = UIBlurEffect(style: .regular)
-         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-         blurEffectView.frame = imageBackground.bounds
-         blurEffectView.alpha = 0.5
-         imageBackground.addSubview(blurEffectView)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = imageBackground.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = 0.5
+        imageBackground.addSubview(blurEffectView)
     }
 
     @objc func autoScroll() {
@@ -80,11 +78,11 @@ class MovieDetailViewController: UIViewController {
     }
 
     private func setupView() {
-        imageBackground.image = sharedFunctions.getImageForMovie(viewModel.movie.title)
+        imageBackground.image = SharedFunctions.getImageForMovie(viewModel.movie.title)
         movieNameLabel.text = viewModel.movie.title
         movieOpeningLabel.text = viewModel.movie.openingCrawl
         movieReleaseDateLabel.attributedText = setBoldText(boldText: StringConstants.releaseDateENG,
-                                                           normalText: sharedFunctions.getDateFormatter(date: viewModel.movie.releaseDate))
+                                                           normalText: SharedFunctions.getDateFormatter(date: viewModel.movie.releaseDate))
         movieDirectorLabel.attributedText = setBoldText(boldText: StringConstants.movieDirectorENG, normalText: viewModel.movie.director)
         movieProducerLabel.attributedText = setBoldText(boldText: StringConstants.movieProducerENG, normalText: viewModel.movie.producer)
 

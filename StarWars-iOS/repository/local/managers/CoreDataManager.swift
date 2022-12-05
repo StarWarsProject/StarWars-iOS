@@ -112,4 +112,31 @@ class CoreDataManager {
         }
         return false
     }
+
+    func getEntityBy<T: NSManagedObject>(id: String, entity: CoreDataEntities) -> T? {
+        guard let entityIDNumber = Int64(id) else { return nil }
+        let context = getContext()
+        let request = NSFetchRequest<T>(entityName: entity.rawValue)
+        request.predicate = NSPredicate(format: "id == %ld", entityIDNumber)
+        do {
+            return try context.fetch(request).first
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+
+    func getEntitiesFromIDArray<T: NSManagedObject>(_ ids: [String], entity: CoreDataEntities) -> EntitiesSearchResult<T> {
+        var foundEntites = [T]()
+        var notFoundIds = [String]()
+        ids.forEach { id in
+            let entity: T? = getEntityBy(id: id, entity: entity)
+            if let safeEntity = entity {
+                foundEntites.append(safeEntity)
+            } else {
+                notFoundIds.append(id)
+            }
+        }
+        return EntitiesSearchResult(entities: foundEntites, missingIds: notFoundIds)
+    }
 }

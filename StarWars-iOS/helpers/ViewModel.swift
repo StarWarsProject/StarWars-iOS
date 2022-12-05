@@ -9,12 +9,12 @@ import Foundation
 
 protocol ViewModelProtocol {
     var onFinish: (() -> Void)? { get set }
-    var onError: ((_ error: String) -> Void)? { get set }
+    var onError: ((_ error: Error) -> Void)? { get set }
     var reloadData: (() -> Void)? { get set }
 }
 
 class ViewModel: ViewModelProtocol {
     var onFinish: (() -> Void)?
-    var onError: ((String) -> Void)?
+    var onError: ((Error) -> Void)?
     var reloadData: (() -> Void)?
 }
