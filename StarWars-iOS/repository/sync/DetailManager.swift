@@ -17,6 +17,7 @@ protocol DetailProtocolManager {
     func getCharactersByMovieAsync(idMovie: Int16) async -> Result<[Character], Error>
     func getPlanetsByMovieAsync(idMovie: Int16) async -> Result<[Planet], Error>
     func getSpeciesByMovieAsync(idMovie: Int16) async -> Result<[Specie], Error>
+    func getStarshipsByMovieAsync(idMovie: Int16) async -> Result<[Starship], Error>
 }
 
 class DetaiManager: DetailProtocolManager {
@@ -111,4 +112,33 @@ class DetaiManager: DetailProtocolManager {
             return .success(safeMovie.speciesArray)
         }
     }
+
+    func getStarshipsByMovieAsync(idMovie: Int16) async -> Result<[Starship], Error> {
+        let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
+        guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }
+        let shipIds = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.starshipsIds)
+        let shipsByIDResult: EntitiesSearchResult<Starship> = coreDataManager.getEntitiesFromIDArray(shipIds, entity: .Starship)
+        if shipsByIDResult.missingIds.isEmpty {
+            return .success(shipsByIDResult.entities)
+        } else {
+            if Reachability.isConnectedToNetwork() {
+                let newShips: Result<[StarshipsResponse], Error> = await
+                networkManager.getAllDataForTabIdAsync(idList: shipsByIDResult.missingIds, forTab: .starships)
+                switch newShips {
+                case .success(let ships):
+                    localDataManager.saveAllShipsByMovie(shipList: ships, movie: safeMovie)
+                    localDataManager.syncShipsWithMovie(ships: shipsByIDResult.entities, movie: safeMovie)
+                    return .success(safeMovie.starshipsArray)
+                case .failure(let failure):
+                    return .failure(failure)
+                }
+            }
+            localDataManager.syncShipsWithMovie(ships: shipsByIDResult.entities, movie: safeMovie)
+            if safeMovie.starshipsArray.isEmpty {
+                return .failure(DetailManagerError.NoPlanetsAvailable)
+            }
+            return .success(safeMovie.starshipsArray)
+        }
+    }
+
 }

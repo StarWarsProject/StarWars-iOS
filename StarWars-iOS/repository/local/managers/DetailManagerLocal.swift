@@ -16,21 +16,10 @@ class DetailManagerLocal {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         // Save Characters
         charactersList.forEach { character in
-            let newCharacter = Character(context: CoreDataManager.shared.getContext())
-            newCharacter.name = character.name
-            newCharacter.birth = character.birthYear
-            newCharacter.createdAt = Date()
-            newCharacter.desc = ""
-            newCharacter.gender = character.gender
-            newCharacter.height = character.height
-            var idChar = character.url
-            idChar.removeLast()
-            newCharacter.id = Int16(String(idChar[(idChar.index(after: idChar.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idChar)))...])) ?? 0
-            newCharacter.image = ""
-            newCharacter.planet = ""
-            newCharacter.specie = ""
-            newCharacter.updatedAt = Date()
-            newCharacter.addToMovies(movie)
+            let newCharacter = character.toEntity(context: coreDataManager.getContext()) as? Character
+            if let safeCharacter = newCharacter {
+                safeCharacter.addToMovies(movie)
+            }
         }
         coreDataManager.saveContext()
     }
@@ -97,6 +86,37 @@ class DetailManagerLocal {
     func syncSpeciesWithMovie(species: [Specie], movie: Movie) {
         for specie in species {
             specie.addToMovies(movie)
+        }
+        coreDataManager.saveContext()
+    }
+
+    func saveAllShipsByMovie(shipList: [StarshipsResponse], movie: Movie) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        shipList.forEach { ship in
+            let newShip = Starship(context: coreDataManager.getContext())
+            newShip.name = ship.name
+            newShip.model = ship.model
+            newShip.manufacturer = ship.manufacturer
+            newShip.length = ship.length
+            newShip.maxAtmospheringSpeed = ship.maxAtmospheringSpeed
+            newShip.crew = ship.crew
+            newShip.passengers = ship.passengers
+            newShip.cargoCapacity = ship.cargoCapacity
+            newShip.starshipClass = ship.starshipClass
+            newShip.createdAt = Date()
+            var idShip = ship.url
+            idShip.removeLast()
+            newShip.id = Int16(String(idShip[(idShip.index(after: idShip.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idShip)))...])) ?? 0
+            newShip.updatedAt = Date()
+            newShip.addToMovies(movie)
+            coreDataManager.saveContext()
+        }
+    }
+
+    func syncShipsWithMovie(ships: [Starship], movie: Movie) {
+        for ship in ships {
+            ship.addToMovies(movie)
         }
         coreDataManager.saveContext()
     }

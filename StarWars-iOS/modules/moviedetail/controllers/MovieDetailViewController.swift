@@ -51,6 +51,11 @@ class MovieDetailViewController: UIViewController {
         return vc
     }()
 
+    private lazy var shipsListVC: ShipViewController = {
+        let vc = ShipViewController(viewModel: viewModel)
+        return vc
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -127,22 +132,30 @@ class MovieDetailViewController: UIViewController {
 
     func tabOptionChanged(index: Int) {
         switch index {
-
         case 0:
             remove(asChildViewController: planetsListVC)
             remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: shipsListVC)
             addViewController(asChildViewController: charactersListVC)
         case 1:
             remove(asChildViewController: charactersListVC)
             remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: shipsListVC)
             addViewController(asChildViewController: planetsListVC)
         case 2:
             remove(asChildViewController: charactersListVC)
             remove(asChildViewController: planetsListVC)
+            remove(asChildViewController: shipsListVC)
             addViewController(asChildViewController: speciesListVC)
+        case 3:
+            remove(asChildViewController: charactersListVC)
+            remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: planetsListVC)
+            addViewController(asChildViewController: shipsListVC)
         default:
             remove(asChildViewController: planetsListVC)
             remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: shipsListVC)
             addViewController(asChildViewController: charactersListVC)
 
         }
