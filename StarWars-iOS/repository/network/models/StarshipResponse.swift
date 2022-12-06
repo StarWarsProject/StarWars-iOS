@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct StarshipsResponse: Codable {
     let name, model, manufacturer, costInCredits: String
@@ -29,5 +30,24 @@ struct StarshipsResponse: Codable {
         case mglt = "MGLT"
         case starshipClass = "starship_class"
         case pilots, films, created, edited, url
+    }
+
+    func toEntity(context: NSManagedObjectContext) -> Starship {
+        let newShip = Starship(context: context)
+        newShip.name = name
+        newShip.model = model
+        newShip.manufacturer = manufacturer
+        newShip.length = length
+        newShip.maxAtmospheringSpeed = maxAtmospheringSpeed
+        newShip.crew = crew
+        newShip.passengers = passengers
+        newShip.cargoCapacity = cargoCapacity
+        newShip.starshipClass = starshipClass
+        newShip.createdAt = Date()
+        var idShip = url
+        idShip.removeLast()
+        newShip.id = Int16(String(idShip[(idShip.index(after: idShip.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idShip)))...])) ?? 0
+        newShip.updatedAt = Date()
+        return newShip
     }
 }

@@ -24,7 +24,6 @@
 		93481418293EB8B1003A9462 /* ShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93481416293EB8B1003A9462 /* ShipTableViewCell.swift */; };
 		93481419293EB8B1003A9462 /* ShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93481417293EB8B1003A9462 /* ShipTableViewCell.xib */; };
 		9348141B293EBA6D003A9462 /* StarshipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348141A293EBA6D003A9462 /* StarshipResponse.swift */; };
-		93C3A792293F7BA200DA39A4 /* ModelResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3A791293F7BA200DA39A4 /* ModelResponseProtocol.swift */; };
 		93CAE1AE293A907A006E14E4 /* NibWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE1AD293A907A006E14E4 /* NibWrapperView.swift */; };
 		93CAE1B0293A9276006E14E4 /* NibWrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE1AF293A9276006E14E4 /* NibWrapped.swift */; };
 		93D1AA6D293104FB00DC9DA6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1AA6F293104FB00DC9DA6 /* Localizable.strings */; };
@@ -120,7 +119,6 @@
 		93481416293EB8B1003A9462 /* ShipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTableViewCell.swift; sourceTree = "<group>"; };
 		93481417293EB8B1003A9462 /* ShipTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipTableViewCell.xib; sourceTree = "<group>"; };
 		9348141A293EBA6D003A9462 /* StarshipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipResponse.swift; sourceTree = "<group>"; };
-		93C3A791293F7BA200DA39A4 /* ModelResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelResponseProtocol.swift; sourceTree = "<group>"; };
 		93CAE1AD293A907A006E14E4 /* NibWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibWrapperView.swift; sourceTree = "<group>"; };
 		93CAE1AF293A9276006E14E4 /* NibWrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibWrapped.swift; sourceTree = "<group>"; };
 		93D1AA692930FF0C00DC9DA6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 				CE90DE56293810FF00853B36 /* PlanetResponse.swift */,
 				CEE5BFB0293A4EDF00BBC798 /* SpecieResponse.swift */,
 				9348141A293EBA6D003A9462 /* StarshipResponse.swift */,
-				93C3A791293F7BA200DA39A4 /* ModelResponseProtocol.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -675,6 +672,7 @@
 		};
 		846D30D4292D0E31006FC25F /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -790,7 +788,6 @@
 				CE90DE4E29380CC600853B36 /* PlanetViewController.swift in Sources */,
 				C27E44DB292FAFA9009A3101 /* Planet+CoreDataClass.swift in Sources */,
 				93D1AA7929311CB900DC9DA6 /* MovieCollectionViewCell.swift in Sources */,
-				93C3A792293F7BA200DA39A4 /* ModelResponseProtocol.swift in Sources */,
 				C2C2B119292ED20B00C12EE8 /* MoviesList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

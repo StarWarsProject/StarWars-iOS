@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-struct CharacterResponse: Codable, ModelResponseProtocol {
+struct CharacterResponse: Codable {
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear, gender: String
     let homeworld: String
@@ -25,7 +25,7 @@ struct CharacterResponse: Codable, ModelResponseProtocol {
         case gender, homeworld, films, species, vehicles, starships, created, edited, url
     }
 
-    func toEntity(context: NSManagedObjectContext) -> NSManagedObject {
+    func toEntity(context: NSManagedObjectContext) -> Character {
         let newCharacter = Character(context: context)
         newCharacter.name = name
         newCharacter.birth = birthYear
