@@ -9,27 +9,21 @@ import Foundation
 
 class MovieManagerNetwork {
     static let shared = MovieManagerNetwork()
-    let baseUrl = "https://swapi.dev/api/films"
 
-    func getAllMovies(completion: @escaping (Result<[Film], Error>) -> Void) {
-        guard let targetUrl = URL(string: baseUrl) else {return}
-        NetworkManager.shared.get(MoviesList.self, from: targetUrl) { result in
-            switch result {
-            case .success(let result):
-                completion(.success(result.results))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
+    private let endpointURL = "/films"
+    private let networkManager = NetworkManager.shared
 
-    func getAllMoviesAsync() async throws -> [Film] {
+    func getAllMoviesAsync() async -> Result<[Film], Error> {
         do {
-            guard let targetUrl = URL(string: baseUrl) else { throw NetworkError.networkError}
-            let moviesList = try await NetworkManager.shared.getAsync(MoviesList.self, from: targetUrl)
-            return moviesList.results
-        } catch let error {
-            throw error
+            let result: Result<MoviesList, Error> = try await networkManager.getAsyncAwait(url: endpointURL)
+            switch result {
+            case .success(let success):
+                return .success(success.results)
+            case .failure(let failure):
+                return .failure(failure)
+            }
+        } catch {
+            return .failure(NetworkError.NetworkError(msg: error.localizedDescription))
         }
     }
 }

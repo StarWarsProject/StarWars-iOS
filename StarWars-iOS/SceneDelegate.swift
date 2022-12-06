@@ -25,33 +25,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func setupRootControllerIfNeeded() {
         let navigationCon = UINavigationController.init()
+        navigationCon.isNavigationBarHidden = true
         appCoordinator = AppCoordinator(navigationController: navigationCon)
         appCoordinator!.start()
         self.window?.rootViewController = navigationCon
         self.window?.makeKeyAndVisible()
-    }
-
-    fileprivate func createNavController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
-        let navController = UINavigationController(rootViewController: rootViewController)
-        navController.tabBarItem.title = title
-        navController.tabBarItem.image = image
-
-        // navController.navigationBar.prefersLargeTitles = true
-        // navController.navigationBar.backgroundColor = UIColor(named: "primary")
-        navController.navigationBar.tintColor = .black
-
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(named: "primary")
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-
-        navController.navigationBar.standardAppearance = appearance
-        navController.navigationBar.scrollEdgeAppearance = appearance
-        navController.modalPresentationStyle = .overFullScreen
-
-        rootViewController.navigationItem.title = title
-
-        return navController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
