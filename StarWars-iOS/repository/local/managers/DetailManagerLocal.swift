@@ -12,24 +12,8 @@ class DetailManagerLocal {
     private let coreDataManager = CoreDataManager.shared
 
     func saveAllCharactersByMovie(charactersList: [CharacterResponse], movie: Movie) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        // Save Characters
         charactersList.forEach { character in
-            let newCharacter = Character(context: CoreDataManager.shared.getContext())
-            newCharacter.name = character.name
-            newCharacter.birth = character.birthYear
-            newCharacter.createdAt = Date()
-            newCharacter.desc = ""
-            newCharacter.gender = character.gender
-            newCharacter.height = character.height
-            var idChar = character.url
-            idChar.removeLast()
-            newCharacter.id = Int16(String(idChar[(idChar.index(after: idChar.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idChar)))...])) ?? 0
-            newCharacter.image = ""
-            newCharacter.planet = ""
-            newCharacter.specie = ""
-            newCharacter.updatedAt = Date()
+            let newCharacter = character.toEntity(context: coreDataManager.getContext())
             newCharacter.addToMovies(movie)
         }
         coreDataManager.saveContext()
@@ -43,27 +27,11 @@ class DetailManagerLocal {
     }
 
     func saveAllPlanetsByMovie(planetsList: [PlanetResponse], movie: Movie) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        // Save Planets
         planetsList.forEach { planet in
-            let newPlanet = Planet(context: CoreDataManager.shared.getContext())
-            newPlanet.name = planet.name
-            newPlanet.createdAt = Date()
-            newPlanet.desc = ""
-            newPlanet.region = ""
-            newPlanet.system = ""
-            newPlanet.climate = planet.climate
-            newPlanet.terrain = planet.terrain
-            newPlanet.population = planet.population
-            var idPlan = planet.url
-            idPlan.removeLast()
-            newPlanet.id = Int16(String(idPlan[(idPlan.index(after: idPlan.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idPlan)))...])) ?? 0
-            newPlanet.image = ""
-            newPlanet.updatedAt = Date()
+            let newPlanet = planet.toEntity(context: coreDataManager.getContext())
             newPlanet.addToMovies(movie)
-            coreDataManager.saveContext()
         }
+        coreDataManager.saveContext()
     }
 
     func syncPlanetsWithMovie(planets: [Planet], movie: Movie) {
@@ -74,24 +42,11 @@ class DetailManagerLocal {
     }
 
     func saveAllSpeciesByMovie(speciesList: [SpecieResponse], movie: Movie) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
         speciesList.forEach { specie in
-            let newSpecie = Specie(context: CoreDataManager.shared.getContext())
-            newSpecie.name = specie.name
-            newSpecie.createdAt = Date()
-            newSpecie.desc = ""
-            newSpecie.classification = specie.classification
-            newSpecie.language = specie.language
-            newSpecie.planet = ""
-            var idSpe = specie.url
-            idSpe.removeLast()
-            newSpecie.id = Int16(String(idSpe[(idSpe.index(after: idSpe.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idSpe)))...])) ?? 0
-            newSpecie.image = ""
-            newSpecie.updatedAt = Date()
+            let newSpecie = specie.toEntity(context: coreDataManager.getContext())
             newSpecie.addToMovies(movie)
-            coreDataManager.saveContext()
         }
+        coreDataManager.saveContext()
     }
 
     func syncSpeciesWithMovie(species: [Specie], movie: Movie) {
@@ -101,10 +56,18 @@ class DetailManagerLocal {
         coreDataManager.saveContext()
     }
 
-    func deleteCharactersByMovie(movie: Movie) {
-        let charsIds = MovieManagerLocal.getIdsFromString(stringIds: movie.charactersIds)
-        charsIds.forEach { id in
-            coreDataManager.deleteEntityObjectByKeyValue(entity: .Character, key: "id", value: id)
+    func saveAllShipsByMovie(shipList: [StarshipsResponse], movie: Movie) {
+        shipList.forEach { ship in
+            let newShip = ship.toEntity(context: coreDataManager.getContext())
+            newShip.addToMovies(movie)
         }
+        coreDataManager.saveContext()
+    }
+
+    func syncShipsWithMovie(ships: [Starship], movie: Movie) {
+        for ship in ships {
+            ship.addToMovies(movie)
+        }
+        coreDataManager.saveContext()
     }
 }
