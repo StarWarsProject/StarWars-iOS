@@ -29,6 +29,7 @@ extension Movie {
     @NSManaged public var planetsIds: String
     @NSManaged public var planets: NSSet
     @NSManaged public var speciesIds: String
+    @NSManaged public var starshipsIds: String
     @NSManaged public var species: NSSet
     @NSManaged public var starships: NSSet
     @NSManaged public var vehiclesIds: String
@@ -56,6 +57,13 @@ extension Movie {
     }
     public var vehiclesArray: [Vehicle] {
         let set = vehicles as? Set<Vehicle> ?? []
+        return set.sorted {
+            $0.createdAt < $1.createdAt
+        }
+    }
+
+    public var starshipsArray: [Starship] {
+        let set = starships as? Set<Starship> ?? []
         return set.sorted {
             $0.createdAt < $1.createdAt
         }

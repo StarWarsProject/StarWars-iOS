@@ -13,6 +13,7 @@ enum NetworkError: Error {
     case CantConnectToAPI
     case ServerSideError(code: Int)
     case JSONParsingException
+    case NoDataFromAPI
 }
 
 class NetworkManager {
@@ -29,7 +30,15 @@ class NetworkManager {
 
         let (data, response) = try await URLSession.shared.data(from: url)
 
-        guard let safeResponse = response as? HTTPURLResponse, safeResponse.statusCode == 200 else {
+        guard let safeResponse = response as? HTTPURLResponse else {
+            return .failure(NetworkError.CantConnectToAPI)
+        }
+
+        guard safeResponse.statusCode != 404 else {
+            return .failure(NetworkError.NoDataFromAPI)
+        }
+
+        guard safeResponse.statusCode == 200 else {
             return .failure(NetworkError.CantConnectToAPI)
         }
 

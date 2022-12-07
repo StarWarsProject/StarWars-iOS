@@ -50,9 +50,15 @@ class MovieManagerLocal {
                 vehiUrl.removeLast()
                 return String(vehiUrl[(vehiUrl.index(after: vehiUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: vehiUrl)))...])
             }
+            let starshipsIds = film.starships.map { char in
+                var specUrl = char
+                specUrl.removeLast()
+                return String(specUrl[(specUrl.index(after: specUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: specUrl)))...])
+            }
             newMovie.charactersIds = MovieManagerLocal.getStringFromIds(idList: charactersIds)
             newMovie.planetsIds = MovieManagerLocal.getStringFromIds(idList: planetsIds)
             newMovie.speciesIds = MovieManagerLocal.getStringFromIds(idList: speciesIds)
+            newMovie.starshipsIds = MovieManagerLocal.getStringFromIds(idList: starshipsIds)
             newMovie.vehiclesIds = MovieManagerLocal.getStringFromIds(idList: vehiclesIds)
             newMovie.releaseDate = dateFormatter.date(from: film.releaseDate) ?? Date()
             newMovie.createdAt = Date()

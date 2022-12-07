@@ -56,6 +56,11 @@ class MovieDetailViewController: UIViewController {
         return vc
     }()
 
+    private lazy var shipsListVC: ShipViewController = {
+        let vc = ShipViewController(viewModel: viewModel)
+        return vc
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -132,32 +137,42 @@ class MovieDetailViewController: UIViewController {
 
     func tabOptionChanged(index: Int) {
         switch index {
-
         case 0:
             remove(asChildViewController: planetsListVC)
             remove(asChildViewController: speciesListVC)
             remove(asChildViewController: vehiclesListVC)
+            remove(asChildViewController: shipsListVC)
             addViewController(asChildViewController: charactersListVC)
         case 1:
             remove(asChildViewController: charactersListVC)
             remove(asChildViewController: speciesListVC)
             remove(asChildViewController: vehiclesListVC)
+            remove(asChildViewController: shipsListVC)
             addViewController(asChildViewController: planetsListVC)
         case 2:
             remove(asChildViewController: charactersListVC)
             remove(asChildViewController: planetsListVC)
             remove(asChildViewController: vehiclesListVC)
+            remove(asChildViewController: shipsListVC)
             addViewController(asChildViewController: speciesListVC)
+        case 3:
+            remove(asChildViewController: charactersListVC)
+            remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: planetsListVC)
+            remove(asChildViewController: vehiclesListVC)
+            addViewController(asChildViewController: shipsListVC)
         case 4:
             remove(asChildViewController: charactersListVC)
             remove(asChildViewController: planetsListVC)
             remove(asChildViewController: speciesListVC)
+            remove(asChildViewController: shipsListVC)
             addViewController(asChildViewController: vehiclesListVC)
         default:
             remove(asChildViewController: planetsListVC)
             remove(asChildViewController: speciesListVC)
             remove(asChildViewController: vehiclesListVC)
-            addViewController(asChildViewController: charactersListVC)
+            remove(asChildViewController: shipsListVC)
+            addViewController(asChildViewController: speciesListVC)
 
         }
     }

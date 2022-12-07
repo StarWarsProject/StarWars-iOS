@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct CharacterResponse: Codable {
     let name, height, mass, hairColor: String
@@ -23,4 +24,23 @@ struct CharacterResponse: Codable {
         case birthYear = "birth_year"
         case gender, homeworld, films, species, vehicles, starships, created, edited, url
     }
+
+    func toEntity(context: NSManagedObjectContext) -> Character {
+        let newCharacter = Character(context: context)
+        newCharacter.name = name
+        newCharacter.birth = birthYear
+        newCharacter.createdAt = Date()
+        newCharacter.desc = ""
+        newCharacter.gender = gender
+        newCharacter.height = height
+        var idChar = url
+        idChar.removeLast()
+        newCharacter.id = Int16(String(idChar[(idChar.index(after: idChar.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idChar)))...])) ?? 0
+        newCharacter.image = ""
+        newCharacter.planet = ""
+        newCharacter.specie = ""
+        newCharacter.updatedAt = Date()
+        return newCharacter
+    }
+
 }

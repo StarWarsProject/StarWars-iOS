@@ -1,15 +1,15 @@
 //
-//  SpecieViewController.swift
+//  ShipViewController.swift
 //  StarWars-iOS
 //
-//  Created by Rodrigo Schar on 2/12/22.
+//  Created by Yawar Valeriano on 5/12/22.
 //
 
 import UIKit
 
-class SpecieViewController: UIViewController {
+class ShipViewController: UIViewController {
 
-    @IBOutlet weak var speciesTableView: UITableView!
+    @IBOutlet weak var shipsTableView: UITableView!
 
     let viewModel: MovieDetailViewModel
 
@@ -26,21 +26,21 @@ class SpecieViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         initViewModel()
-        viewModel.getSpecies()
+        viewModel.getStarships()
     }
 
     private func setupView() {
-        let nibChar = UINib(nibName: SpecieTableViewCell.nibName, bundle: nil)
-        speciesTableView.register(nibChar, forCellReuseIdentifier: SpecieTableViewCell.identifier)
-        speciesTableView.delegate = self
-        speciesTableView.dataSource = self
-        speciesTableView.estimatedRowHeight = 80
+        let nib = UINib(nibName: ShipTableViewCell.nibName, bundle: nil)
+        shipsTableView.register(nib, forCellReuseIdentifier: ShipTableViewCell.identifier)
+        shipsTableView.delegate = self
+        shipsTableView.dataSource = self
+        shipsTableView.estimatedRowHeight = 80
     }
 
     private func initViewModel() {
         viewModel.reloadData = { [weak self] in
             DispatchQueue.main.async {
-                self?.speciesTableView.reloadData()
+                self?.shipsTableView.reloadData()
             }
         }
 
@@ -50,19 +50,18 @@ class SpecieViewController: UIViewController {
     }
 }
 
-extension SpecieViewController: UITableViewDelegate, UITableViewDataSource {
+extension ShipViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.speciesList.count
+        viewModel.shipsList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = speciesTableView.dequeueReusableCell(withIdentifier: SpecieTableViewCell.identifier)
-        as? SpecieTableViewCell ?? SpecieTableViewCell()
+        let cell = shipsTableView.dequeueReusableCell(withIdentifier: ShipTableViewCell.identifier)
+        as? ShipTableViewCell ?? ShipTableViewCell()
         cell.selectionStyle = .none
 
-        let specie = viewModel.speciesList[indexPath.row]
-        cell.setData(specie: specie)
-
+        let ship = viewModel.shipsList[indexPath.row]
+        cell.setData(ship: ship)
         return cell
     }
 

@@ -19,6 +19,11 @@
 		846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30AD292D022A006FC25F /* HomeViewController.swift */; };
 		846D30B0292D022A006FC25F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846D30AE292D022A006FC25F /* HomeViewController.xib */; };
 		846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30B1292D027F006FC25F /* HomeViewModel.swift */; };
+		93481410293EB7D7003A9462 /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348140E293EB7D7003A9462 /* ShipViewController.swift */; };
+		93481411293EB7D7003A9462 /* ShipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9348140F293EB7D7003A9462 /* ShipViewController.xib */; };
+		93481418293EB8B1003A9462 /* ShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93481416293EB8B1003A9462 /* ShipTableViewCell.swift */; };
+		93481419293EB8B1003A9462 /* ShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93481417293EB8B1003A9462 /* ShipTableViewCell.xib */; };
+		9348141B293EBA6D003A9462 /* StarshipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348141A293EBA6D003A9462 /* StarshipResponse.swift */; };
 		93CAE1AE293A907A006E14E4 /* NibWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE1AD293A907A006E14E4 /* NibWrapperView.swift */; };
 		93CAE1B0293A9276006E14E4 /* NibWrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE1AF293A9276006E14E4 /* NibWrapped.swift */; };
 		93D1AA6D293104FB00DC9DA6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1AA6F293104FB00DC9DA6 /* Localizable.strings */; };
@@ -114,6 +119,11 @@
 		846D30AD292D022A006FC25F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		846D30AE292D022A006FC25F /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		846D30B1292D027F006FC25F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9348140E293EB7D7003A9462 /* ShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipViewController.swift; sourceTree = "<group>"; };
+		9348140F293EB7D7003A9462 /* ShipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipViewController.xib; sourceTree = "<group>"; };
+		93481416293EB8B1003A9462 /* ShipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTableViewCell.swift; sourceTree = "<group>"; };
+		93481417293EB8B1003A9462 /* ShipTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipTableViewCell.xib; sourceTree = "<group>"; };
+		9348141A293EBA6D003A9462 /* StarshipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipResponse.swift; sourceTree = "<group>"; };
 		93CAE1AD293A907A006E14E4 /* NibWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibWrapperView.swift; sourceTree = "<group>"; };
 		93CAE1AF293A9276006E14E4 /* NibWrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibWrapped.swift; sourceTree = "<group>"; };
 		93D1AA692930FF0C00DC9DA6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -340,6 +350,7 @@
 				C26EB30C29358EC0006D4AC0 /* CharacterResponse.swift */,
 				CE90DE56293810FF00853B36 /* PlanetResponse.swift */,
 				CEE5BFB0293A4EDF00BBC798 /* SpecieResponse.swift */,
+				9348141A293EBA6D003A9462 /* StarshipResponse.swift */,
 				CE940759293E41160034B37E /* VehiclesResponse.swift */,
 			);
 			path = models;
@@ -396,6 +407,17 @@
 				93F0A4EE293A63D0009444FA /* UIViewExtension.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		9348140D293EB7C3003A9462 /* ships */ = {
+			isa = PBXGroup;
+			children = (
+				9348140E293EB7D7003A9462 /* ShipViewController.swift */,
+				9348140F293EB7D7003A9462 /* ShipViewController.xib */,
+				93481416293EB8B1003A9462 /* ShipTableViewCell.swift */,
+				93481417293EB8B1003A9462 /* ShipTableViewCell.xib */,
+			);
+			path = ships;
 			sourceTree = "<group>";
 		};
 		93D1AA732931180100DC9DA6 /* helpers */ = {
@@ -476,6 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				CE940761293E47740034B37E /* vehicles */,
+				9348140D293EB7C3003A9462 /* ships */,
 				CEE5BFA3293A48D000BBC798 /* species */,
 				CE90DE4B29380CB500853B36 /* planets */,
 				CE90DE4529380B1D00853B36 /* characters */,
@@ -626,11 +649,13 @@
 				846D307E292CF93A006FC25F /* Assets.xcassets in Resources */,
 				846D3079292CF938006FC25F /* Main.storyboard in Resources */,
 				CE90DE5329380DB600853B36 /* PlanetTableViewCell.xib in Resources */,
+				93481411293EB7D7003A9462 /* ShipViewController.xib in Resources */,
 				CE90DE4F29380CC600853B36 /* PlanetViewController.xib in Resources */,
 				846D30B0292D022A006FC25F /* HomeViewController.xib in Resources */,
 				CE940769293E48BD0034B37E /* VehicleTableViewCell.xib in Resources */,
 				CEE5BFA7293A48EC00BBC798 /* SpecieTableViewCell.xib in Resources */,
 				CE90DE4929380B3900853B36 /* CharacterViewController.xib in Resources */,
+				93481419293EB8B1003A9462 /* ShipTableViewCell.xib in Resources */,
 				93D1AA7A29311CB900DC9DA6 /* MovieCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,6 +694,7 @@
 		};
 		846D30D4292D0E31006FC25F /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -736,6 +762,7 @@
 				C26A7CD429379E910092AA62 /* Movie+CoreDataProperties.swift in Sources */,
 				C2C2B11B292EDB9500C12EE8 /* MovieManagerLocal.swift in Sources */,
 				CEB8FAD02935AA84002B08DC /* SharedFunctions.swift in Sources */,
+				93481418293EB8B1003A9462 /* ShipTableViewCell.swift in Sources */,
 				CE8FECDD2935432D00132D0C /* TabCollectionViewCell.swift in Sources */,
 				C2DBA50329384D2B0003116D /* Reachability.swift in Sources */,
 				93F0A4EF293A63D0009444FA /* UIViewExtension.swift in Sources */,
@@ -745,6 +772,7 @@
 				846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */,
 				C261FDE92936DB6C00BE21CF /* Character+CoreDataProperties.swift in Sources */,
 				93F0A4EB293A62C3009444FA /* ErrorReusableView.swift in Sources */,
+				9348141B293EBA6D003A9462 /* StarshipResponse.swift in Sources */,
 				C27E44D4292FAFA9009A3101 /* Specie+CoreDataClass.swift in Sources */,
 				C2C2B0FB292EC95900C12EE8 /* CoreDataManager.swift in Sources */,
 				CE90DE57293810FF00853B36 /* PlanetResponse.swift in Sources */,
@@ -755,6 +783,7 @@
 				C2DBA5052938504D0003116D /* AppCoordinator.swift in Sources */,
 				846D3076292CF938006FC25F /* ViewController.swift in Sources */,
 				93FF5616293D9A31006A3691 /* EntitiesSearchResult.swift in Sources */,
+				93481410293EB7D7003A9462 /* ShipViewController.swift in Sources */,
 				C2C2B115292ED15500C12EE8 /* NetworkManager.swift in Sources */,
 				C27E44D3292FAFA9009A3101 /* Vehicle+CoreDataClass.swift in Sources */,
 				CE90DE4829380B3900853B36 /* CharacterViewController.swift in Sources */,

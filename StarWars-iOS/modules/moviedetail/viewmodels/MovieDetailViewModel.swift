@@ -40,6 +40,12 @@ class MovieDetailViewModel: ViewModel {
         }
     }
 
+    var shipsList: [Starship] = [] {
+        didSet {
+            reloadData?()
+        }
+    }
+
     func getCharacters() {
         SVProgressHUD.show()
         Task.init {
@@ -75,6 +81,20 @@ class MovieDetailViewModel: ViewModel {
             switch specieResult {
             case .success(let species):
                 self.speciesList = species
+                onFinish?()
+            case .failure(let failure):
+                onError?(failure)
+            }
+        }
+    }
+
+    func getStarships() {
+        SVProgressHUD.show()
+        Task.init {
+            let shipResult = await manager.getStarshipsByMovieAsync(idMovie: movie.id)
+            switch shipResult {
+            case .success(let ships):
+                self.shipsList = ships
                 onFinish?()
             case .failure(let failure):
                 onError?(failure)

@@ -36,6 +36,14 @@ class DetailManagerNetwork {
             case .success(let data):
                 finalCharactersList.append(data)
             case .failure(let failure):
+                if let error = failure as? NetworkError {
+                    switch error {
+                    case .NoDataFromAPI:
+                        continue
+                    default:
+                        return.failure(error)
+                    }
+                }
                 return .failure(failure)
             }
         }
