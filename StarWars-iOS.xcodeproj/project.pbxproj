@@ -227,6 +227,7 @@
 				846D306F292CF938006FC25F /* Products */,
 				4A4E6F4545E19E0B1D44B672 /* Pods */,
 				7D668F33AD2D49F35DF50499 /* Frameworks */,
+				93D1F810293E984600F3607B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -414,6 +415,16 @@
 				93D1AA7829311CB900DC9DA6 /* MovieCollectionViewCell.xib */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		93D1F810293E984600F3607B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				CEE5BFAE293A4E2B00BBC798 /* SpecieManagerNetwork.swift */,
+				CEE5BFB2293A50ED00BBC798 /* SpecieManagerLocal.swift */,
+				CEE5BFAC293A4D3000BBC798 /* SpecieManager.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		93F0A4E9293A6256009444FA /* errorReusableView */ = {

@@ -68,6 +68,20 @@ class MovieDetailViewModel: ViewModel {
         }
     }
 
+    func getSpecies() {
+        SVProgressHUD.show()
+        Task.init {
+            let specieResult = await manager.getSpeciesByMovieAsync(idMovie: movie.id)
+            switch specieResult {
+            case .success(let species):
+                self.speciesList = species
+                onFinish?()
+            case .failure(let failure):
+                onError?(failure)
+            }
+        }
+    }
+
     func getVehicles() {
         SVProgressHUD.show()
         Task.init {
