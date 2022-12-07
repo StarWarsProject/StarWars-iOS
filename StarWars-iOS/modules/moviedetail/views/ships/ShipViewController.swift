@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ShipViewController: UIViewController {
 
     @IBOutlet weak var shipsTableView: UITableView!
-
+    private let refreshControl = UIRefreshControl()
     let viewModel: MovieDetailViewModel
 
     init(viewModel: MovieDetailViewModel) {
@@ -24,8 +25,8 @@ class ShipViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         initViewModel()
+        setupView()
         viewModel.getStarships()
     }
 
@@ -35,17 +36,31 @@ class ShipViewController: UIViewController {
         shipsTableView.delegate = self
         shipsTableView.dataSource = self
         shipsTableView.estimatedRowHeight = 80
+        refreshControl.tintColor = .white
+
+        refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+
+        shipsTableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        SVProgressHUD.show()
+        viewModel.getStarships()
     }
 
     private func initViewModel() {
         viewModel.reloadData = { [weak self] in
+            SVProgressHUD.dismiss()
             DispatchQueue.main.async {
                 self?.shipsTableView.reloadData()
             }
         }
 
-        viewModel.onError = { error in
-            print(error)
+        viewModel.onFinish = {
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }

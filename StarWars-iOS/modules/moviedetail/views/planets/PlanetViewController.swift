@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PlanetViewController: UIViewController {
 
     @IBOutlet weak var planetsTableView: UITableView!
-
+    private let refreshControl = UIRefreshControl()
     var viewModel: MovieDetailViewModel
 
     init(viewModel: MovieDetailViewModel) {
@@ -24,8 +25,8 @@ class PlanetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         initViewModel()
+        setupView()
         viewModel.getPlanets()
     }
 
@@ -35,17 +36,30 @@ class PlanetViewController: UIViewController {
         planetsTableView.delegate = self
         planetsTableView.dataSource = self
         planetsTableView.estimatedRowHeight = 80
+
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+
+        planetsTableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        SVProgressHUD.show()
+        viewModel.getPlanets()
     }
 
     private func initViewModel() {
         viewModel.reloadData = { [weak self] in
+            SVProgressHUD.dismiss()
             DispatchQueue.main.async {
                 self?.planetsTableView.reloadData()
             }
         }
-
-        viewModel.onError = { error in
-            print(error)
+        viewModel.onFinish = {
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }

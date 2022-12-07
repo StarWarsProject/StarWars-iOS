@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class SpecieViewController: UIViewController {
 
     @IBOutlet weak var speciesTableView: UITableView!
-
+    private let refreshControl = UIRefreshControl()
     let viewModel: MovieDetailViewModel
 
     init(viewModel: MovieDetailViewModel) {
@@ -24,8 +25,8 @@ class SpecieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         initViewModel()
+        setupView()
         viewModel.getSpecies()
     }
 
@@ -35,17 +36,31 @@ class SpecieViewController: UIViewController {
         speciesTableView.delegate = self
         speciesTableView.dataSource = self
         speciesTableView.estimatedRowHeight = 80
+
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+
+        speciesTableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        SVProgressHUD.show()
+        viewModel.getSpecies()
     }
 
     private func initViewModel() {
         viewModel.reloadData = { [weak self] in
+            SVProgressHUD.dismiss()
             DispatchQueue.main.async {
                 self?.speciesTableView.reloadData()
             }
         }
 
-        viewModel.onError = { error in
-            print(error)
+        viewModel.onFinish = {
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class CharacterViewController: UIViewController {
-    @IBOutlet weak var charactersTableView: UITableView!
 
+    @IBOutlet weak var charactersTableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     var viewModel: MovieDetailViewModel
 
     init(viewModel: MovieDetailViewModel) {
@@ -23,8 +25,8 @@ class CharacterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         initViewModel()
+        setupView()
         viewModel.getCharacters()
     }
 
@@ -34,17 +36,31 @@ class CharacterViewController: UIViewController {
         charactersTableView.delegate = self
         charactersTableView.dataSource = self
         charactersTableView.estimatedRowHeight = 80
+
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+
+        charactersTableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        SVProgressHUD.show()
+        viewModel.getCharacters()
     }
 
     private func initViewModel() {
         viewModel.reloadData = { [weak self] in
+            SVProgressHUD.dismiss()
             DispatchQueue.main.async {
                 self?.charactersTableView.reloadData()
             }
         }
 
-        viewModel.onError = { error in
-            print(error)
+        viewModel.onFinish = {
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 

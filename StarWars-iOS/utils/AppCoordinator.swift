@@ -63,16 +63,8 @@ class AppCoordinator: Coordinator {
         let movieDetailsViewModel = MovieDetailViewModel.init(movie: movie, manager: manager)
         let movieDetailsViewController = MovieDetailViewController(viewModel: movieDetailsViewModel)
         movieDetailsViewModel.coordinator = self
-        movieDetailsViewModel.reloadData = {
-            print(movieDetailsViewModel.charactersList.count)
-            DispatchQueue.main.async {
-                movieDetailsViewController.charactersTableView.reloadData()
-            }
-        }
-        movieDetailsViewModel.onFinish = {
-            SVProgressHUD.dismiss()
-        }
         movieDetailsViewModel.onError = { error in
+            SVProgressHUD.dismiss()
             print(error)
         }
         navigationController.pushViewController(movieDetailsViewController, animated: true)

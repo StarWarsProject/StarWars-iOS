@@ -29,27 +29,6 @@ class DetaiManager: DetailProtocolManager {
     private let coreDataManager = CoreDataManager.shared
     private let localDataManager = DetailManagerLocal.shared
 
-    func getDataForTabWithMovie<T: NSManagedObject>(idMovie: Int16, withEntity: CoreDataEntities) async -> EntitiesSearchResult<T>? {
-        let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
-        guard let safeMovie = movie else { return nil }
-        var listID = [String]()
-        switch withEntity {
-        case .Movie:
-            return nil
-        case .Character:
-            listID = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.charactersIds)
-        case .Planet:
-            listID = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.planetsIds)
-        case .Specie:
-            listID = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.speciesIds)
-        case .Starship:
-            listID = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.starshipsIds)
-        case .Vehicle:
-            listID = MovieManagerLocal.getIdsFromString(stringIds: "")
-        }
-        return coreDataManager.getEntitiesFromIDArray(listID, entity: withEntity)
-    }
-
     func getCharactersByMovieAsync(idMovie: Int16) async -> Result<[Character], Error> {
         let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
         guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }
