@@ -34,6 +34,11 @@ class MovieDetailViewModel: ViewModel {
             reloadData?()
         }
     }
+    var vehiclesList: [Vehicle] = [] {
+        didSet {
+            reloadData?()
+        }
+    }
 
     var shipsList: [Starship] = [] {
         didSet {
@@ -90,6 +95,20 @@ class MovieDetailViewModel: ViewModel {
             switch shipResult {
             case .success(let ships):
                 self.shipsList = ships
+                onFinish?()
+            case .failure(let failure):
+                onError?(failure)
+            }
+        }
+    }
+
+    func getVehicles() {
+        SVProgressHUD.show()
+        Task.init {
+            let vehicleResult = await manager.getVehiclesByMovieAsync(idMovie: movie.id)
+            switch vehicleResult {
+            case .success(let vehicles):
+                self.vehiclesList = vehicles
                 onFinish?()
             case .failure(let failure):
                 onError?(failure)

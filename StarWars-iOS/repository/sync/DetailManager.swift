@@ -12,6 +12,7 @@ enum DetailManagerError: Error {
     case NoMovieFound
     case NoCharactersAvailable
     case NoPlanetsAvailable
+    case NoVehiclesAvailable
 }
 
 protocol DetailProtocolManager {
@@ -19,6 +20,7 @@ protocol DetailProtocolManager {
     func getPlanetsByMovieAsync(idMovie: Int16) async -> Result<[Planet], Error>
     func getSpeciesByMovieAsync(idMovie: Int16) async -> Result<[Specie], Error>
     func getStarshipsByMovieAsync(idMovie: Int16) async -> Result<[Starship], Error>
+    func getVehiclesByMovieAsync(idMovie: Int16) async -> Result<[Vehicle], Error>
 }
 
 class DetaiManager: DetailProtocolManager {
@@ -49,7 +51,6 @@ class DetaiManager: DetailProtocolManager {
     }
 
     func getCharactersByMovieAsync(idMovie: Int16) async -> Result<[Character], Error> {
-
         let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
         guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }
         let charsIds = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.charactersIds)
@@ -77,7 +78,6 @@ class DetaiManager: DetailProtocolManager {
     }
 
     func getPlanetsByMovieAsync(idMovie: Int16) async -> Result<[Planet], Error> {
-
         let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
         guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }
         let planetsIds = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.planetsIds)
@@ -105,7 +105,6 @@ class DetaiManager: DetailProtocolManager {
     }
 
     func getSpeciesByMovieAsync(idMovie: Int16) async -> Result<[Specie], Error> {
-
         let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
         guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }
         let speciesIds = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.speciesIds)
@@ -159,4 +158,31 @@ class DetaiManager: DetailProtocolManager {
         return .success(safeMovie.starshipsArray)
     }
 
+    func getVehiclesByMovieAsync(idMovie: Int16) async -> Result<[Vehicle], Error> {
+        let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
+        guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }
+        let vehiclesIds = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.vehiclesIds)
+        let vehiclesByIDResult: EntitiesSearchResult<Vehicle> = coreDataManager.getEntitiesFromIDArray(vehiclesIds, entity: .Vehicle)
+        if vehiclesByIDResult.missingIds.isEmpty {
+            return .success(vehiclesByIDResult.entities)
+        } else {
+            if Reachability.isConnectedToNetwork() {
+                let newVehicles: Result<[VehicleResponse], Error> = await
+                networkManager.getAllDataForTabIdAsync(idList: vehiclesByIDResult.missingIds, forTab: .vehicles)
+                switch newVehicles {
+                case .success(let vehicles):
+                    localDataManager.saveAllVehiclesByMovie(vehiclesList: vehicles, movie: safeMovie)
+                    localDataManager.syncVehiclesWithMovie(vehicles: vehiclesByIDResult.entities, movie: safeMovie)
+                    return .success(safeMovie.vehiclesArray)
+                case .failure(let failure):
+                    return .failure(failure)
+                }
+            }
+            localDataManager.syncVehiclesWithMovie(vehicles: vehiclesByIDResult.entities, movie: safeMovie)
+            if safeMovie.vehiclesArray.isEmpty {
+                return .failure(DetailManagerError.NoVehiclesAvailable)
+            }
+            return .success(safeMovie.vehiclesArray)
+        }
+    }
 }

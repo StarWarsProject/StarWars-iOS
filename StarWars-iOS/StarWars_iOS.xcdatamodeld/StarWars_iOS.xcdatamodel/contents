@@ -28,6 +28,7 @@
         <attribute name="starshipsIds" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="updatedAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="vehiclesIds" optional="YES" attributeType="String"/>
         <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="movies" inverseEntity="Character"/>
         <relationship name="planets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Planet" inverseName="movies" inverseEntity="Planet"/>
         <relationship name="species" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Specie" inverseName="movies" inverseEntity="Specie"/>
