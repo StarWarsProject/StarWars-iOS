@@ -26,7 +26,9 @@ class SpecieViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         initViewModel()
-        viewModel.getSpecies()
+        Task.init {
+            await viewModel.getSpecies()
+        }
     }
 
     private func setupView() {

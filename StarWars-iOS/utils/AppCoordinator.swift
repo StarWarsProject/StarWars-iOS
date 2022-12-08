@@ -59,7 +59,7 @@ class AppCoordinator: Coordinator {
     }
 
     func goToDetailsScreen(movie: Movie) {
-        let manager = DetaiManager.shared
+        let manager = DetaiManager()
         let movieDetailsViewModel = MovieDetailViewModel.init(movie: movie, manager: manager)
         let movieDetailsViewController = MovieDetailViewController(viewModel: movieDetailsViewModel)
         movieDetailsViewModel.coordinator = self
