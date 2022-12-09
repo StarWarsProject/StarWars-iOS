@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class VehicleViewController: UIViewController {
 
     @IBOutlet weak var vehiclesTableView: UITableView!
-
+    private let refreshControl = UIRefreshControl()
     var viewModel: MovieDetailViewModel
 
     init(viewModel: MovieDetailViewModel) {
@@ -24,7 +25,6 @@ class VehicleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         initViewModel()
         Task.init {
             await viewModel.getVehicles()
@@ -37,17 +37,31 @@ class VehicleViewController: UIViewController {
         vehiclesTableView.delegate = self
         vehiclesTableView.dataSource = self
         vehiclesTableView.estimatedRowHeight = 80
+
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+
+        vehiclesTableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        SVProgressHUD.show()
+        viewModel.getVehicles()
     }
 
     private func initViewModel() {
         viewModel.reloadData = { [weak self] in
+            SVProgressHUD.dismiss()
             DispatchQueue.main.async {
                 self?.vehiclesTableView.reloadData()
             }
         }
 
-        viewModel.onError = { error in
-            print(error)
+        viewModel.onFinish = {
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }

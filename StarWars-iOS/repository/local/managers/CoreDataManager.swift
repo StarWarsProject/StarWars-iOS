@@ -51,6 +51,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
     }
 
+    @discardableResult
     func getContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
     }

@@ -72,6 +72,9 @@ class MovieDetailViewController: UIViewController {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurEffectView.alpha = 0.5
         imageBackground.addSubview(blurEffectView)
+
+        tabOptionChanged(index: 0)
+        tabsCollectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
     }
 
     @objc func autoScroll() {
@@ -96,6 +99,7 @@ class MovieDetailViewController: UIViewController {
         tabsCollectionView.dataSource = self
         tabsCollectionView.delegate = self
         tabsCollectionView.allowsMultipleSelection = false
+
     }
 
     func setBoldText(boldText: String, normalText: String) -> NSMutableAttributedString {

@@ -24,8 +24,6 @@ struct VehicleResponse: Codable {
     }
 
     func toEntity(context: NSManagedObjectContext) -> Vehicle {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
         let newVehicle = Vehicle(context: context)
         newVehicle.name = name
         newVehicle.createdAt = Date()

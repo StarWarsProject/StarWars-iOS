@@ -25,14 +25,16 @@ class DetailManagerLocal: DetailManagerLocalProtocol {
     var coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared
 
     func saveAllCharactersByMovie(charactersList: [CharacterResponse], movie: Movie) {
+        let context = coreDataManager.getContext()
         charactersList.forEach { character in
-            let newCharacter = character.toEntity(context: coreDataManager.getContext())
+            let newCharacter = character.toEntity(context: context)
             newCharacter.addToMovies(movie)
         }
         coreDataManager.saveContext()
     }
 
     func syncCharactersWithMovie(characters: [Character], movie: Movie) {
+        coreDataManager.getContext()
         for character in characters {
             character.addToMovies(movie)
         }
@@ -40,14 +42,16 @@ class DetailManagerLocal: DetailManagerLocalProtocol {
     }
 
     func saveAllPlanetsByMovie(planetsList: [PlanetResponse], movie: Movie) {
+        let context = coreDataManager.getContext()
         planetsList.forEach { planet in
-            let newPlanet = planet.toEntity(context: coreDataManager.getContext())
+            let newPlanet = planet.toEntity(context: context)
             newPlanet.addToMovies(movie)
         }
         coreDataManager.saveContext()
     }
 
     func syncPlanetsWithMovie(planets: [Planet], movie: Movie) {
+        coreDataManager.getContext()
         for planet in planets {
             planet.addToMovies(movie)
         }
@@ -55,14 +59,16 @@ class DetailManagerLocal: DetailManagerLocalProtocol {
     }
 
     func saveAllSpeciesByMovie(speciesList: [SpecieResponse], movie: Movie) {
+        let context = coreDataManager.getContext()
         speciesList.forEach { specie in
-            let newSpecie = specie.toEntity(context: coreDataManager.getContext())
+            let newSpecie = specie.toEntity(context: context)
             newSpecie.addToMovies(movie)
         }
         coreDataManager.saveContext()
     }
 
     func syncSpeciesWithMovie(species: [Specie], movie: Movie) {
+        coreDataManager.getContext()
         for specie in species {
             specie.addToMovies(movie)
         }
@@ -70,14 +76,16 @@ class DetailManagerLocal: DetailManagerLocalProtocol {
     }
 
     func saveAllShipsByMovie(shipList: [StarshipsResponse], movie: Movie) {
+        let context = coreDataManager.getContext()
         shipList.forEach { ship in
-            let newShip = ship.toEntity(context: coreDataManager.getContext())
+            let newShip = ship.toEntity(context: context)
             newShip.addToMovies(movie)
         }
         coreDataManager.saveContext()
     }
 
     func syncShipsWithMovie(ships: [Starship], movie: Movie) {
+        coreDataManager.getContext()
         for ship in ships {
             ship.addToMovies(movie)
         }
@@ -85,14 +93,16 @@ class DetailManagerLocal: DetailManagerLocalProtocol {
     }
 
     func saveAllVehiclesByMovie(vehiclesList: [VehicleResponse], movie: Movie) {
+        let context = coreDataManager.getContext()
         vehiclesList.forEach { vehicle in
-            let newVehicle = vehicle.toEntity(context: coreDataManager.getContext())
+            let newVehicle = vehicle.toEntity(context: context)
             newVehicle.addToMovies(movie)
         }
         coreDataManager.saveContext()
     }
 
     func syncVehiclesWithMovie(vehicles: [Vehicle], movie: Movie) {
+        coreDataManager.getContext()
         for vehicle in vehicles {
             vehicle.addToMovies(movie)
         }

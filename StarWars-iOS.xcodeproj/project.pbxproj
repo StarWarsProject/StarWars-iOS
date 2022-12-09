@@ -19,11 +19,13 @@
 		846D30AF292D022A006FC25F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30AD292D022A006FC25F /* HomeViewController.swift */; };
 		846D30B0292D022A006FC25F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846D30AE292D022A006FC25F /* HomeViewController.xib */; };
 		846D30B2292D027F006FC25F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D30B1292D027F006FC25F /* HomeViewModel.swift */; };
+		931191902942976300C880F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9311918F2942976300C880F1 /* GoogleService-Info.plist */; };
 		93481410293EB7D7003A9462 /* ShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348140E293EB7D7003A9462 /* ShipViewController.swift */; };
 		93481411293EB7D7003A9462 /* ShipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9348140F293EB7D7003A9462 /* ShipViewController.xib */; };
 		93481418293EB8B1003A9462 /* ShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93481416293EB8B1003A9462 /* ShipTableViewCell.swift */; };
 		93481419293EB8B1003A9462 /* ShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93481417293EB8B1003A9462 /* ShipTableViewCell.xib */; };
 		9348141B293EBA6D003A9462 /* StarshipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348141A293EBA6D003A9462 /* StarshipResponse.swift */; };
+		9362B55A2942ADAC00AB5096 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9362B5592942ADAC00AB5096 /* FirebaseCrashlytics */; };
 		93CAE1AE293A907A006E14E4 /* NibWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE1AD293A907A006E14E4 /* NibWrapperView.swift */; };
 		93CAE1B0293A9276006E14E4 /* NibWrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE1AF293A9276006E14E4 /* NibWrapped.swift */; };
 		93D1AA6D293104FB00DC9DA6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1AA6F293104FB00DC9DA6 /* Localizable.strings */; };
@@ -122,6 +124,7 @@
 		846D30AD292D022A006FC25F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		846D30AE292D022A006FC25F /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		846D30B1292D027F006FC25F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9311918F2942976300C880F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9348140E293EB7D7003A9462 /* ShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipViewController.swift; sourceTree = "<group>"; };
 		9348140F293EB7D7003A9462 /* ShipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipViewController.xib; sourceTree = "<group>"; };
 		93481416293EB8B1003A9462 /* ShipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99BDDBA322881CC674276128 /* Pods_StarWars_iOS.framework in Frameworks */,
+				9362B55A2942ADAC00AB5096 /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +270,7 @@
 				846D30A7292CFF9C006FC25F /* modules */,
 				846D3071292CF938006FC25F /* AppDelegate.swift */,
 				846D3073292CF938006FC25F /* SceneDelegate.swift */,
+				9311918F2942976300C880F1 /* GoogleService-Info.plist */,
 				846D3075292CF938006FC25F /* ViewController.swift */,
 				846D3077292CF938006FC25F /* Main.storyboard */,
 				846D307D292CF93A006FC25F /* Assets.xcassets */,
@@ -571,12 +576,16 @@
 				846D306B292CF938006FC25F /* Frameworks */,
 				846D306C292CF938006FC25F /* Resources */,
 				8DD47FBD0A68743F67CF2497 /* [CP] Embed Pods Frameworks */,
+				9362B55B2942B22000AB5096 /* Crashlytics */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "StarWars-iOS";
+			packageProductDependencies = (
+				9362B5592942ADAC00AB5096 /* FirebaseCrashlytics */,
+			);
 			productName = "StarWars-iOS";
 			productReference = 846D306E292CF938006FC25F /* StarWars-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -629,6 +638,9 @@
 				"es-419",
 			);
 			mainGroup = 846D3065292CF938006FC25F;
+			packageReferences = (
+				9362B5582942ADAC00AB5096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 846D306F292CF938006FC25F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -661,6 +673,7 @@
 				CE940769293E48BD0034B37E /* VehicleTableViewCell.xib in Resources */,
 				CEE5BFA7293A48EC00BBC798 /* SpecieTableViewCell.xib in Resources */,
 				CE90DE4929380B3900853B36 /* CharacterViewController.xib in Resources */,
+				931191902942976300C880F1 /* GoogleService-Info.plist in Resources */,
 				93481419293EB8B1003A9462 /* ShipTableViewCell.xib in Resources */,
 				93D1AA7A29311CB900DC9DA6 /* MovieCollectionViewCell.xib in Resources */,
 			);
@@ -733,6 +746,27 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarWars-iOS/Pods-StarWars-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9362B55B2942B22000AB5096 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 		9E71FC7BDD4F73D2BF1525FC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -908,7 +942,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -998,6 +1032,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = X2663B4F4Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "StarWars-iOS/Info.plist";
@@ -1027,6 +1062,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = X2663B4F4Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "StarWars-iOS/Info.plist";
@@ -1119,6 +1155,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9362B5582942ADAC00AB5096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9362B5592942ADAC00AB5096 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9362B5582942ADAC00AB5096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		846D307A292CF938006FC25F /* StarWars_iOS.xcdatamodeld */ = {

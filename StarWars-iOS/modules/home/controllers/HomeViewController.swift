@@ -41,6 +41,10 @@ class HomeViewController: UIViewController {
         viewModel.callMovieList()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+
     private func setUpViews() {
         seeDetailsButton.setTitle(NSLocalizedString(StringConstants.seeDetails, comment: ""), for: .normal)
         filmsLabel.text = NSLocalizedString(StringConstants.filmsLabel, comment: "")
