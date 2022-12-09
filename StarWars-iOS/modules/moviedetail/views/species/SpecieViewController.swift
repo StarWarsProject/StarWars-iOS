@@ -26,6 +26,7 @@ class SpecieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
+        setupView()
         Task.init {
             await viewModel.getSpecies()
         }
@@ -46,7 +47,9 @@ class SpecieViewController: UIViewController {
 
     @objc func refresh(_ sender: AnyObject) {
         SVProgressHUD.show()
-        viewModel.getSpecies()
+        Task.init {
+            await viewModel.getSpecies()
+        }
     }
 
     private func initViewModel() {

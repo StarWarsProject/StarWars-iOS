@@ -26,6 +26,7 @@ class ShipViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
+        setupView()
         Task.init {
             await viewModel.getStarships()
         }
@@ -46,7 +47,9 @@ class ShipViewController: UIViewController {
 
     @objc func refresh(_ sender: AnyObject) {
         SVProgressHUD.show()
-        viewModel.getStarships()
+        Task.init {
+            await viewModel.getStarships()
+        }
     }
 
     private func initViewModel() {
