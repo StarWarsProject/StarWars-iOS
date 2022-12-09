@@ -15,11 +15,16 @@ enum DetailEndpointURL: String {
     case vehicles = "/vehicles"
 }
 
-class DetailManagerNetwork {
+protocol DetailManagerNetworkProtocol {
+    func getDataByIdAsync<T: Decodable>(url: String) async -> Result<T, Error>
+    func getAllDataForTabIdAsync<T: Decodable>(idList: [String], forTab: DetailEndpointURL) async -> Result<[T], Error>
+}
+
+class DetailManagerNetwork: DetailManagerNetworkProtocol {
     static let shared = DetailManagerNetwork()
     private let networkManager = NetworkManager.shared
 
-    private func getDataByIdAsync<T: Decodable>(url: String) async -> Result<T, Error> {
+    internal func getDataByIdAsync<T: Decodable>(url: String) async -> Result<T, Error> {
         do {
             return try await networkManager.getAsyncAwait(url: url)
         } catch {

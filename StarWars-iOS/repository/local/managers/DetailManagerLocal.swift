@@ -7,9 +7,22 @@
 
 import Foundation
 
-class DetailManagerLocal {
+protocol DetailManagerLocalProtocol {
+    func saveAllCharactersByMovie(charactersList: [CharacterResponse], movie: Movie)
+    func syncCharactersWithMovie(characters: [Character], movie: Movie)
+    func saveAllPlanetsByMovie(planetsList: [PlanetResponse], movie: Movie)
+    func syncPlanetsWithMovie(planets: [Planet], movie: Movie)
+    func saveAllSpeciesByMovie(speciesList: [SpecieResponse], movie: Movie)
+    func syncSpeciesWithMovie(species: [Specie], movie: Movie)
+    func saveAllShipsByMovie(shipList: [StarshipsResponse], movie: Movie)
+    func syncShipsWithMovie(ships: [Starship], movie: Movie)
+    func saveAllVehiclesByMovie(vehiclesList: [VehicleResponse], movie: Movie)
+    func syncVehiclesWithMovie(vehicles: [Vehicle], movie: Movie)
+}
+
+class DetailManagerLocal: DetailManagerLocalProtocol {
     static let shared = DetailManagerLocal()
-    private let coreDataManager = CoreDataManager.shared
+    var coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared
 
     func saveAllCharactersByMovie(charactersList: [CharacterResponse], movie: Movie) {
         charactersList.forEach { character in
@@ -72,28 +85,11 @@ class DetailManagerLocal {
     }
 
     func saveAllVehiclesByMovie(vehiclesList: [VehicleResponse], movie: Movie) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        // Save Vehicles
         vehiclesList.forEach { vehicle in
-            let newVehicle = Vehicle(context: CoreDataManager.shared.getContext())
-            newVehicle.name = vehicle.name
-            newVehicle.createdAt = Date()
-            newVehicle.cargoCapacity = vehicle.cargoCapacity
-            newVehicle.crew = vehicle.crew
-            newVehicle.length = vehicle.length
-            newVehicle.manufacturer = vehicle.manufacturer
-            newVehicle.maxAtmospheringSpeed = vehicle.maxAtmospheringSpeed
-            newVehicle.model = vehicle.model
-            newVehicle.passengers = vehicle.passengers
-            newVehicle.vehicleClass = vehicle.vehicleClass
-            var idVeh = vehicle.url
-            idVeh.removeLast()
-            newVehicle.id = Int16(String(idVeh[(idVeh.index(after: idVeh.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: idVeh)))...])) ?? 0
-            newVehicle.updatedAt = Date()
+            let newVehicle = vehicle.toEntity(context: coreDataManager.getContext())
             newVehicle.addToMovies(movie)
-            coreDataManager.saveContext()
         }
+        coreDataManager.saveContext()
     }
 
     func syncVehiclesWithMovie(vehicles: [Vehicle], movie: Movie) {

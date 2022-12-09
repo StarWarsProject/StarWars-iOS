@@ -25,7 +25,9 @@ class CharacterViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         initViewModel()
-        viewModel.getCharacters()
+        Task.init {
+            await viewModel.getCharacters()
+        }
     }
 
     func setupView() {

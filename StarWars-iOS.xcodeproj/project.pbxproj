@@ -64,6 +64,9 @@
 		C2C2B11E292EE0BD00C12EE8 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C2B11D292EE0BD00C12EE8 /* MovieManager.swift */; };
 		C2DBA50329384D2B0003116D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DBA50229384D2B0003116D /* Reachability.swift */; };
 		C2DBA5052938504D0003116D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DBA5042938504D0003116D /* AppCoordinator.swift */; };
+		C2E86EDE294214A800B5565E /* MovieDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E86EDD294214A800B5565E /* MovieDetailViewModelTests.swift */; };
+		C2E86EE0294214B700B5565E /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E86EDF294214B700B5565E /* TestResources.swift */; };
+		C2E86EE2294214D300B5565E /* MocksManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E86EE1294214D300B5565E /* MocksManagers.swift */; };
 		CE8FECD529350DCB00132D0C /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FECD229350DCB00132D0C /* MovieDetailViewController.swift */; };
 		CE8FECD629350DCB00132D0C /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FECD329350DCB00132D0C /* MovieDetailViewController.xib */; };
 		CE8FECDD2935432D00132D0C /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FECDB2935432D00132D0C /* TabCollectionViewCell.swift */; };
@@ -165,6 +168,9 @@
 		C2C2B11D292EE0BD00C12EE8 /* MovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 		C2DBA50229384D2B0003116D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C2DBA5042938504D0003116D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		C2E86EDD294214A800B5565E /* MovieDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModelTests.swift; sourceTree = "<group>"; };
+		C2E86EDF294214B700B5565E /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
+		C2E86EE1294214D300B5565E /* MocksManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksManagers.swift; sourceTree = "<group>"; };
 		CE8FECD229350DCB00132D0C /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		CE8FECD329350DCB00132D0C /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		CE8FECDB2935432D00132D0C /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -274,6 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				846D308B292CF93A006FC25F /* StarWars_iOSTests.swift */,
+				C2E86EDD294214A800B5565E /* MovieDetailViewModelTests.swift */,
+				C2E86EDF294214B700B5565E /* TestResources.swift */,
+				C2E86EE1294214D300B5565E /* MocksManagers.swift */,
 			);
 			path = "StarWars-iOSTests";
 			sourceTree = "<group>";
@@ -442,9 +451,6 @@
 		93D1F810293E984600F3607B /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				CEE5BFAE293A4E2B00BBC798 /* SpecieManagerNetwork.swift */,
-				CEE5BFB2293A50ED00BBC798 /* SpecieManagerLocal.swift */,
-				CEE5BFAC293A4D3000BBC798 /* SpecieManager.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -821,6 +827,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E86EDE294214A800B5565E /* MovieDetailViewModelTests.swift in Sources */,
+				C2E86EE2294214D300B5565E /* MocksManagers.swift in Sources */,
+				C2E86EE0294214B700B5565E /* TestResources.swift in Sources */,
 				846D308C292CF93A006FC25F /* StarWars_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
