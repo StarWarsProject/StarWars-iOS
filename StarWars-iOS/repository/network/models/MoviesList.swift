@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 // MARK: - Welcome
 struct MoviesList: Codable {
@@ -31,6 +32,55 @@ struct Film: Codable {
         case director, producer
         case releaseDate = "release_date"
         case characters, planets, starships, vehicles, species, created, edited, url
+    }
+
+    @discardableResult
+    func toEntity(context: NSManagedObjectContext) -> Movie {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let newMovie = Movie(context: context)
+        var idFilm = url
+        idFilm.removeLast()
+        newMovie.id = Int16(String(idFilm.last ?? "0")) ?? 0
+        newMovie.title = title
+        newMovie.director = director
+        newMovie.producer = producer
+        newMovie.openingCrawl = openingCrawl
+        newMovie.episodeId = Int16(episodeID)
+        let charactersIds = characters.map { char in
+            var charUrl = char
+            charUrl.removeLast()
+            return String(charUrl[(charUrl.index(after: charUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: charUrl)))...])
+        }
+        let planetsIds = planets.map { plan in
+            var platUrl = plan
+            platUrl.removeLast()
+            return String(platUrl[(platUrl.index(after: platUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: platUrl)))...])
+        }
+        let speciesIds = species.map { spe in
+            var specUrl = spe
+            specUrl.removeLast()
+            return String(specUrl[(specUrl.index(after: specUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: specUrl)))...])
+        }
+        let vehiclesIds = vehicles.map { veh in
+            var vehiUrl = veh
+            vehiUrl.removeLast()
+            return String(vehiUrl[(vehiUrl.index(after: vehiUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: vehiUrl)))...])
+        }
+        let starshipsIds = starships.map { char in
+            var specUrl = char
+            specUrl.removeLast()
+            return String(specUrl[(specUrl.index(after: specUrl.lastIndex(of: "/") ?? String.Index(utf16Offset: 1, in: specUrl)))...])
+        }
+        newMovie.charactersIds = MovieManagerLocal.getStringFromIds(idList: charactersIds)
+        newMovie.planetsIds = MovieManagerLocal.getStringFromIds(idList: planetsIds)
+        newMovie.speciesIds = MovieManagerLocal.getStringFromIds(idList: speciesIds)
+        newMovie.starshipsIds = MovieManagerLocal.getStringFromIds(idList: starshipsIds)
+        newMovie.vehiclesIds = MovieManagerLocal.getStringFromIds(idList: vehiclesIds)
+        newMovie.releaseDate = dateFormatter.date(from: releaseDate) ?? Date()
+        newMovie.createdAt = Date()
+        newMovie.updatedAt = Date()
+        return newMovie
     }
 }
 

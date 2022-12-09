@@ -7,9 +7,22 @@
 
 import Foundation
 
-class DetailManagerLocal {
+protocol DetailManagerLocalProtocol {
+    func saveAllCharactersByMovie(charactersList: [CharacterResponse], movie: Movie)
+    func syncCharactersWithMovie(characters: [Character], movie: Movie)
+    func saveAllPlanetsByMovie(planetsList: [PlanetResponse], movie: Movie)
+    func syncPlanetsWithMovie(planets: [Planet], movie: Movie)
+    func saveAllSpeciesByMovie(speciesList: [SpecieResponse], movie: Movie)
+    func syncSpeciesWithMovie(species: [Specie], movie: Movie)
+    func saveAllShipsByMovie(shipList: [StarshipsResponse], movie: Movie)
+    func syncShipsWithMovie(ships: [Starship], movie: Movie)
+    func saveAllVehiclesByMovie(vehiclesList: [VehicleResponse], movie: Movie)
+    func syncVehiclesWithMovie(vehicles: [Vehicle], movie: Movie)
+}
+
+class DetailManagerLocal: DetailManagerLocalProtocol {
     static let shared = DetailManagerLocal()
-    private let coreDataManager = CoreDataManager.shared
+    var coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared
 
     func saveAllCharactersByMovie(charactersList: [CharacterResponse], movie: Movie) {
         let context = coreDataManager.getContext()

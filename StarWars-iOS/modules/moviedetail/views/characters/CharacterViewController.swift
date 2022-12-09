@@ -26,8 +26,9 @@ class CharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
-        setupView()
-        viewModel.getCharacters()
+        Task.init {
+            await viewModel.getCharacters()
+        }
     }
 
     func setupView() {

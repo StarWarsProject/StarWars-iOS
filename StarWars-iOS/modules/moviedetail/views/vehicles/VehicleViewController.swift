@@ -26,8 +26,9 @@ class VehicleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
-        setupView()
-        viewModel.getVehicles()
+        Task.init {
+            await viewModel.getVehicles()
+        }
     }
 
     func setupView() {

@@ -15,7 +15,7 @@ enum DetailManagerError: Error {
     case NoVehiclesAvailable
 }
 
-protocol DetailProtocolManager {
+protocol DetailManagerProtocol {
     func getCharactersByMovieAsync(idMovie: Int16) async -> Result<[Character], Error>
     func getPlanetsByMovieAsync(idMovie: Int16) async -> Result<[Planet], Error>
     func getSpeciesByMovieAsync(idMovie: Int16) async -> Result<[Specie], Error>
@@ -23,21 +23,24 @@ protocol DetailProtocolManager {
     func getVehiclesByMovieAsync(idMovie: Int16) async -> Result<[Vehicle], Error>
 }
 
-class DetaiManager: DetailProtocolManager {
+class DetaiManager: DetailManagerProtocol {
     static let shared = DetaiManager()
-    private let networkManager = DetailManagerNetwork.shared
-    private let coreDataManager = CoreDataManager.shared
-    private let localDataManager = DetailManagerLocal.shared
+    var networkManager: DetailManagerNetworkProtocol = DetailManagerNetwork.shared
+    var coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared
+    var localDataManager: DetailManagerLocalProtocol = DetailManagerLocal.shared
+    var isConnectedToInternet: Bool = Reachability.isConnectedToNetwork()
 
     func getCharactersByMovieAsync(idMovie: Int16) async -> Result<[Character], Error> {
         let movie: Movie? = coreDataManager.getEntityBy(id: "\(idMovie)", entity: .Movie)
         guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }
         let charsIds = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.charactersIds)
         let charactersByIDResult: EntitiesSearchResult<Character> = coreDataManager.getEntitiesFromIDArray(charsIds, entity: .Character)
+        print("charactersbyidresult: \(charactersByIDResult.entities.count)")
+        print("charactersbyidresultmissing: \(charactersByIDResult.missingIds.count)")
         if charactersByIDResult.missingIds.isEmpty {
             return .success(charactersByIDResult.entities)
         }
-        if Reachability.isConnectedToNetwork() {
+        if isConnectedToInternet {
             let newCharacters: Result<[CharacterResponse], Error> = await
             networkManager.getAllDataForTabIdAsync(idList: charactersByIDResult.missingIds, forTab: .people)
             switch newCharacters {
@@ -61,10 +64,12 @@ class DetaiManager: DetailProtocolManager {
         guard let safeMovie = movie else { return .failure(DetailManagerError.NoMovieFound) }
         let planetsIds = MovieManagerLocal.getIdsFromString(stringIds: safeMovie.planetsIds)
         let planetsByIDResult: EntitiesSearchResult<Planet> = coreDataManager.getEntitiesFromIDArray(planetsIds, entity: .Planet)
+        print("planetsbyidresult: \(planetsByIDResult.entities.count)")
+        print("planetsbyidresultmissing: \(planetsByIDResult.missingIds.count)")
         if planetsByIDResult.missingIds.isEmpty {
             return .success(planetsByIDResult.entities)
         }
-        if Reachability.isConnectedToNetwork() {
+        if isConnectedToInternet {
             let newPlanets: Result<[PlanetResponse], Error> = await
             networkManager.getAllDataForTabIdAsync(idList: planetsByIDResult.missingIds, forTab: .planets)
             switch newPlanets {
@@ -91,7 +96,7 @@ class DetaiManager: DetailProtocolManager {
         if speciesByIDResult.missingIds.isEmpty {
             return .success(speciesByIDResult.entities)
         }
-        if Reachability.isConnectedToNetwork() {
+        if isConnectedToInternet {
             let newSpecies: Result<[SpecieResponse], Error> = await
             networkManager.getAllDataForTabIdAsync(idList: speciesByIDResult.missingIds, forTab: .species)
             switch newSpecies {
@@ -118,7 +123,7 @@ class DetaiManager: DetailProtocolManager {
         if shipsByIDResult.missingIds.isEmpty {
             return .success(shipsByIDResult.entities)
         }
-        if Reachability.isConnectedToNetwork() {
+        if isConnectedToInternet {
             let newShips: Result<[StarshipsResponse], Error> = await
             networkManager.getAllDataForTabIdAsync(idList: shipsByIDResult.missingIds, forTab: .starships)
             switch newShips {
@@ -145,7 +150,7 @@ class DetaiManager: DetailProtocolManager {
         if vehiclesByIDResult.missingIds.isEmpty {
             return .success(vehiclesByIDResult.entities)
         } else {
-            if Reachability.isConnectedToNetwork() {
+            if isConnectedToInternet {
                 let newVehicles: Result<[VehicleResponse], Error> = await
                 networkManager.getAllDataForTabIdAsync(idList: vehiclesByIDResult.missingIds, forTab: .vehicles)
                 switch newVehicles {

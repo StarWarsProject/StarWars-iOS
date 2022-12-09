@@ -26,8 +26,9 @@ class SpecieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
-        setupView()
-        viewModel.getSpecies()
+        Task.init {
+            await viewModel.getSpecies()
+        }
     }
 
     private func setupView() {

@@ -26,8 +26,9 @@ class ShipViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
-        setupView()
-        viewModel.getStarships()
+        Task.init {
+            await viewModel.getStarships()
+        }
     }
 
     private func setupView() {

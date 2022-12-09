@@ -26,8 +26,9 @@ class PlanetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
-        setupView()
-        viewModel.getPlanets()
+        Task.init {
+            await viewModel.getPlanets()
+        }
     }
 
     func setupView() {

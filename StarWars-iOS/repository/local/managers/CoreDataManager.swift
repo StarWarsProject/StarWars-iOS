@@ -17,7 +17,17 @@ enum CoreDataEntities: String {
     case Vehicle
 }
 
-class CoreDataManager {
+protocol CoreDataManagerProtocol {
+    func saveContext ()
+    func getContext() -> NSManagedObjectContext
+    func getData<T: NSManagedObject>(entity: CoreDataEntities) -> [T]
+    func deleteAll() -> Bool
+    func deleteAllObjectsByEntity(entity: CoreDataEntities) -> Bool
+    func getEntityBy<T: NSManagedObject>(id: String, entity: CoreDataEntities) -> T?
+    func getEntitiesFromIDArray<T: NSManagedObject>(_ ids: [String], entity: CoreDataEntities) -> EntitiesSearchResult<T>
+}
+
+class CoreDataManager: CoreDataManagerProtocol {
     static var shared = CoreDataManager()
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "StarWars_iOS")
