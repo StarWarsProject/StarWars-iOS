@@ -26,6 +26,7 @@ class VehicleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
+        setupView()
         Task.init {
             await viewModel.getVehicles()
         }
@@ -46,7 +47,9 @@ class VehicleViewController: UIViewController {
 
     @objc func refresh(_ sender: AnyObject) {
         SVProgressHUD.show()
-        viewModel.getVehicles()
+        Task.init {
+            await viewModel.getVehicles()
+        }
     }
 
     private func initViewModel() {

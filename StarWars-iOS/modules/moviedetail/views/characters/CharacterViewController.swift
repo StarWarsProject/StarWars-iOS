@@ -26,6 +26,7 @@ class CharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
+        setupView()
         Task.init {
             await viewModel.getCharacters()
         }
@@ -46,7 +47,9 @@ class CharacterViewController: UIViewController {
 
     @objc func refresh(_ sender: AnyObject) {
         SVProgressHUD.show()
-        viewModel.getCharacters()
+        Task.init {
+            await viewModel.getCharacters()
+        }
     }
 
     private func initViewModel() {

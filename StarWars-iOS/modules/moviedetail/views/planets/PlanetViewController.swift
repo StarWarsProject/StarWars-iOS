@@ -26,6 +26,7 @@ class PlanetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
+        setupView()
         Task.init {
             await viewModel.getPlanets()
         }
@@ -46,7 +47,9 @@ class PlanetViewController: UIViewController {
 
     @objc func refresh(_ sender: AnyObject) {
         SVProgressHUD.show()
-        viewModel.getPlanets()
+        Task.init {
+            await viewModel.getPlanets()
+        }
     }
 
     private func initViewModel() {
