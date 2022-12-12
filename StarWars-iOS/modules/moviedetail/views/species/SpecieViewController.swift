@@ -46,6 +46,12 @@ class SpecieViewController: UIViewController {
     }
 
     @objc func refresh(_ sender: AnyObject) {
+        viewModel.onFinish = {
+            SVProgressHUD.dismiss()
+            DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
+            }
+        }
         SVProgressHUD.show()
         Task.init {
             await viewModel.getSpecies()
