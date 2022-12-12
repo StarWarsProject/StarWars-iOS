@@ -25,7 +25,18 @@
 		93481418293EB8B1003A9462 /* ShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93481416293EB8B1003A9462 /* ShipTableViewCell.swift */; };
 		93481419293EB8B1003A9462 /* ShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93481417293EB8B1003A9462 /* ShipTableViewCell.xib */; };
 		9348141B293EBA6D003A9462 /* StarshipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348141A293EBA6D003A9462 /* StarshipResponse.swift */; };
-		9362B55A2942ADAC00AB5096 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9362B5592942ADAC00AB5096 /* FirebaseCrashlytics */; };
+		934A1DE32946B1E8005E8AC2 /* vehicles1.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE20B294683B400FDBA85 /* vehicles1.json */; };
+		934A1DE42946B1E8005E8AC2 /* vehicles1error.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE208294683B400FDBA85 /* vehicles1error.json */; };
+		934A1DE52946B1E8005E8AC2 /* species1.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE205294683B400FDBA85 /* species1.json */; };
+		934A1DE62946B1E8005E8AC2 /* people1error.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE2182946847400FDBA85 /* people1error.json */; };
+		934A1DE72946B1E8005E8AC2 /* species1error.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE2192946847400FDBA85 /* species1error.json */; };
+		934A1DE82946B1E8005E8AC2 /* planet1error.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE20A294683B400FDBA85 /* planet1error.json */; };
+		934A1DE92946B1E8005E8AC2 /* starships1.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE204294683B400FDBA85 /* starships1.json */; };
+		934A1DEA2946B1E8005E8AC2 /* planet1.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE20C294683B500FDBA85 /* planet1.json */; };
+		934A1DEB2946B1E8005E8AC2 /* people1.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE2172946847400FDBA85 /* people1.json */; };
+		934A1DEC2946B1E8005E8AC2 /* starships1error.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDE207294683B400FDBA85 /* starships1error.json */; };
+		9396D71D2946909C00F91ED9 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9396D71C2946909C00F91ED9 /* FirebaseCrashlytics */; };
+		9396D71F294691A800F91ED9 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9396D71E294691A800F91ED9 /* FirebaseCrashlytics */; };
 		93CAE1AE293A907A006E14E4 /* NibWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE1AD293A907A006E14E4 /* NibWrapperView.swift */; };
 		93CAE1B0293A9276006E14E4 /* NibWrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE1AF293A9276006E14E4 /* NibWrapped.swift */; };
 		93D1AA6D293104FB00DC9DA6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1AA6F293104FB00DC9DA6 /* Localizable.strings */; };
@@ -34,6 +45,7 @@
 		93D1AA7929311CB900DC9DA6 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D1AA7729311CB900DC9DA6 /* MovieCollectionViewCell.swift */; };
 		93D1AA7A29311CB900DC9DA6 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D1AA7829311CB900DC9DA6 /* MovieCollectionViewCell.xib */; };
 		93D1AA7C29316C6700DC9DA6 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D1AA7B29316C6700DC9DA6 /* DateExtension.swift */; };
+		93EDE21E294686D400FDBA85 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EDE21D294686D400FDBA85 /* FileReader.swift */; };
 		93F0A4EB293A62C3009444FA /* ErrorReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0A4EA293A62C3009444FA /* ErrorReusableView.swift */; };
 		93F0A4ED293A62E4009444FA /* ErrorReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F0A4EC293A62E4009444FA /* ErrorReusableView.xib */; };
 		93F0A4EF293A63D0009444FA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0A4EE293A63D0009444FA /* UIViewExtension.swift */; };
@@ -140,6 +152,17 @@
 		93D1AA7729311CB900DC9DA6 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		93D1AA7829311CB900DC9DA6 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		93D1AA7B29316C6700DC9DA6 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		93EDE204294683B400FDBA85 /* starships1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starships1.json; sourceTree = "<group>"; };
+		93EDE205294683B400FDBA85 /* species1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = species1.json; sourceTree = "<group>"; };
+		93EDE207294683B400FDBA85 /* starships1error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starships1error.json; sourceTree = "<group>"; };
+		93EDE208294683B400FDBA85 /* vehicles1error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vehicles1error.json; sourceTree = "<group>"; };
+		93EDE20A294683B400FDBA85 /* planet1error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = planet1error.json; sourceTree = "<group>"; };
+		93EDE20B294683B400FDBA85 /* vehicles1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vehicles1.json; sourceTree = "<group>"; };
+		93EDE20C294683B500FDBA85 /* planet1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = planet1.json; sourceTree = "<group>"; };
+		93EDE2172946847400FDBA85 /* people1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = people1.json; sourceTree = "<group>"; };
+		93EDE2182946847400FDBA85 /* people1error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = people1error.json; sourceTree = "<group>"; };
+		93EDE2192946847400FDBA85 /* species1error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = species1error.json; sourceTree = "<group>"; };
+		93EDE21D294686D400FDBA85 /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		93F0A4EA293A62C3009444FA /* ErrorReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReusableView.swift; sourceTree = "<group>"; };
 		93F0A4EC293A62E4009444FA /* ErrorReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorReusableView.xib; sourceTree = "<group>"; };
 		93F0A4EE293A63D0009444FA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -204,7 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99BDDBA322881CC674276128 /* Pods_StarWars_iOS.framework in Frameworks */,
-				9362B55A2942ADAC00AB5096 /* FirebaseCrashlytics in Frameworks */,
+				9396D71D2946909C00F91ED9 /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F991DD95C489A91685C12CB /* Pods_StarWars_iOSTests.framework in Frameworks */,
+				9396D71F294691A800F91ED9 /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +287,7 @@
 		846D3070292CF938006FC25F /* StarWars-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				93EDE2022946821C00FDBA85 /* resources */,
 				93D1AA732931180100DC9DA6 /* helpers */,
 				93D1AA6F293104FB00DC9DA6 /* Localizable.strings */,
 				846D30D2292D09EF006FC25F /* utils */,
@@ -288,6 +313,7 @@
 				C2E86EDD294214A800B5565E /* MovieDetailViewModelTests.swift */,
 				C2E86EDF294214B700B5565E /* TestResources.swift */,
 				C2E86EE1294214D300B5565E /* MocksManagers.swift */,
+				93EDE21D294686D400FDBA85 /* FileReader.swift */,
 			);
 			path = "StarWars-iOSTests";
 			sourceTree = "<group>";
@@ -460,6 +486,23 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		93EDE2022946821C00FDBA85 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				93EDE2172946847400FDBA85 /* people1.json */,
+				93EDE2182946847400FDBA85 /* people1error.json */,
+				93EDE20C294683B500FDBA85 /* planet1.json */,
+				93EDE20A294683B400FDBA85 /* planet1error.json */,
+				93EDE205294683B400FDBA85 /* species1.json */,
+				93EDE2192946847400FDBA85 /* species1error.json */,
+				93EDE204294683B400FDBA85 /* starships1.json */,
+				93EDE207294683B400FDBA85 /* starships1error.json */,
+				93EDE20B294683B400FDBA85 /* vehicles1.json */,
+				93EDE208294683B400FDBA85 /* vehicles1error.json */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		93F0A4E9293A6256009444FA /* errorReusableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,7 +627,7 @@
 			);
 			name = "StarWars-iOS";
 			packageProductDependencies = (
-				9362B5592942ADAC00AB5096 /* FirebaseCrashlytics */,
+				9396D71C2946909C00F91ED9 /* FirebaseCrashlytics */,
 			);
 			productName = "StarWars-iOS";
 			productReference = 846D306E292CF938006FC25F /* StarWars-iOS.app */;
@@ -605,6 +648,9 @@
 				846D3089292CF93A006FC25F /* PBXTargetDependency */,
 			);
 			name = "StarWars-iOSTests";
+			packageProductDependencies = (
+				9396D71E294691A800F91ED9 /* FirebaseCrashlytics */,
+			);
 			productName = "StarWars-iOSTests";
 			productReference = 846D3087292CF93A006FC25F /* StarWars-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -639,7 +685,7 @@
 			);
 			mainGroup = 846D3065292CF938006FC25F;
 			packageReferences = (
-				9362B5582942ADAC00AB5096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9396D71B2946909B00F91ED9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 846D306F292CF938006FC25F /* Products */;
 			projectDirPath = "";
@@ -656,23 +702,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934A1DE82946B1E8005E8AC2 /* planet1error.json in Resources */,
 				CE8FECDE2935432D00132D0C /* TabCollectionViewCell.xib in Resources */,
+				934A1DE62946B1E8005E8AC2 /* people1error.json in Resources */,
 				CE8FECD629350DCB00132D0C /* MovieDetailViewController.xib in Resources */,
 				CE940765293E47F30034B37E /* VehicleViewController.xib in Resources */,
+				934A1DE52946B1E8005E8AC2 /* species1.json in Resources */,
 				93D1AA6D293104FB00DC9DA6 /* Localizable.strings in Resources */,
 				CEE5BFAB293A4C0900BBC798 /* SpecieViewController.xib in Resources */,
+				934A1DEC2946B1E8005E8AC2 /* starships1error.json in Resources */,
+				934A1DE92946B1E8005E8AC2 /* starships1.json in Resources */,
 				C261FDF1293706B300BE21CF /* CharacterTableViewCell.xib in Resources */,
 				93F0A4ED293A62E4009444FA /* ErrorReusableView.xib in Resources */,
+				934A1DE42946B1E8005E8AC2 /* vehicles1error.json in Resources */,
 				846D3081292CF93A006FC25F /* LaunchScreen.storyboard in Resources */,
+				934A1DEB2946B1E8005E8AC2 /* people1.json in Resources */,
+				934A1DEA2946B1E8005E8AC2 /* planet1.json in Resources */,
 				846D307E292CF93A006FC25F /* Assets.xcassets in Resources */,
 				846D3079292CF938006FC25F /* Main.storyboard in Resources */,
 				CE90DE5329380DB600853B36 /* PlanetTableViewCell.xib in Resources */,
+				934A1DE72946B1E8005E8AC2 /* species1error.json in Resources */,
 				93481411293EB7D7003A9462 /* ShipViewController.xib in Resources */,
 				CE90DE4F29380CC600853B36 /* PlanetViewController.xib in Resources */,
 				846D30B0292D022A006FC25F /* HomeViewController.xib in Resources */,
 				CE940769293E48BD0034B37E /* VehicleTableViewCell.xib in Resources */,
 				CEE5BFA7293A48EC00BBC798 /* SpecieTableViewCell.xib in Resources */,
 				CE90DE4929380B3900853B36 /* CharacterViewController.xib in Resources */,
+				934A1DE32946B1E8005E8AC2 /* vehicles1.json in Resources */,
 				931191902942976300C880F1 /* GoogleService-Info.plist in Resources */,
 				93481419293EB8B1003A9462 /* ShipTableViewCell.xib in Resources */,
 				93D1AA7A29311CB900DC9DA6 /* MovieCollectionViewCell.xib in Resources */,
@@ -862,6 +918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2E86EDE294214A800B5565E /* MovieDetailViewModelTests.swift in Sources */,
+				93EDE21E294686D400FDBA85 /* FileReader.swift in Sources */,
 				C2E86EE2294214D300B5565E /* MocksManagers.swift in Sources */,
 				C2E86EE0294214B700B5565E /* TestResources.swift in Sources */,
 				846D308C292CF93A006FC25F /* StarWars_iOSTests.swift in Sources */,
@@ -1100,7 +1157,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarWars-iOS.app/StarWars-iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarWars-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StarWars-iOS";
 			};
 			name = Debug;
 		};
@@ -1120,7 +1177,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarWars-iOS.app/StarWars-iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarWars-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StarWars-iOS";
 			};
 			name = Release;
 		};
@@ -1157,20 +1214,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9362B5582942ADAC00AB5096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		9396D71B2946909B00F91ED9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9362B5592942ADAC00AB5096 /* FirebaseCrashlytics */ = {
+		9396D71C2946909C00F91ED9 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9362B5582942ADAC00AB5096 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 9396D71B2946909B00F91ED9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		9396D71E294691A800F91ED9 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9396D71B2946909B00F91ED9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */

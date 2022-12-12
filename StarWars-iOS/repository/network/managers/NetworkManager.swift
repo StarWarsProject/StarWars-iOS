@@ -16,7 +16,11 @@ enum NetworkError: Error {
     case NoDataFromAPI
 }
 
-class NetworkManager {
+protocol NetworkManagerProtocol {
+    func getAsyncAwait<T: Decodable>(url: String) async throws -> (Result<T, Error>)
+}
+
+class NetworkManager: NetworkManagerProtocol {
     static let shared = NetworkManager()
 
     private let apiBaseUrl = "https://swapi.dev/api"
