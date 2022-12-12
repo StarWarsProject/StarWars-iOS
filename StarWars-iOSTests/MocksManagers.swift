@@ -7,6 +7,7 @@
 
 import CoreData
 @testable import StarWars_iOS
+import XCTest
 
 // Core Data Manager
 class MockCoreDataManager: CoreDataManager {
@@ -41,7 +42,7 @@ class MockCoreDataManager: CoreDataManager {
     // swiftlint:disable function_body_length
     // swiftlint:disable cyclomatic_complexity
     override func getData<T>(entity: StarWars_iOS.CoreDataEntities) -> [T] where T: NSManagedObject {
-        switch T.Type.self {
+        switch T.self {
         case is Character.Type:
             let entities: [T] = TestResources.characterResponseList.map { char in
                 return char.toEntity(context: context) as! T
@@ -132,45 +133,12 @@ class MockCoreDataManager: CoreDataManager {
     }
 }
 
-// Detail Manager Network
-class MockDetailManagerNetwork: DetailManagerNetworkProtocol {
-    func getDataByIdAsync<T>(url: String) async -> Result<T, Error> where T: Decodable {
-        switch url {
-        case let endpoint where endpoint.contains("/people"):
-            return .success(TestResources.characterResponseList.first(where: {$0.url.contains(url)}) as! T)
-        case let endpoint where endpoint.contains("/planets"):
-            return .success(TestResources.planetResponseList.first(where: {$0.url.contains(url)}) as! T)
-        case let endpoint where endpoint.contains("/species"):
-            return .success(TestResources.specieResponseList.first(where: {$0.url.contains(url)}) as! T)
-        case let endpoint where endpoint.contains("/starships"):
-            return .success(TestResources.starshipResponseList.first(where: {$0.url.contains(url)}) as! T)
-        case let endpoint where endpoint.contains("/vehicles"):
-            return .success(TestResources.vehiclesResponseList.first(where: {$0.url.contains(url)}) as! T)
-        default:
-            return .failure(NSError(domain: "No Data", code: 1))
+class MockNetworkManager: NetworkManagerProtocol {
+    var setWithError = false
+    func getAsyncAwait<T: Decodable>(url: String) async throws -> (Result<T, Error>) {
+        guard let data = FileReader.readFrom(url: url, as: T.self, withError: setWithError) else {
+            return .failure(NSError())
         }
-    }
-
-    func getAllDataForTabIdAsync<T>(idList: [String], forTab: StarWars_iOS.DetailEndpointURL) async -> Result<[T], Error> where T: Decodable {
-        var finalList = [T]()
-        for id in idList {
-            let url = "\(forTab.rawValue)/\(id)"
-            let result: Result<T, Error> = await getDataByIdAsync(url: url)
-            switch result {
-            case .success(let data):
-                finalList.append(data)
-            case .failure(let failure):
-                if let error = failure as? NetworkError {
-                    switch error {
-                    case .NoDataFromAPI:
-                        continue
-                    default:
-                        return.failure(error)
-                    }
-                }
-                return .failure(failure)
-            }
-        }
-        return .success(finalList)
+        return .success(data)
     }
 }

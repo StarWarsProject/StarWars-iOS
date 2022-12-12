@@ -22,7 +22,7 @@ protocol DetailManagerNetworkProtocol {
 
 class DetailManagerNetwork: DetailManagerNetworkProtocol {
     static let shared = DetailManagerNetwork()
-    private let networkManager = NetworkManager.shared
+    var networkManager: NetworkManagerProtocol = NetworkManager.shared
 
     internal func getDataByIdAsync<T: Decodable>(url: String) async -> Result<T, Error> {
         do {
